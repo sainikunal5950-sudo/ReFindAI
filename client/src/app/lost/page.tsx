@@ -1,74 +1,153 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
-import Badge from "@/components/ui/Badge";
-import { Search, MapPin, Calendar, Filter, SlidersHorizontal, ChevronDown } from "lucide-react";
+import ItemCard from "@/components/items/ItemCard";
+import Toast, { ToastMessage } from "@/components/ui/Toast";
+import { lostItemService } from "@/services/lostItemService";
+import { LostItem } from "@/types/lostItem";
+import {
+  Search,
+  PlusCircle,
+  SlidersHorizontal,
+  ChevronDown,
+  Calendar,
+  PackageSearch,
+  RotateCcw,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
-const categories = ["All", "Electronics", "Bags", "Clothing", "Jewelry", "Keys", "Documents", "Other"];
+const CATEGORIES = ["All", "Electronics", "Documents", "Bags", "Jewelry", "Clothing", "Keys", "Others"];
 
-const lostItems = [
-  { id: 1, title: "iPhone 13 Pro (Space Gray)", category: "Electronics", location: "Central Park, NY", date: "Aug 18, 2026", score: 92, desc: "Space gray iPhone 13 Pro with cracked screen protector. Has a dark blue case with gold initials 'JD'.", color: "from-blue-600 to-cyan-500" },
-  { id: 2, title: "Blue North Face Backpack", category: "Bags", location: "Brooklyn Bridge, NY", date: "Aug 17, 2026", score: 78, desc: "Large 40L blue North Face backpack with a red keychain and laptop inside. Left at the subway station.", color: "from-indigo-600 to-blue-500" },
-  { id: 3, title: "AirPods Pro (White)", category: "Electronics", location: "Times Square, NY", date: "Aug 16, 2026", score: 71, desc: "White AirPods Pro with charging case. Case has a small scratch on the lid and sticker on the bottom.", color: "from-cyan-600 to-teal-500" },
-  { id: 4, title: "Black Leather Wallet", category: "Bags", location: "Grand Central, NY", date: "Aug 15, 2026", score: 65, desc: "Slim black leather bifold wallet with ID cards and credit cards inside. Has a photo of family.", color: "from-slate-600 to-slate-500" },
-  { id: 5, title: "Sony WH-1000XM5 Headphones", category: "Electronics", location: "JFK Airport, NY", date: "Aug 14, 2026", score: 88, desc: "Black Sony over-ear headphones. Missing from terminal 4. Has name written inside the band.", color: "from-blue-700 to-blue-500" },
-  { id: 6, title: "Gold Ring with Diamond", category: "Jewelry", location: "Central Park, NY", date: "Aug 13, 2026", score: 55, desc: "Yellow gold engagement ring with single round diamond. Very sentimental. Lost during morning run.", color: "from-amber-600 to-yellow-500" },
-  { id: 7, title: "Car Keys — Honda Civic", category: "Keys", location: "Parking Lot B, Queens", date: "Aug 12, 2026", score: 82, desc: "Honda car key fob with a small bottle opener keychain. Black plastic with red Honda logo.", color: "from-red-700 to-red-500" },
-  { id: 8, title: "Passport (Indian)", category: "Documents", location: "LaGuardia Airport", date: "Aug 11, 2026", score: 96, desc: "Blue Indian passport. Very urgent recovery needed. Has multiple international visas inside.", color: "from-green-700 to-emerald-500" },
-];
+export default function LostListingPage() {
+  const [items, setItems] = useState<LostItem[]>([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [toast, setToast] = useState<ToastMessage | null>(null);
 
-const gradients: Record<number, string[]> = {
-  1: ["#3B82F6", "#06B6D4"],
-  2: ["#6366F1", "#3B82F6"],
-  3: ["#06B6D4", "#0D9488"],
-  4: ["#475569", "#64748B"],
-  5: ["#2563EB", "#3B82F6"],
-  6: ["#D97706", "#EAB308"],
-  7: ["#DC2626", "#EF4444"],
-  8: ["#16A34A", "#10B981"],
-};
-
-export default function LostPage() {
+  // Filters
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const [location, setLocation] = useState("");
+  const [status, setStatus] = useState("all");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
 
-  const filtered = lostItems.filter((item) => {
-    const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase()) || item.location.toLowerCase().includes(search.toLowerCase());
-    const matchesCat = activeCategory === "All" || item.category === activeCategory;
-    return matchesSearch && matchesCat;
-  });
+  const fetchItems = useCallback(
+    async (targetPage = page) => {
+      try {
+        setLoading(true);
+        const data = await lostItemService.getAllLostItems({
+          page: targetPage,
+          limit: 9,
+          category: activeCategory !== "All" ? activeCategory : undefined,
+          location: location.trim() || undefined,
+          status: status !== "all" ? status : undefined,
+          startDate: startDate || undefined,
+          endDate: endDate || undefined,
+          search: search.trim() || undefined,
+        });
+
+        setItems(data?.items || []);
+        setTotal(data?.total || 0);
+        setPage(data?.page || 1);
+        setTotalPages(data?.totalPages || 1);
+      } catch (err: any) {
+        const msg = err.response?.data?.message || "Failed to load lost items";
+        setToast({ type: "error", message: msg });
+      } finally {
+        setLoading(false);
+      }
+    },
+    [page, activeCategory, location, status, startDate, endDate, search]
+  );
+
+  useEffect(() => {
+    fetchItems(1);
+  }, [activeCategory, status]);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    fetchItems(1);
+  };
+
+  const handleResetFilters = () => {
+    setSearch("");
+    setActiveCategory("All");
+    setLocation("");
+    setStatus("all");
+    setStartDate("");
+    setEndDate("");
+  };
 
   return (
     <main style={{ minHeight: "100vh", background: "#0A0A0F", color: "#F5F5F7" }}>
       <Navbar />
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "88px 32px 60px" }}>
+      <Toast toast={toast} onClose={() => setToast(null)} />
 
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "88px 24px 80px" }}>
         {/* Header */}
-        <div style={{ marginBottom: "36px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-            <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "#3B82F6", letterSpacing: "0.1em", textTransform: "uppercase" }}>Lost Items</span>
-            <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#3B82F6", boxShadow: "0 0 8px #3B82F6" }} />
-            <span style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>{filtered.length} items found</span>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "32px", flexWrap: "wrap", gap: "16px" }}>
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
+              <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "#3B82F6", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                Lost Registry
+              </span>
+              <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#3B82F6", boxShadow: "0 0 8px #3B82F6" }} />
+              <span style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>{total} reports listed</span>
+            </div>
+            <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800, letterSpacing: "-0.03em" }}>
+              Browse{" "}
+              <span style={{ background: "linear-gradient(135deg, #3B82F6, #06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                Lost Items
+              </span>
+            </h1>
+            <p style={{ color: "#A1A1AA", fontSize: "0.95rem", marginTop: "4px" }}>
+              Help reunite people with their belongings or report something you lost.
+            </p>
           </div>
-          <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800, letterSpacing: "-0.03em", marginBottom: "8px" }}>
-            Browse{" "}
-            <span style={{ background: "linear-gradient(135deg, #3B82F6, #06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              Lost Items
-            </span>
-          </h1>
-          <p style={{ color: "#A1A1AA", fontSize: "0.95rem" }}>
-            Help reunite people with their belongings. Browse or search below.
-          </p>
+
+          <Link
+            href="/lost/report"
+            style={{
+              padding: "12px 22px",
+              background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+              borderRadius: "12px",
+              color: "#FFFFFF",
+              fontWeight: 700,
+              fontSize: "0.9rem",
+              textDecoration: "none",
+              boxShadow: "0 6px 24px rgba(59,130,246,0.35)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              transition: "transform 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+          >
+            <PlusCircle size={18} />
+            Report Lost Item
+          </Link>
         </div>
 
         {/* Search & Filter Bar */}
-        <div style={{ display: "flex", gap: "12px", marginBottom: "24px", flexWrap: "wrap" }}>
-          <div style={{ position: "relative", flex: 1, minWidth: "260px" }}>
-            <Search size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
+        <div style={{ display: "flex", gap: "12px", marginBottom: "20px", flexWrap: "wrap" }}>
+          {/* Main Search Input */}
+          <form onSubmit={handleSearchSubmit} style={{ position: "relative", flex: 1, minWidth: "260px" }}>
+            <Search
+              size={16}
+              color="#606070"
+              style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}
+            />
             <input
               type="text"
-              placeholder="Search by item or location..."
+              placeholder="Search by title, description or location..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               style={{
@@ -92,177 +171,357 @@ export default function LostPage() {
                 e.currentTarget.style.boxShadow = "none";
               }}
             />
-          </div>
-          <button style={{ display: "flex", alignItems: "center", gap: "8px", padding: "12px 18px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "#A1A1AA", fontSize: "0.88rem", fontWeight: 500, cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap" }}>
-            <Calendar size={15} />
-            Date Range
-            <ChevronDown size={14} />
-          </button>
-          <button style={{ display: "flex", alignItems: "center", gap: "8px", padding: "12px 18px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "#A1A1AA", fontSize: "0.88rem", fontWeight: 500, cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap" }}>
+          </form>
+
+          {/* Toggle Advanced Filters Button */}
+          <button
+            type="button"
+            onClick={() => setShowFilters(!showFilters)}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "12px 18px",
+              background: showFilters ? "rgba(59,130,246,0.15)" : "rgba(255,255,255,0.04)",
+              border: showFilters ? "1px solid rgba(59,130,246,0.3)" : "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "12px",
+              color: showFilters ? "#60A5FA" : "#A1A1AA",
+              fontSize: "0.88rem",
+              fontWeight: 600,
+              cursor: "pointer",
+              fontFamily: "inherit",
+              whiteSpace: "nowrap",
+              transition: "all 0.2s",
+            }}
+          >
             <SlidersHorizontal size={15} />
             Filters
+            <ChevronDown size={14} style={{ transform: showFilters ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
           </button>
         </div>
+
+        {/* Collapsible Advanced Filters Drawer */}
+        {showFilters && (
+          <div
+            style={{
+              padding: "20px",
+              background: "rgba(18,20,28,0.9)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "16px",
+              marginBottom: "24px",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: "16px",
+              alignItems: "flex-end",
+              animation: "fadeIn 0.2s ease-out",
+            }}
+          >
+            {/* Location filter */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#A1A1AA" }}>Location / Area</label>
+              <input
+                type="text"
+                placeholder="e.g. Central Park"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                style={{
+                  padding: "9px 12px",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "8px",
+                  color: "#F5F5F7",
+                  fontSize: "0.85rem",
+                  outline: "none",
+                }}
+              />
+            </div>
+
+            {/* Status filter */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#A1A1AA" }}>Status</label>
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                style={{
+                  padding: "9px 12px",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "8px",
+                  color: "#F5F5F7",
+                  fontSize: "0.85rem",
+                  outline: "none",
+                }}
+              >
+                <option value="all" style={{ background: "#0D0F14" }}>All Statuses</option>
+                <option value="active" style={{ background: "#0D0F14" }}>Active</option>
+                <option value="matched" style={{ background: "#0D0F14" }}>Matched</option>
+                <option value="resolved" style={{ background: "#0D0F14" }}>Resolved</option>
+                <option value="closed" style={{ background: "#0D0F14" }}>Closed</option>
+              </select>
+            </div>
+
+            {/* Start Date */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#A1A1AA" }}>From Date</label>
+              <input
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                style={{
+                  padding: "9px 12px",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "8px",
+                  color: "#F5F5F7",
+                  fontSize: "0.85rem",
+                  outline: "none",
+                  colorScheme: "dark",
+                }}
+              />
+            </div>
+
+            {/* End Date */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#A1A1AA" }}>To Date</label>
+              <input
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                style={{
+                  padding: "9px 12px",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "8px",
+                  color: "#F5F5F7",
+                  fontSize: "0.85rem",
+                  outline: "none",
+                  colorScheme: "dark",
+                }}
+              />
+            </div>
+
+            {/* Action buttons */}
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button
+                type="button"
+                onClick={() => fetchItems(1)}
+                style={{
+                  flex: 1,
+                  padding: "9px 14px",
+                  background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                  border: "none",
+                  borderRadius: "8px",
+                  color: "#FFFFFF",
+                  fontWeight: 700,
+                  fontSize: "0.85rem",
+                  cursor: "pointer",
+                }}
+              >
+                Apply
+              </button>
+              <button
+                type="button"
+                onClick={handleResetFilters}
+                style={{
+                  padding: "9px 12px",
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "8px",
+                  color: "#A1A1AA",
+                  cursor: "pointer",
+                }}
+                title="Reset Filters"
+              >
+                <RotateCcw size={14} />
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Category Pills */}
         <div style={{ display: "flex", gap: "8px", marginBottom: "32px", overflowX: "auto", paddingBottom: "4px" }}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              style={{
-                padding: "8px 18px",
-                borderRadius: "999px",
-                background: activeCategory === cat ? "linear-gradient(135deg, #3B82F6, #06B6D4)" : "rgba(255,255,255,0.04)",
-                border: activeCategory === cat ? "none" : "1px solid rgba(255,255,255,0.1)",
-                color: activeCategory === cat ? "#fff" : "#A1A1AA",
-                fontWeight: 600,
-                fontSize: "0.82rem",
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-                transition: "all 0.2s",
-                boxShadow: activeCategory === cat ? "0 4px 14px rgba(59,130,246,0.35)" : "none",
-                fontFamily: "inherit",
-              }}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Items Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px" }}>
-          {filtered.map((item) => {
-            const [c1, c2] = gradients[item.id] || ["#3B82F6", "#06B6D4"];
+          {CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat;
             return (
-              <article
-                key={item.id}
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
                 style={{
-                  background: "rgba(18,20,28,0.9)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  transition: "all 0.3s ease",
+                  padding: "8px 18px",
+                  borderRadius: "999px",
+                  background: isActive ? "linear-gradient(135deg, #3B82F6, #06B6D4)" : "rgba(255,255,255,0.04)",
+                  border: isActive ? "none" : "1px solid rgba(255,255,255,0.1)",
+                  color: isActive ? "#FFFFFF" : "#A1A1AA",
+                  fontWeight: 600,
+                  fontSize: "0.82rem",
                   cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 60px rgba(59,130,246,0.15)";
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.25)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.07)";
+                  whiteSpace: "nowrap",
+                  transition: "all 0.2s",
+                  boxShadow: isActive ? "0 4px 14px rgba(59,130,246,0.35)" : "none",
+                  fontFamily: "inherit",
                 }}
               >
-                {/* Image Placeholder */}
-                <div
-                  style={{
-                    height: "160px",
-                    background: `linear-gradient(135deg, ${c1}30, ${c2}20)`,
-                    borderBottom: "1px solid rgba(255,255,255,0.05)",
-                    position: "relative",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "64px",
-                      height: "64px",
-                      borderRadius: "18px",
-                      background: `linear-gradient(135deg, ${c1}, ${c2})`,
-                      opacity: 0.7,
-                      boxShadow: `0 8px 24px ${c1}40`,
-                    }}
-                  />
-                  {/* Match Score Badge */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "12px",
-                      right: "12px",
-                      padding: "5px 12px",
-                      background: "rgba(10,10,15,0.85)",
-                      backdropFilter: "blur(8px)",
-                      borderRadius: "999px",
-                      border: "1px solid rgba(59,130,246,0.3)",
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                      color: "#60A5FA",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "5px",
-                    }}
-                  >
-                    <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#3B82F6", boxShadow: "0 0 6px #3B82F6" }} />
-                    {item.score}% Match
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div style={{ padding: "20px" }}>
-                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px", marginBottom: "10px" }}>
-                    <h2 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F5F5F7", lineHeight: 1.35 }}>{item.title}</h2>
-                    <Badge variant="blue">{item.category}</Badge>
-                  </div>
-
-                  <p style={{ fontSize: "0.82rem", color: "#A1A1AA", lineHeight: 1.6, marginBottom: "14px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-                    {item.desc}
-                  </p>
-
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                      <span style={{ fontSize: "0.75rem", color: "#A1A1AA", display: "flex", alignItems: "center", gap: "4px" }}>
-                        <MapPin size={11} />
-                        {item.location}
-                      </span>
-                      <span style={{ fontSize: "0.75rem", color: "#606070", display: "flex", alignItems: "center", gap: "4px" }}>
-                        <Calendar size={11} />
-                        {item.date}
-                      </span>
-                    </div>
-                    <button
-                      style={{
-                        padding: "8px 16px",
-                        background: "rgba(59,130,246,0.1)",
-                        border: "1px solid rgba(59,130,246,0.25)",
-                        borderRadius: "8px",
-                        color: "#60A5FA",
-                        fontWeight: 600,
-                        fontSize: "0.78rem",
-                        cursor: "pointer",
-                        transition: "all 0.2s",
-                        fontFamily: "inherit",
-                      }}
-                      onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLButtonElement).style.background = "rgba(59,130,246,0.2)";
-                        (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 14px rgba(59,130,246,0.2)";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLButtonElement).style.background = "rgba(59,130,246,0.1)";
-                        (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
-                      }}
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </article>
+                {cat}
+              </button>
             );
           })}
         </div>
 
-        {filtered.length === 0 && (
-          <div style={{ textAlign: "center", padding: "80px 20px", color: "#A1A1AA" }}>
-            <Search size={48} color="#3B82F630" style={{ margin: "0 auto 16px" }} />
-            <p style={{ fontSize: "1.05rem", fontWeight: 600, color: "#F5F5F7", marginBottom: "8px" }}>No items found</p>
-            <p>Try adjusting your search or filters</p>
+        {/* Items Grid */}
+        {loading ? (
+          /* Skeletons */
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px" }}>
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <div
+                key={n}
+                style={{
+                  height: "360px",
+                  borderRadius: "20px",
+                  background: "rgba(18,20,28,0.6)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                }}
+                className="skeleton"
+              />
+            ))}
+          </div>
+        ) : items.length === 0 ? (
+          /* Empty State */
+          <div
+            style={{
+              textAlign: "center",
+              padding: "80px 20px",
+              background: "rgba(18,20,28,0.4)",
+              border: "1px solid rgba(255,255,255,0.05)",
+              borderRadius: "24px",
+            }}
+          >
+            <div
+              style={{
+                width: "64px",
+                height: "64px",
+                borderRadius: "20px",
+                background: "rgba(59,130,246,0.1)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#3B82F6",
+                margin: "0 auto 16px",
+              }}
+            >
+              <PackageSearch size={32} />
+            </div>
+            <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "6px" }}>
+              No lost items found
+            </h3>
+            <p style={{ color: "#A1A1AA", fontSize: "0.9rem", maxWidth: "380px", margin: "0 auto 24px" }}>
+              We couldn&apos;t find any items matching your active search terms or category filters.
+            </p>
+            <button
+              onClick={handleResetFilters}
+              style={{
+                padding: "10px 20px",
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "10px",
+                color: "#F5F5F7",
+                fontSize: "0.85rem",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
+              Clear All Filters
+            </button>
+          </div>
+        ) : (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px" }}>
+            {items.map((item) => (
+              <ItemCard key={item._id || item.id} item={item} type="lost" />
+            ))}
+          </div>
+        )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", marginTop: "48px" }}>
+            <button
+              disabled={page <= 1 || loading}
+              onClick={() => {
+                const prev = page - 1;
+                setPage(prev);
+                fetchItems(prev);
+              }}
+              style={{
+                padding: "8px 16px",
+                borderRadius: "10px",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                color: page <= 1 ? "#404050" : "#A1A1AA",
+                cursor: page <= 1 ? "not-allowed" : "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+                fontSize: "0.85rem",
+              }}
+            >
+              <ChevronLeft size={16} /> Prev
+            </button>
+
+            {Array.from({ length: totalPages }).map((_, i) => {
+              const p = i + 1;
+              const isActive = p === page;
+              return (
+                <button
+                  key={p}
+                  onClick={() => {
+                    setPage(p);
+                    fetchItems(p);
+                  }}
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "10px",
+                    background: isActive ? "linear-gradient(135deg, #3B82F6, #06B6D4)" : "rgba(255,255,255,0.04)",
+                    border: isActive ? "none" : "1px solid rgba(255,255,255,0.08)",
+                    color: isActive ? "#FFFFFF" : "#A1A1AA",
+                    fontWeight: 700,
+                    fontSize: "0.85rem",
+                    cursor: "pointer",
+                  }}
+                >
+                  {p}
+                </button>
+              );
+            })}
+
+            <button
+              disabled={page >= totalPages || loading}
+              onClick={() => {
+                const next = page + 1;
+                setPage(next);
+                fetchItems(next);
+              }}
+              style={{
+                padding: "8px 16px",
+                borderRadius: "10px",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                color: page >= totalPages ? "#404050" : "#A1A1AA",
+                cursor: page >= totalPages ? "not-allowed" : "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+                fontSize: "0.85rem",
+              }}
+            >
+              Next <ChevronRight size={16} />
+            </button>
           </div>
         )}
       </div>
+
+      <style>{`
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+      `}</style>
     </main>
   );
 }
