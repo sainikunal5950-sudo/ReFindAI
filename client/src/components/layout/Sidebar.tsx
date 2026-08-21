@@ -34,8 +34,9 @@ interface SidebarProps {
 const userNav: NavItem[] = [
   { href: "/dashboard", label: "Overview", icon: <LayoutDashboard size={18} /> },
   { href: "/dashboard/profile", label: "My Profile", icon: <UserIcon size={18} /> },
-  { href: "/dashboard/lost-items", label: "My Reports", icon: <FileSearch size={18} /> },
-  { href: "/lost", label: "Browse Lost", icon: <Package size={18} /> },
+  { href: "/dashboard/lost-items", label: "My Lost Items", icon: <FileSearch size={18} /> },
+  { href: "/dashboard/found-items", label: "My Found Items", icon: <Package size={18} /> },
+  { href: "/lost", label: "Browse Lost", icon: <FileSearch size={18} /> },
   { href: "/found", label: "Browse Found", icon: <Package size={18} /> },
   { href: "/dashboard/matches", label: "My Matches", icon: <GitCompare size={18} /> },
   { href: "/dashboard/claims", label: "Claims", icon: <ClipboardCheck size={18} /> },

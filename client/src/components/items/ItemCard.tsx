@@ -2,15 +2,33 @@
 
 import React from "react";
 import Link from "next/link";
-import { MapPin, Calendar, User as UserIcon, Edit, Trash2, ArrowRight } from "lucide-react";
-import { LostItem } from "@/types/lostItem";
+import { MapPin, Calendar, Trash2, ArrowRight } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 
+interface ItemCardData {
+  _id?: string;
+  id?: string;
+  title: string;
+  description: string;
+  category: string;
+  location: string;
+  date: string;
+  images?: string[];
+  status: string;
+  handoverLocation?: string;
+  user?: {
+    _id?: string;
+    id?: string;
+    name?: string;
+    avatar?: string;
+  };
+}
+
 interface ItemCardProps {
-  item: LostItem;
+  item: ItemCardData;
   type?: "lost" | "found";
-  onEdit?: (item: LostItem) => void;
-  onDelete?: (item: LostItem) => void;
+  onEdit?: (item: any) => void;
+  onDelete?: (item: any) => void;
   showActions?: boolean;
 }
 
@@ -34,6 +52,7 @@ export default function ItemCard({
 }: ItemCardProps) {
   const catKey = (item.category || "others").toLowerCase();
   const [c1, c2] = categoryGradients[catKey] || ["#3B82F6", "#06B6D4"];
+  const detailPath = type === "found" ? `/found/${item._id || item.id}` : `/lost/${item._id || item.id}`;
 
   const getFullImageUrl = (imgPath?: string) => {
     if (!imgPath) return null;
@@ -61,6 +80,8 @@ export default function ItemCard({
     switch (status) {
       case "matched":
         return <Badge variant="cyan" dot>Matched</Badge>;
+      case "claimed":
+        return <Badge variant="success" dot>Claimed</Badge>;
       case "resolved":
         return <Badge variant="success" dot>Resolved</Badge>;
       case "closed":
@@ -96,7 +117,7 @@ export default function ItemCard({
     >
       {/* Top Media / Thumbnail */}
       <Link
-        href={`/lost/${item._id || item.id}`}
+        href={detailPath}
         style={{
           height: "170px",
           position: "relative",
@@ -163,10 +184,7 @@ export default function ItemCard({
 
       {/* Body Content */}
       <div style={{ padding: "20px", display: "flex", flexDirection: "column", flex: 1 }}>
-        <Link
-          href={`/lost/${item._id || item.id}`}
-          style={{ textDecoration: "none" }}
-        >
+        <Link href={detailPath} style={{ textDecoration: "none" }}>
           <h3
             style={{
               fontSize: "1rem",
@@ -213,7 +231,7 @@ export default function ItemCard({
 
           <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#606070" }}>
             <Calendar size={13} style={{ flexShrink: 0 }} />
-            <span>Lost on {formatDate(item.date)}</span>
+            <span>{type === "found" ? "Found on" : "Lost on"} {formatDate(item.date)}</span>
           </div>
         </div>
 
@@ -230,7 +248,7 @@ export default function ItemCard({
           {showActions ? (
             <div style={{ display: "flex", gap: "8px", width: "100%" }}>
               <Link
-                href={`/lost/${item._id || item.id}`}
+                href={detailPath}
                 style={{
                   flex: 1,
                   padding: "8px 12px",
@@ -269,11 +287,11 @@ export default function ItemCard({
           ) : (
             <>
               <span style={{ fontSize: "0.75rem", color: "#606070" }}>
-                By {item.user?.name ? item.user.name.split(" ")[0] : "Community"}
+                By {item.user?.name ? item.user.name.split(" ")[0] : "Finder"}
               </span>
 
               <Link
-                href={`/lost/${item._id || item.id}`}
+                href={detailPath}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
