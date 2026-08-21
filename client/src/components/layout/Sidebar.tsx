@@ -16,6 +16,7 @@ import {
   User as UserIcon,
   ChevronRight,
   LogOut,
+  Bell,
 } from "lucide-react";
 import { authService } from "@/services/authService";
 import { User } from "@/types/user";
@@ -34,6 +35,7 @@ interface SidebarProps {
 const userNav: NavItem[] = [
   { href: "/dashboard", label: "Overview", icon: <LayoutDashboard size={18} /> },
   { href: "/dashboard/profile", label: "My Profile", icon: <UserIcon size={18} /> },
+  { href: "/dashboard/notifications", label: "Notifications", icon: <Bell size={18} /> },
   { href: "/dashboard/lost-items", label: "My Lost Items", icon: <FileSearch size={18} /> },
   { href: "/dashboard/found-items", label: "My Found Items", icon: <Package size={18} /> },
   { href: "/lost", label: "Browse Lost", icon: <FileSearch size={18} /> },

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Search, MapPin, Menu, X, Zap } from "lucide-react";
+import NotificationBell from "@/components/notifications/NotificationBell";
 
 const navLinks = [
   { href: "/lost", label: "Report Lost" },
@@ -137,6 +138,7 @@ export default function Navbar() {
 
           {/* Actions */}
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <NotificationBell />
             <Link
               href="/login"
               style={{
