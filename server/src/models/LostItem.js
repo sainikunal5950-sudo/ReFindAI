@@ -93,6 +93,18 @@ const LostItemSchema = new mongoose.Schema(
       index:   true,
     },
 
+    isFlagged: {
+      type:    Boolean,
+      default: false,
+      index:   true,
+    },
+
+    flagReason: {
+      type:    String,
+      trim:    true,
+      default: '',
+    },
+
     user: {
       type:     mongoose.Schema.Types.ObjectId,
       ref:      'User',

@@ -106,6 +106,18 @@ const FoundItemSchema = new mongoose.Schema(
       default: [],
     },
 
+    isFlagged: {
+      type:    Boolean,
+      default: false,
+      index:   true,
+    },
+
+    flagReason: {
+      type:    String,
+      trim:    true,
+      default: '',
+    },
+
     user: {
       type:     mongoose.Schema.Types.ObjectId,
       ref:      'User',

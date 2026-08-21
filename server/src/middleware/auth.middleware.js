@@ -70,4 +70,23 @@ const protect = async (req, res, next) => {
   }
 };
 
-module.exports = { protect };
+/**
+ * `authorize` middleware — checks if the authenticated user has one of the allowed roles.
+ * Must be preceded by `protect` middleware.
+ *
+ * @param  {...string} roles - e.g. 'admin'
+ */
+const authorize = (...roles) => {
+  return (req, res, next) => {
+    if (!req.user || !roles.includes(req.user.role)) {
+      const err = new Error(
+        `Access denied. Role '${req.user ? req.user.role : 'guest'}' is not authorized to access this resource.`
+      );
+      err.statusCode = 403;
+      return next(err);
+    }
+    next();
+  };
+};
+
+module.exports = { protect, authorize };
