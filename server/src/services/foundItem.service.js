@@ -1,6 +1,7 @@
 'use strict';
 
 const FoundItem = require('../models/FoundItem');
+const matchingService = require('./matching.service');
 
 /**
  * Creates a new found item report.
@@ -15,7 +16,16 @@ const createFoundItem = async (userId, data) => {
     user: userId,
   });
 
-  return await FoundItem.findById(item._id).populate('user', 'name email avatar phone');
+  const populated = await FoundItem.findById(item._id).populate('user', 'name email avatar phone');
+
+  // Asynchronously / proactively run matching engine against active lost items
+  try {
+    await matchingService.findPotentialMatchesForFoundItem(item._id);
+  } catch (matchErr) {
+    console.error('[MatchingEngine] Error auto-triggering match for found item:', matchErr.message);
+  }
+
+  return populated;
 };
 
 /**
