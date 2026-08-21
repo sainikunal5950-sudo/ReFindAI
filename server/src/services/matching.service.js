@@ -34,7 +34,7 @@ const tokenize = (text) => {
 };
 
 /**
- * 1. Calculate Text Similarity (0 - 100)
+ * 1. Calculate Text Similarity (0 - 100) — Local Heuristic Fallback
  * Uses Jaccard similarity on keyword tokens + substring inclusion boost.
  */
 const calculateTextSimilarity = (text1, text2) => {
@@ -70,6 +70,39 @@ const calculateTextSimilarity = (text1, text2) => {
 
   const score = Math.min(100, Math.round(jaccard * 0.75 + substringBonus + (intersectionCount > 0 ? 15 : 0)));
   return score;
+};
+
+/**
+ * Calls Python AI Service for semantic text similarity, with graceful local fallback.
+ */
+const calculateTextSimilarityAI = async (text1, text2) => {
+  const aiServiceUrl = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+
+  if (!text1 || !text2) return 0;
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2000); // 2s timeout
+
+    const res = await fetch(`${aiServiceUrl}/api/text-similarity`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1, text2 }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+
+    if (res.ok) {
+      const data = await res.json();
+      if (typeof data.similarity_score === 'number') {
+        return Math.round(data.similarity_score);
+      }
+    }
+  } catch (err) {
+    // Gracefully proceed to heuristic fallback if AI service is offline
+  }
+
+  return calculateTextSimilarity(text1, text2);
 };
 
 /**
@@ -141,11 +174,11 @@ const calculateCategorySimilarity = (cat1, cat2) => {
  *  - Location : 25%
  *  - Time     : 20%
  */
-const calculateMatchScore = (lostItem, foundItem) => {
+const calculateMatchScore = async (lostItem, foundItem) => {
   const lostText = `${lostItem.title || ''} ${lostItem.description || ''}`;
   const foundText = `${foundItem.title || ''} ${foundItem.description || ''}`;
 
-  const textScore = calculateTextSimilarity(lostText, foundText);
+  const textScore = await calculateTextSimilarityAI(lostText, foundText);
   const locScore = calculateLocationSimilarity(lostItem.location, foundItem.location);
   const timeScore = calculateTimeSimilarity(lostItem.date, foundItem.date);
   const catScore = calculateCategorySimilarity(lostItem.category, foundItem.category);
@@ -192,7 +225,7 @@ const findPotentialMatches = async (lostItemId, threshold = 40) => {
   const matches = [];
 
   for (const foundItem of foundItems) {
-    const { matchScore, breakdown } = calculateMatchScore(lostItem, foundItem);
+    const { matchScore, breakdown } = await calculateMatchScore(lostItem, foundItem);
 
     if (matchScore >= threshold) {
       // Upsert match record in DB
@@ -265,7 +298,7 @@ const findPotentialMatchesForFoundItem = async (foundItemId, threshold = 40) => 
   const matches = [];
 
   for (const lostItem of lostItems) {
-    const { matchScore, breakdown } = calculateMatchScore(lostItem, foundItem);
+    const { matchScore, breakdown } = await calculateMatchScore(lostItem, foundItem);
 
     if (matchScore >= threshold) {
       const matchDoc = await Match.findOneAndUpdate(
