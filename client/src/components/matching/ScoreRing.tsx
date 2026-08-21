@@ -51,7 +51,7 @@ export default function ScoreRing({
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(255, 255, 255, 0.08)"
+          stroke="#F9FAFB"
           strokeWidth={strokeWidth}
         />
 
@@ -88,7 +88,7 @@ export default function ScoreRing({
           style={{
             fontSize: size > 80 ? "1.2rem" : "0.95rem",
             fontWeight: 800,
-            color: "#F8F5F0",
+            color: "#1A1A1A",
             letterSpacing: "-0.02em",
           }}
         >

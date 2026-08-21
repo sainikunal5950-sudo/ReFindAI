@@ -145,7 +145,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFFFF" }}>
       <Sidebar variant={user?.role === "admin" ? "admin" : "user"} />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -154,12 +154,12 @@ export default function ProfilePage() {
         <header
           style={{
             height: "68px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(21, 14, 28,0.8)",
+            background: "#FFFFFF",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             position: "sticky",
@@ -168,8 +168,8 @@ export default function ProfilePage() {
           }}
         >
           <div>
-            <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>My Profile</h1>
-            <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>Manage your account settings & preferences</p>
+            <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1A1A1A" }}>My Profile</h1>
+            <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>Manage your account settings & preferences</p>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <Badge variant={user?.role === "admin" ? "blue" : "neutral"}>
@@ -194,8 +194,8 @@ export default function ProfilePage() {
               style={{
                 width: "100%",
                 maxWidth: "680px",
-                background: "rgba(45, 27, 61,0.85)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#FFFFFF",
+                border: "1px solid #F9FAFB",
                 borderRadius: "24px",
                 padding: "40px",
                 display: "flex",
@@ -216,8 +216,8 @@ export default function ProfilePage() {
               style={{
                 width: "100%",
                 maxWidth: "680px",
-                background: "rgba(45, 27, 61,0.85)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#FFFFFF",
+                border: "1px solid #F9FAFB",
                 borderRadius: "24px",
                 padding: "40px",
                 backdropFilter: "blur(24px)",
@@ -233,7 +233,7 @@ export default function ProfilePage() {
                   width: "280px",
                   height: "280px",
                   borderRadius: "50%",
-                  background: "radial-gradient(circle, rgba(212, 175, 55,0.12), transparent 70%)",
+                  background: "radial-gradient(circle, #FDF4D8, transparent 70%)",
                   top: "20px",
                   right: "-40px",
                   pointerEvents: "none",
@@ -264,7 +264,7 @@ export default function ProfilePage() {
                       style={{
                         position: "absolute",
                         inset: 0,
-                        background: "rgba(30, 20, 37,0.8)",
+                        background: "#FFFFFF",
                         borderRadius: "50%",
                         display: "flex",
                         alignItems: "center",
@@ -275,7 +275,7 @@ export default function ProfilePage() {
                         style={{
                           width: "24px",
                           height: "24px",
-                          border: "3px solid rgba(212, 175, 55,0.3)",
+                          border: "3px solid #F5E5B8",
                           borderTopColor: "#D4AF37",
                           borderRadius: "50%",
                           animation: "spin 0.8s linear infinite",
@@ -284,10 +284,10 @@ export default function ProfilePage() {
                     </div>
                   )}
                 </div>
-                <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#F8F5F0", marginBottom: "4px" }}>
+                <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#1A1A1A", marginBottom: "4px" }}>
                   {user?.name}
                 </h2>
-                <p style={{ fontSize: "0.88rem", color: "#B8AEC2", marginBottom: "12px" }}>{user?.email}</p>
+                <p style={{ fontSize: "0.88rem", color: "#6B6B6B", marginBottom: "12px" }}>{user?.email}</p>
                 <div style={{ display: "flex", gap: "8px" }}>
                   <Badge variant={user?.role === "admin" ? "blue" : "neutral"}>
                     <Shield size={12} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} />
@@ -302,16 +302,16 @@ export default function ProfilePage() {
               {/* Form */}
               <form onSubmit={handleSave} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 {/* Section Header */}
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid #F9FAFB", paddingBottom: "8px" }}>
                   <Sparkles size={16} color="#D4AF37" />
-                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#92700F", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     Personal Information
                   </span>
                 </div>
 
                 {/* Name */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>Full Name</label>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>Full Name</label>
                   <div style={{ position: "relative" }}>
                     <UserIcon size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                     <input
@@ -325,10 +325,10 @@ export default function ProfilePage() {
                       style={{
                         width: "100%",
                         padding: "12px 16px 12px 42px",
-                        background: "rgba(255,255,255,0.04)",
-                        border: `1px solid ${errors.name ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
+                        background: "#F9FAFB",
+                        border: `1px solid ${errors.name ? "#EF4444" : "#F3F4F6"}`,
                         borderRadius: "10px",
-                        color: "#F8F5F0",
+                        color: "#1A1A1A",
                         fontSize: "0.95rem",
                         outline: "none",
                         transition: "border-color 0.2s, box-shadow 0.2s",
@@ -337,12 +337,12 @@ export default function ProfilePage() {
                       onFocus={(e) => {
                         if (!errors.name) {
                           e.currentTarget.style.borderColor = "#D4AF37";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.15)";
+                          e.currentTarget.style.boxShadow = "0 0 0 3px #FDF4D8";
                         }
                       }}
                       onBlur={(e) => {
                         if (!errors.name) {
-                          e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                          e.currentTarget.style.borderColor = "#F3F4F6";
                           e.currentTarget.style.boxShadow = "none";
                         }
                       }}
@@ -353,7 +353,7 @@ export default function ProfilePage() {
 
                 {/* Phone */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>Phone Number</label>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>Phone Number</label>
                   <div style={{ position: "relative" }}>
                     <Phone size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                     <input
@@ -367,10 +367,10 @@ export default function ProfilePage() {
                       style={{
                         width: "100%",
                         padding: "12px 16px 12px 42px",
-                        background: "rgba(255,255,255,0.04)",
-                        border: `1px solid ${errors.phone ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
+                        background: "#F9FAFB",
+                        border: `1px solid ${errors.phone ? "#EF4444" : "#F3F4F6"}`,
                         borderRadius: "10px",
-                        color: "#F8F5F0",
+                        color: "#1A1A1A",
                         fontSize: "0.95rem",
                         outline: "none",
                         transition: "border-color 0.2s, box-shadow 0.2s",
@@ -379,12 +379,12 @@ export default function ProfilePage() {
                       onFocus={(e) => {
                         if (!errors.phone) {
                           e.currentTarget.style.borderColor = "#D4AF37";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.15)";
+                          e.currentTarget.style.boxShadow = "0 0 0 3px #FDF4D8";
                         }
                       }}
                       onBlur={(e) => {
                         if (!errors.phone) {
-                          e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                          e.currentTarget.style.borderColor = "#F3F4F6";
                           e.currentTarget.style.boxShadow = "none";
                         }
                       }}
@@ -395,7 +395,7 @@ export default function ProfilePage() {
 
                 {/* Address */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>Physical Address / City</label>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>Physical Address / City</label>
                   <div style={{ position: "relative" }}>
                     <MapPin size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                     <input
@@ -406,10 +406,10 @@ export default function ProfilePage() {
                       style={{
                         width: "100%",
                         padding: "12px 16px 12px 42px",
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid rgba(255,255,255,0.1)",
+                        background: "#F9FAFB",
+                        border: "1px solid #F3F4F6",
                         borderRadius: "10px",
-                        color: "#F8F5F0",
+                        color: "#1A1A1A",
                         fontSize: "0.95rem",
                         outline: "none",
                         transition: "border-color 0.2s, box-shadow 0.2s",
@@ -417,10 +417,10 @@ export default function ProfilePage() {
                       }}
                       onFocus={(e) => {
                         e.currentTarget.style.borderColor = "#D4AF37";
-                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.15)";
+                        e.currentTarget.style.boxShadow = "0 0 0 3px #FDF4D8";
                       }}
                       onBlur={(e) => {
-                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                        e.currentTarget.style.borderColor = "#F3F4F6";
                         e.currentTarget.style.boxShadow = "none";
                       }}
                     />
@@ -429,24 +429,24 @@ export default function ProfilePage() {
 
                 {/* Read-Only Account Details */}
                 <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "8px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid #F9FAFB", paddingBottom: "8px" }}>
                     <Lock size={15} color="#606070" />
-                    <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#B8AEC2", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                    <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#6B6B6B", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                       Account Credentials (Read-Only)
                     </span>
                   </div>
 
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
-                    <div style={{ padding: "12px 16px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "10px" }}>
+                    <div style={{ padding: "12px 16px", background: "#F9FAFB", border: "1px solid #F9FAFB", borderRadius: "10px" }}>
                       <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Email Address</div>
-                      <div style={{ fontSize: "0.88rem", color: "#B8AEC2", marginTop: "4px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                      <div style={{ fontSize: "0.88rem", color: "#6B6B6B", marginTop: "4px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                         {user?.email}
                       </div>
                     </div>
 
-                    <div style={{ padding: "12px 16px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "10px" }}>
+                    <div style={{ padding: "12px 16px", background: "#F9FAFB", border: "1px solid #F9FAFB", borderRadius: "10px" }}>
                       <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Joined Date</div>
-                      <div style={{ fontSize: "0.88rem", color: "#B8AEC2", marginTop: "4px" }}>
+                      <div style={{ fontSize: "0.88rem", color: "#6B6B6B", marginTop: "4px" }}>
                         {formatDate(user?.createdAt)}
                       </div>
                     </div>

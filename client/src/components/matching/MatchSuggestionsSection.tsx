@@ -107,20 +107,20 @@ export default function MatchSuggestionsSection({
               width: "28px",
               height: "28px",
               borderRadius: "8px",
-              background: "rgba(212, 175, 55,0.15)",
+              background: "#FDF4D8",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#F5C842",
+              color: "#92700F",
             }}
           >
             <Sparkles size={15} />
           </div>
           <div>
-            <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#F8F5F0", letterSpacing: "-0.01em" }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#1A1A1A", letterSpacing: "-0.01em" }}>
               AI Match Suggestions
             </h3>
-            <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>
+            <span style={{ fontSize: "0.75rem", color: "#6B6B6B" }}>
               Ranked by cross-attribute similarity engine
             </span>
           </div>
@@ -132,10 +132,10 @@ export default function MatchSuggestionsSection({
           disabled={loading}
           style={{
             padding: "6px 12px",
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "#F9FAFB",
+            border: "1px solid #F9FAFB",
             borderRadius: "8px",
-            color: "#B8AEC2",
+            color: "#6B6B6B",
             fontSize: "0.78rem",
             cursor: "pointer",
             display: "flex",
@@ -157,8 +157,8 @@ export default function MatchSuggestionsSection({
               style={{
                 height: "120px",
                 borderRadius: "18px",
-                background: "rgba(45, 27, 61,0.7)",
-                border: "1px solid rgba(255,255,255,0.05)",
+                background: "#FFFFFF",
+                border: "1px solid #F9FAFB",
               }}
               className="skeleton"
             />
@@ -169,8 +169,8 @@ export default function MatchSuggestionsSection({
         <div
           style={{
             padding: "36px 20px",
-            background: "rgba(45, 27, 61, 0.6)",
-            border: "1px solid rgba(255, 255, 255, 0.06)",
+            background: "#FFFFFF",
+            border: "1px solid #F9FAFB",
             borderRadius: "18px",
             textAlign: "center",
             display: "flex",
@@ -184,7 +184,7 @@ export default function MatchSuggestionsSection({
               width: "48px",
               height: "48px",
               borderRadius: "14px",
-              background: "rgba(212, 175, 55,0.1)",
+              background: "#FDF4D8",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -194,10 +194,10 @@ export default function MatchSuggestionsSection({
             <Bell size={22} />
           </div>
           <div>
-            <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "4px" }}>
+            <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#1A1A1A", marginBottom: "4px" }}>
               No matches found yet
             </h4>
-            <p style={{ fontSize: "0.82rem", color: "#B8AEC2", maxWidth: "340px", margin: "0 auto", lineHeight: 1.4 }}>
+            <p style={{ fontSize: "0.82rem", color: "#6B6B6B", maxWidth: "340px", margin: "0 auto", lineHeight: 1.4 }}>
               Our AI engine is continuously cross-referencing incoming reports. We&apos;ll notify you the moment a match is found!
             </p>
           </div>

@@ -31,10 +31,10 @@ export default function NotificationDropdown({
         right: 0,
         width: "360px",
         maxWidth: "90vw",
-        background: "rgba(30, 20, 37, 0.96)",
-        border: "1px solid rgba(212, 175, 55, 0.25)",
+        background: "#FFFFFF",
+        border: "1px solid #E5E5E5",
         borderRadius: "20px",
-        boxShadow: "0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,175,55,0.1)",
+        boxShadow: "0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px #FDF4D8",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
         zIndex: 9999,
@@ -51,21 +51,21 @@ export default function NotificationDropdown({
           justifyContent: "space-between",
           alignItems: "center",
           padding: "16px 20px",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
+          borderBottom: "1px solid #F9FAFB",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F8F5F0", margin: 0 }}>
+          <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#1A1A1A", margin: 0 }}>
             Notifications
           </h3>
           {unreadCount > 0 && (
             <span
               style={{
                 padding: "2px 8px",
-                background: "rgba(212,175,55,0.15)",
-                border: "1px solid rgba(212,175,55,0.3)",
+                background: "#FDF4D8",
+                border: "1px solid #F5E5B8",
                 borderRadius: "999px",
-                color: "#F5C842",
+                color: "#92700F",
                 fontSize: "0.72rem",
                 fontWeight: 700,
               }}
@@ -106,7 +106,7 @@ export default function NotificationDropdown({
         }}
       >
         {loading && notifications.length === 0 ? (
-          <div style={{ padding: "32px 20px", textAlign: "center", color: "#B8AEC2", fontSize: "0.84rem" }}>
+          <div style={{ padding: "32px 20px", textAlign: "center", color: "#6B6B6B", fontSize: "0.84rem" }}>
             Loading updates...
           </div>
         ) : notifications.length === 0 ? (
@@ -125,7 +125,7 @@ export default function NotificationDropdown({
                 width: "44px",
                 height: "44px",
                 borderRadius: "50%",
-                background: "rgba(212,175,55,0.1)",
+                background: "#FDF4D8",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -134,7 +134,7 @@ export default function NotificationDropdown({
             >
               <Bell size={20} />
             </div>
-            <p style={{ fontSize: "0.85rem", color: "#B8AEC2", margin: 0 }}>
+            <p style={{ fontSize: "0.85rem", color: "#6B6B6B", margin: 0 }}>
               No notifications yet
             </p>
           </div>
@@ -154,8 +154,8 @@ export default function NotificationDropdown({
       <div
         style={{
           padding: "12px 20px",
-          borderTop: "1px solid rgba(255, 255, 255, 0.06)",
-          background: "rgba(21, 14, 28, 0.7)",
+          borderTop: "1px solid #F9FAFB",
+          background: "#FFFFFF",
           textAlign: "center",
         }}
       >

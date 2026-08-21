@@ -140,7 +140,7 @@ export default function ReportFoundPage() {
   };
 
   return (
-    <main style={{ minHeight: "100vh", background: "#1E1425", color: "#F8F5F0" }}>
+    <main style={{ minHeight: "100vh", background: "#FFFFFF", color: "#1A1A1A" }}>
       <Navbar />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -149,7 +149,7 @@ export default function ReportFoundPage() {
         {createdItem ? (
           <div
             style={{
-              background: "rgba(45, 27, 61,0.9)",
+              background: "#FFFFFF",
               border: "1px solid rgba(34,197,94,0.3)",
               borderRadius: "24px",
               padding: "48px 36px",
@@ -176,10 +176,10 @@ export default function ReportFoundPage() {
               <CheckCircle2 size={36} />
             </div>
 
-            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F8F5F0", marginBottom: "8px" }}>
+            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1A1A1A", marginBottom: "8px" }}>
               Found Item Reported!
             </h1>
-            <p style={{ color: "#B8AEC2", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto 32px" }}>
+            <p style={{ color: "#6B6B6B", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto 32px" }}>
               Thank you for helping the community! Our AI is notifying potential owners who lost items in this area.
             </p>
 
@@ -189,19 +189,19 @@ export default function ReportFoundPage() {
                 maxWidth: "400px",
                 margin: "0 auto 36px",
                 padding: "20px",
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
                 borderRadius: "16px",
                 textAlign: "left",
               }}
             >
-              <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#92700F", textTransform: "uppercase" }}>
                 {createdItem.category}
               </span>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F8F5F0", margin: "4px 0 8px" }}>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#1A1A1A", margin: "4px 0 8px" }}>
                 {createdItem.title}
               </h3>
-              <p style={{ fontSize: "0.82rem", color: "#B8AEC2", display: "flex", alignItems: "center", gap: "6px" }}>
+              <p style={{ fontSize: "0.82rem", color: "#6B6B6B", display: "flex", alignItems: "center", gap: "6px" }}>
                 <MapPin size={13} color="#FDE047" /> {createdItem.location}
               </p>
               {createdItem.handoverLocation && (
@@ -222,7 +222,7 @@ export default function ReportFoundPage() {
                   fontWeight: 700,
                   fontSize: "0.92rem",
                   textDecoration: "none",
-                  boxShadow: "0 6px 20px rgba(212, 175, 55,0.35)",
+                  boxShadow: "0 6px 20px #F5E5B8",
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
@@ -234,10 +234,10 @@ export default function ReportFoundPage() {
                 onClick={resetForm}
                 style={{
                   padding: "12px 24px",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F3F4F6",
                   borderRadius: "12px",
-                  color: "#B8AEC2",
+                  color: "#6B6B6B",
                   fontWeight: 600,
                   fontSize: "0.92rem",
                   cursor: "pointer",
@@ -251,8 +251,8 @@ export default function ReportFoundPage() {
           /* Form Container */
           <div
             style={{
-              background: "rgba(45, 27, 61,0.85)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "#FFFFFF",
+              border: "1px solid #F9FAFB",
               borderRadius: "24px",
               padding: "44px 36px",
               backdropFilter: "blur(24px)",
@@ -263,19 +263,19 @@ export default function ReportFoundPage() {
             {/* Header */}
             <div style={{ marginBottom: "32px", textAlign: "left" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#92700F", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   Found Item Form
                 </span>
                 <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#F5C842" }} />
-                <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>Step 1 of 1</span>
+                <span style={{ fontSize: "0.75rem", color: "#6B6B6B" }}>Step 1 of 1</span>
               </div>
-              <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, letterSpacing: "-0.02em", color: "#F8F5F0" }}>
+              <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, letterSpacing: "-0.02em", color: "#1A1A1A" }}>
                 Report a{" "}
                 <span style={{ background: "linear-gradient(135deg, #F5C842, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   Found Item
                 </span>
               </h1>
-              <p style={{ color: "#B8AEC2", fontSize: "0.92rem", marginTop: "6px" }}>
+              <p style={{ color: "#6B6B6B", fontSize: "0.92rem", marginTop: "6px" }}>
                 Report an item you found. Verified owners will be able to file claims to recover their property.
               </p>
             </div>
@@ -283,16 +283,16 @@ export default function ReportFoundPage() {
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
               {/* SECTION 1: Item Information */}
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid #F9FAFB", paddingBottom: "8px" }}>
                   <Layers size={16} color="#F5C842" />
-                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#FDE047", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#92700F", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     1. Item Information
                   </span>
                 </div>
 
                 {/* Title */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>
                     Item Title <span style={{ color: "#EF4444" }}>*</span>
                   </label>
                   <input
@@ -305,10 +305,10 @@ export default function ReportFoundPage() {
                     placeholder="e.g. Set of car keys with red Honda fob"
                     style={{
                       padding: "12px 16px",
-                      background: "rgba(255,255,255,0.04)",
-                      border: `1px solid ${errors.title ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
+                      background: "#F9FAFB",
+                      border: `1px solid ${errors.title ? "#EF4444" : "#F3F4F6"}`,
                       borderRadius: "10px",
-                      color: "#F8F5F0",
+                      color: "#1A1A1A",
                       fontSize: "0.95rem",
                       outline: "none",
                       fontFamily: "inherit",
@@ -317,7 +317,7 @@ export default function ReportFoundPage() {
                       if (!errors.title) e.currentTarget.style.borderColor = "#F5C842";
                     }}
                     onBlur={(e) => {
-                      if (!errors.title) e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                      if (!errors.title) e.currentTarget.style.borderColor = "#F3F4F6";
                     }}
                   />
                   {errors.title && <span style={{ fontSize: "0.75rem", color: "#EF4444" }}>{errors.title}</span>}
@@ -325,7 +325,7 @@ export default function ReportFoundPage() {
 
                 {/* Category Dropdown */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>
                     Category <span style={{ color: "#EF4444" }}>*</span>
                   </label>
                   <div style={{ position: "relative" }}>
@@ -335,10 +335,10 @@ export default function ReportFoundPage() {
                       style={{
                         width: "100%",
                         padding: "12px 38px 12px 16px",
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid rgba(255,255,255,0.1)",
+                        background: "#F9FAFB",
+                        border: "1px solid #F3F4F6",
                         borderRadius: "10px",
-                        color: "#F8F5F0",
+                        color: "#1A1A1A",
                         fontSize: "0.95rem",
                         outline: "none",
                         appearance: "none",
@@ -347,7 +347,7 @@ export default function ReportFoundPage() {
                       }}
                     >
                       {CATEGORIES.map((cat) => (
-                        <option key={cat} value={cat} style={{ background: "#150E1C" }}>
+                        <option key={cat} value={cat} style={{ background: "#FFFFFF" }}>
                           {cat}
                         </option>
                       ))}
@@ -362,7 +362,7 @@ export default function ReportFoundPage() {
 
                 {/* Description */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>
                     Detailed Description <span style={{ color: "#EF4444" }}>*</span>
                   </label>
                   <textarea
@@ -375,10 +375,10 @@ export default function ReportFoundPage() {
                     placeholder="Describe color, condition, brand, and where exactly it was located (avoid disclosing private confidential details like pin codes or full cards)"
                     style={{
                       padding: "12px 16px",
-                      background: "rgba(255,255,255,0.04)",
-                      border: `1px solid ${errors.description ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
+                      background: "#F9FAFB",
+                      border: `1px solid ${errors.description ? "#EF4444" : "#F3F4F6"}`,
                       borderRadius: "10px",
-                      color: "#F8F5F0",
+                      color: "#1A1A1A",
                       fontSize: "0.92rem",
                       outline: "none",
                       fontFamily: "inherit",
@@ -389,7 +389,7 @@ export default function ReportFoundPage() {
                       if (!errors.description) e.currentTarget.style.borderColor = "#F5C842";
                     }}
                     onBlur={(e) => {
-                      if (!errors.description) e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                      if (!errors.description) e.currentTarget.style.borderColor = "#F3F4F6";
                     }}
                   />
                   {errors.description && (
@@ -400,9 +400,9 @@ export default function ReportFoundPage() {
 
               {/* SECTION 2: Location, Handover & Date */}
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid #F9FAFB", paddingBottom: "8px" }}>
                   <MapPin size={16} color="#D4AF37" />
-                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#92700F", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     2. Location & Handover
                   </span>
                 </div>
@@ -410,7 +410,7 @@ export default function ReportFoundPage() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   {/* Location Found */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                    <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
+                    <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>
                       Where was it found? <span style={{ color: "#EF4444" }}>*</span>
                     </label>
                     <input
@@ -423,10 +423,10 @@ export default function ReportFoundPage() {
                       placeholder="e.g. Metro Station Line 3, Gate 2"
                       style={{
                         padding: "12px 16px",
-                        background: "rgba(255,255,255,0.04)",
-                        border: `1px solid ${errors.location ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
+                        background: "#F9FAFB",
+                        border: `1px solid ${errors.location ? "#EF4444" : "#F3F4F6"}`,
                         borderRadius: "10px",
-                        color: "#F8F5F0",
+                        color: "#1A1A1A",
                         fontSize: "0.92rem",
                         outline: "none",
                         fontFamily: "inherit",
@@ -439,7 +439,7 @@ export default function ReportFoundPage() {
 
                   {/* Date Found */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                    <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
+                    <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>
                       When was it found? <span style={{ color: "#EF4444" }}>*</span>
                     </label>
                     <input
@@ -451,10 +451,10 @@ export default function ReportFoundPage() {
                       }}
                       style={{
                         padding: "12px 16px",
-                        background: "rgba(255,255,255,0.04)",
-                        border: `1px solid ${errors.date ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
+                        background: "#F9FAFB",
+                        border: `1px solid ${errors.date ? "#EF4444" : "#F3F4F6"}`,
                         borderRadius: "10px",
-                        color: "#F8F5F0",
+                        color: "#1A1A1A",
                         fontSize: "0.92rem",
                         outline: "none",
                         fontFamily: "inherit",
@@ -467,7 +467,7 @@ export default function ReportFoundPage() {
 
                 {/* Handover Location (Optional) */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>
                     Handover / Drop-off Location (Optional)
                   </label>
                   <input
@@ -477,10 +477,10 @@ export default function ReportFoundPage() {
                     placeholder="e.g. Left with Lost & Found desk at Central Terminal / Police Station"
                     style={{
                       padding: "12px 16px",
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      background: "#F9FAFB",
+                      border: "1px solid #F3F4F6",
                       borderRadius: "10px",
-                      color: "#F8F5F0",
+                      color: "#1A1A1A",
                       fontSize: "0.92rem",
                       outline: "none",
                       fontFamily: "inherit",
@@ -494,7 +494,7 @@ export default function ReportFoundPage() {
 
               {/* SECTION 3: Photos */}
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid #F9FAFB", paddingBottom: "8px" }}>
                   <Sparkles size={16} color="#A855F7" />
                   <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#C084FC", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     3. Photos (Optional, Recommended)

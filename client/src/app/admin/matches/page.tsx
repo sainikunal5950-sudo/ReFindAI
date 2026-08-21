@@ -71,7 +71,7 @@ export default function AdminMatchesPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFFFF" }}>
       <Sidebar variant="admin" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -80,12 +80,12 @@ export default function AdminMatchesPage() {
         <header
           style={{
             height: "68px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(21, 14, 28,0.8)",
+            background: "#FFFFFF",
             backdropFilter: "blur(12px)",
             position: "sticky",
             top: 0,
@@ -108,10 +108,10 @@ export default function AdminMatchesPage() {
               <GitCompare size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1A1A1A" }}>
                 AI Matches Overview
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
+              <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>
                 {total} potential and confirmed AI match pairs platform-wide
               </p>
             </div>
@@ -127,10 +127,10 @@ export default function AdminMatchesPage() {
               }}
               style={{
                 padding: "7px 12px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
                 borderRadius: "10px",
-                color: "#F8F5F0",
+                color: "#1A1A1A",
                 fontSize: "0.84rem",
                 outline: "none",
               }}
@@ -145,10 +145,10 @@ export default function AdminMatchesPage() {
               onClick={fetchMatches}
               style={{
                 padding: "8px 12px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
                 borderRadius: "10px",
-                color: "#B8AEC2",
+                color: "#6B6B6B",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -165,8 +165,8 @@ export default function AdminMatchesPage() {
         <div style={{ flex: 1, padding: "32px", maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
           <div
             style={{
-              background: "rgba(45, 27, 61,0.85)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "#FFFFFF",
+              border: "1px solid #F9FAFB",
               borderRadius: "18px",
               overflow: "hidden",
               backdropFilter: "blur(20px)",
@@ -174,20 +174,20 @@ export default function AdminMatchesPage() {
           >
             <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left" }}>
               <thead>
-                <tr style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                <tr style={{ background: "#F9FAFB", borderBottom: "1px solid #F9FAFB" }}>
+                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     Lost Item (Reported)
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     Found Item (Discovered)
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     AI Score
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     Match Status
                   </th>
-                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase", textAlign: "right" }}>
+                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase", textAlign: "right" }}>
                     Date Generated
                   </th>
                 </tr>
@@ -201,7 +201,7 @@ export default function AdminMatchesPage() {
                   </tr>
                 ) : matches.length === 0 ? (
                   <tr>
-                    <td colSpan={5} style={{ padding: "48px 20px", textAlign: "center", color: "#9A8FA8" }}>
+                    <td colSpan={5} style={{ padding: "48px 20px", textAlign: "center", color: "#8E8E93" }}>
                       No AI matches generated matching criteria.
                     </td>
                   </tr>
@@ -215,17 +215,17 @@ export default function AdminMatchesPage() {
                       <tr
                         key={id}
                         style={{
-                          borderBottom: "1px solid rgba(255,255,255,0.04)",
+                          borderBottom: "1px solid #F9FAFB",
                           transition: "background 0.15s",
                         }}
                       >
                         {/* Lost Item */}
                         <td style={{ padding: "16px 20px" }}>
                           <div>
-                            <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>
+                            <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1A1A1A" }}>
                               {lost?.title || "Lost Item"}
                             </span>
-                            <p style={{ fontSize: "0.74rem", color: "#F5C842", margin: "2px 0 0" }}>
+                            <p style={{ fontSize: "0.74rem", color: "#92700F", margin: "2px 0 0" }}>
                               {lost?.category} • {lost?.location}
                             </p>
                           </div>
@@ -234,10 +234,10 @@ export default function AdminMatchesPage() {
                         {/* Found Item */}
                         <td style={{ padding: "16px" }}>
                           <div>
-                            <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>
+                            <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1A1A1A" }}>
                               {found?.title || "Found Item"}
                             </span>
-                            <p style={{ fontSize: "0.74rem", color: "#F5C842", margin: "2px 0 0" }}>
+                            <p style={{ fontSize: "0.74rem", color: "#92700F", margin: "2px 0 0" }}>
                               {found?.category} • {found?.location}
                             </p>
                           </div>
@@ -263,7 +263,7 @@ export default function AdminMatchesPage() {
                         <td style={{ padding: "16px" }}>{getStatusBadge(match.status)}</td>
 
                         {/* Date Generated */}
-                        <td style={{ padding: "16px 20px", fontSize: "0.8rem", color: "#B8AEC2", textAlign: "right" }}>
+                        <td style={{ padding: "16px 20px", fontSize: "0.8rem", color: "#6B6B6B", textAlign: "right" }}>
                           {formatDate(match.createdAt)}
                         </td>
                       </tr>

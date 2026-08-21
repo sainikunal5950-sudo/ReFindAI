@@ -8,10 +8,10 @@
 /* ─── CSS Variables ─────────────────────────────────────────── */
 :root {
   /* Backgrounds */
-  --bg-primary:    #1E1425;
-  --bg-secondary:  #150E1C;
-  --bg-card:       #2D1B3D;
-  --bg-card-2:     #26182F;
+  --bg-primary:    #FFFFFF;
+  --bg-secondary:  #FFFFFF;
+  --bg-card:       #FFFFFF;
+  --bg-card-2:     #FAFAFA;
 
   /* Accents */
   --accent-gold:        #D4AF37;
@@ -24,8 +24,8 @@
   --accent-cyan:   #F5C842;
 
   /* Text */
-  --text-primary:  #F8F5F0;
-  --text-secondary:#B8AEC2;
+  --text-primary:  #1A1A1A;
+  --text-secondary:#6B6B6B;
 
   /* Semantic */
   --success:       #4ADE80;
@@ -33,17 +33,17 @@
   --warning:       #FBBF24;
 
   /* Borders */
-  --border:        rgba(255,255,255,0.08);
-  --border-gold:   rgba(212,175,55,0.25);
-  --border-blue:   rgba(212,175,55,0.25);
+  --border:        #F9FAFB;
+  --border-gold:   #E5E5E5;
+  --border-blue:   #E5E5E5;
 
   /* Effects */
-  --glass:         rgba(45,27,61,0.65);
+  --glass:         #FFFFFF;
   --glass-gold:    rgba(212,175,55,0.08);
   --glass-blue:    rgba(212,175,55,0.08);
-  --glow-gold:     0 0 25px rgba(212,175,55,0.3);
+  --glow-gold:     0 0 25px #F5E5B8;
   --glow-gold-lg:  0 0 50px rgba(212,175,55,0.45);
-  --glow-blue:     0 0 25px rgba(212,175,55,0.3);
+  --glow-blue:     0 0 25px #F5E5B8;
   --glow-blue-lg:  0 0 50px rgba(212,175,55,0.45);
   --glow-cyan:     0 0 20px rgba(245,200,66,0.3);
 
@@ -127,7 +127,7 @@ img {
 }
 
 .gradient-text-white {
-  background: linear-gradient(135deg, #F8F5F0 30%, #D4AF37);
+  background: linear-gradient(135deg, #1A1A1A 30%, #D4AF37);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -136,14 +136,14 @@ img {
 /* Gold Glow Buttons */
 .btn-primary {
   background: linear-gradient(135deg, #D4AF37, #EAB308);
-  color: #150E1C;
+  color: #FFFFFF;
   font-weight: 700;
   padding: 12px 28px;
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
   transition: all var(--transition);
-  box-shadow: 0 4px 20px rgba(212,175,55,0.35);
+  box-shadow: 0 4px 20px #F5E5B8;
   position: relative;
   overflow: hidden;
 }
@@ -170,15 +170,15 @@ img {
 }
 
 .btn-secondary:hover {
-  background: rgba(212,175,55,0.15);
+  background: #FDF4D8;
   border-color: var(--accent-gold);
-  box-shadow: 0 0 16px rgba(212,175,55,0.25);
+  box-shadow: 0 0 16px #E5E5E5;
   color: var(--accent-gold-bright);
 }
 
 /* Input Styles */
 .input-dark {
-  background: rgba(255,255,255,0.04);
+  background: #F9FAFB;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
@@ -192,7 +192,7 @@ img {
 
 .input-dark:focus {
   border-color: var(--accent-gold);
-  box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+  box-shadow: 0 0 0 3px #E5E5E5;
 }
 
 .input-dark::placeholder {
@@ -234,9 +234,9 @@ img {
 /* Skeleton Loader */
 .skeleton {
   background: linear-gradient(90deg,
-    rgba(255,255,255,0.04) 25%,
-    rgba(212,175,55,0.12) 50%,
-    rgba(255,255,255,0.04) 75%
+    #F9FAFB 25%,
+    #FDF4D8 50%,
+    #F9FAFB 75%
   );
   background-size: 200% 100%;
   animation: shimmer 2s linear infinite;

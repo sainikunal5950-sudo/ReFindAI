@@ -130,7 +130,7 @@ export default function SubmitClaimPage() {
   };
 
   return (
-    <main style={{ minHeight: "100vh", background: "#1E1425", color: "#F8F5F0" }}>
+    <main style={{ minHeight: "100vh", background: "#FFFFFF", color: "#1A1A1A" }}>
       <Navbar />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -142,7 +142,7 @@ export default function SubmitClaimPage() {
             display: "inline-flex",
             alignItems: "center",
             gap: "6px",
-            color: "#B8AEC2",
+            color: "#6B6B6B",
             fontSize: "0.88rem",
             textDecoration: "none",
             marginBottom: "24px",
@@ -155,7 +155,7 @@ export default function SubmitClaimPage() {
         {createdClaim ? (
           <div
             style={{
-              background: "rgba(45, 27, 61,0.9)",
+              background: "#FFFFFF",
               border: "1px solid rgba(34,197,94,0.3)",
               borderRadius: "24px",
               padding: "48px 36px",
@@ -182,10 +182,10 @@ export default function SubmitClaimPage() {
               <CheckCircle2 size={36} />
             </div>
 
-            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F8F5F0", marginBottom: "8px" }}>
+            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1A1A1A", marginBottom: "8px" }}>
               Claim Submitted for Review!
             </h1>
-            <p style={{ color: "#B8AEC2", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto 32px" }}>
+            <p style={{ color: "#6B6B6B", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto 32px" }}>
               Your verification answers have been sent to the finder. You will be notified the moment your claim is verified.
             </p>
 
@@ -212,10 +212,10 @@ export default function SubmitClaimPage() {
                 href="/found"
                 style={{
                   padding: "12px 24px",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F3F4F6",
                   borderRadius: "12px",
-                  color: "#B8AEC2",
+                  color: "#6B6B6B",
                   fontWeight: 600,
                   fontSize: "0.92rem",
                   textDecoration: "none",
@@ -229,8 +229,8 @@ export default function SubmitClaimPage() {
           /* Main Claim Form Container */
           <div
             style={{
-              background: "rgba(45, 27, 61,0.85)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "#FFFFFF",
+              border: "1px solid #F9FAFB",
               borderRadius: "24px",
               padding: "36px",
               backdropFilter: "blur(24px)",
@@ -240,19 +240,19 @@ export default function SubmitClaimPage() {
             {/* Header */}
             <div style={{ marginBottom: "28px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase" }}>
+                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#92700F", textTransform: "uppercase" }}>
                   Ownership Verification
                 </span>
                 <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#F5C842" }} />
-                <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>Step 1 of 1</span>
+                <span style={{ fontSize: "0.75rem", color: "#6B6B6B" }}>Step 1 of 1</span>
               </div>
-              <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2rem)", fontWeight: 800, color: "#F8F5F0" }}>
+              <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2rem)", fontWeight: 800, color: "#1A1A1A" }}>
                 Claim This{" "}
                 <span style={{ background: "linear-gradient(135deg, #F5C842, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   Found Item
                 </span>
               </h1>
-              <p style={{ color: "#B8AEC2", fontSize: "0.9rem", marginTop: "6px" }}>
+              <p style={{ color: "#6B6B6B", fontSize: "0.9rem", marginTop: "6px" }}>
                 Please answer the following verification questions to prove your ownership to the finder.
               </p>
             </div>
@@ -265,8 +265,8 @@ export default function SubmitClaimPage() {
                   gap: "16px",
                   alignItems: "center",
                   padding: "16px",
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F9FAFB",
                   borderRadius: "16px",
                   marginBottom: "28px",
                 }}
@@ -296,13 +296,13 @@ export default function SubmitClaimPage() {
                 </div>
 
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase" }}>
+                  <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#92700F", textTransform: "uppercase" }}>
                     {item.category}
                   </span>
-                  <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#F8F5F0", margin: "2px 0 4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#1A1A1A", margin: "2px 0 4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                     {item.title}
                   </h3>
-                  <p style={{ fontSize: "0.78rem", color: "#B8AEC2", display: "flex", alignItems: "center", gap: "10px" }}>
+                  <p style={{ fontSize: "0.78rem", color: "#6B6B6B", display: "flex", alignItems: "center", gap: "10px" }}>
                     <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                       <MapPin size={12} color="#F5C842" /> {item.location}
                     </span>
@@ -316,8 +316,8 @@ export default function SubmitClaimPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 {questions.map((q, idx) => (
                   <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "#F8F5F0", display: "flex", alignItems: "flex-start", gap: "6px" }}>
-                      <span style={{ color: "#F5C842", fontWeight: 700 }}>{idx + 1}.</span> {q}
+                    <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "#1A1A1A", display: "flex", alignItems: "flex-start", gap: "6px" }}>
+                      <span style={{ color: "#92700F", fontWeight: 700 }}>{idx + 1}.</span> {q}
                     </label>
                     <textarea
                       rows={2}
@@ -326,24 +326,24 @@ export default function SubmitClaimPage() {
                       placeholder="Provide precise details (e.g. engravings, stickers, exact color, lockscreen pattern...)"
                       style={{
                         padding: "12px 14px",
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid rgba(255,255,255,0.1)",
+                        background: "#F9FAFB",
+                        border: "1px solid #F3F4F6",
                         borderRadius: "10px",
-                        color: "#F8F5F0",
+                        color: "#1A1A1A",
                         fontSize: "0.9rem",
                         outline: "none",
                         fontFamily: "inherit",
                         resize: "vertical",
                       }}
                       onFocus={(e) => (e.currentTarget.style.borderColor = "#F5C842")}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#F3F4F6")}
                     />
                   </div>
                 ))}
 
                 {/* Additional Proof Message */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "6px" }}>
-                  <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "#B8AEC2" }}>
+                  <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "#6B6B6B" }}>
                     Additional Proof / Message to Finder (Optional)
                   </label>
                   <textarea
@@ -353,10 +353,10 @@ export default function SubmitClaimPage() {
                     placeholder="Mention if you have original box, serial receipt, photos, or preferred pickup time..."
                     style={{
                       padding: "12px 14px",
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      background: "#F9FAFB",
+                      border: "1px solid #F3F4F6",
                       borderRadius: "10px",
-                      color: "#F8F5F0",
+                      color: "#1A1A1A",
                       fontSize: "0.9rem",
                       outline: "none",
                       fontFamily: "inherit",

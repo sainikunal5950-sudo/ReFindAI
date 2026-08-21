@@ -16,18 +16,18 @@ type BadgeVariant =
 
 const variantStyles: Record<BadgeVariant, React.CSSProperties> = {
   gold: {
-    background: "rgba(212,175,55,0.15)",
-    color: "#F5C842",
-    border: "1px solid rgba(212,175,55,0.35)",
+    background: "#FDF4D8",
+    color: "#92700F",
+    border: "1px solid #F5E5B8",
   },
   blue: {
-    background: "rgba(212,175,55,0.15)",
-    color: "#F5C842",
-    border: "1px solid rgba(212,175,55,0.35)",
+    background: "#FDF4D8",
+    color: "#92700F",
+    border: "1px solid #F5E5B8",
   },
   cyan: {
     background: "rgba(234,179,8,0.15)",
-    color: "#FDE047",
+    color: "#92700F",
     border: "1px solid rgba(234,179,8,0.35)",
   },
   success: {
@@ -61,9 +61,9 @@ const variantStyles: Record<BadgeVariant, React.CSSProperties> = {
     border: "1px solid rgba(248,113,113,0.3)",
   },
   neutral: {
-    background: "rgba(255,255,255,0.06)",
-    color: "#B8AEC2",
-    border: "1px solid rgba(255,255,255,0.1)",
+    background: "#F9FAFB",
+    color: "#6B6B6B",
+    border: "1px solid #F3F4F6",
   },
 };
 

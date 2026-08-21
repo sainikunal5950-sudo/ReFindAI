@@ -78,8 +78,8 @@ export default function MatchCard({
   return (
     <div
       style={{
-        background: "rgba(45, 27, 61, 0.85)",
-        border: "1px solid rgba(212, 175, 55, 0.25)",
+        background: "#FFFFFF",
+        border: "1px solid #E5E5E5",
         borderRadius: "20px",
         padding: "20px",
         display: "flex",
@@ -101,8 +101,8 @@ export default function MatchCard({
             width: "84px",
             height: "84px",
             borderRadius: "14px",
-            background: "rgba(255, 255, 255, 0.04)",
-            border: "1px solid rgba(212, 175, 55, 0.2)",
+            background: "#F9FAFB",
+            border: "1px solid #E5E5E5",
             overflow: "hidden",
             display: "flex",
             alignItems: "center",
@@ -137,15 +137,15 @@ export default function MatchCard({
               style={{
                 fontSize: "0.72rem",
                 fontWeight: 700,
-                color: "#F5C842",
+                color: "#92700F",
                 textTransform: "uppercase",
                 letterSpacing: "0.04em",
               }}
             >
               {targetItem.category}
             </span>
-            <span style={{ width: "3px", height: "3px", borderRadius: "50%", background: "#B8AEC2" }} />
-            <span style={{ fontSize: "0.72rem", color: "#B8AEC2" }}>
+            <span style={{ width: "3px", height: "3px", borderRadius: "50%", background: "#6B6B6B" }} />
+            <span style={{ fontSize: "0.72rem", color: "#6B6B6B" }}>
               {perspective === "lost" ? "Found Report" : "Lost Report"}
             </span>
           </div>
@@ -155,7 +155,7 @@ export default function MatchCard({
             style={{
               fontSize: "1rem",
               fontWeight: 700,
-              color: "#F8F5F0",
+              color: "#1A1A1A",
               textDecoration: "none",
               overflow: "hidden",
               textOverflow: "ellipsis",
@@ -171,7 +171,7 @@ export default function MatchCard({
               alignItems: "center",
               gap: "12px",
               fontSize: "0.78rem",
-              color: "#B8AEC2",
+              color: "#6B6B6B",
               flexWrap: "wrap",
             }}
           >
@@ -194,13 +194,13 @@ export default function MatchCard({
       {showBreakdown && (
         <div
           style={{
-            background: "rgba(21, 14, 28, 0.8)",
+            background: "#FFFFFF",
             borderRadius: "14px",
             padding: "16px",
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "12px",
-            border: "1px solid rgba(212, 175, 55, 0.15)",
+            border: "1px solid #FDF4D8",
           }}
         >
           <ScoreBreakdownBar
@@ -236,7 +236,7 @@ export default function MatchCard({
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+          borderTop: "1px solid #F9FAFB",
           paddingTop: "12px",
           gap: "8px",
         }}
@@ -248,7 +248,7 @@ export default function MatchCard({
           style={{
             background: "transparent",
             border: "none",
-            color: "#B8AEC2",
+            color: "#6B6B6B",
             fontSize: "0.78rem",
             fontWeight: 500,
             cursor: "pointer",
@@ -278,8 +278,8 @@ export default function MatchCard({
             onClick={handleRejectClick}
             style={{
               background: "transparent",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              color: "#B8AEC2",
+              border: "1px solid #F3F4F6",
+              color: "#6B6B6B",
               padding: "7px 14px",
               borderRadius: "10px",
               fontSize: "0.8rem",
@@ -295,8 +295,8 @@ export default function MatchCard({
               (e.currentTarget as HTMLButtonElement).style.color = "#F87171";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255, 255, 255, 0.1)";
-              (e.currentTarget as HTMLButtonElement).style.color = "#B8AEC2";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "#F3F4F6";
+              (e.currentTarget as HTMLButtonElement).style.color = "#6B6B6B";
             }}
           >
             <X size={14} /> Not a Match
@@ -310,7 +310,7 @@ export default function MatchCard({
             style={{
               background: "linear-gradient(135deg, #D4AF37, #EAB308)",
               border: "none",
-              color: "#150E1C",
+              color: "#FFFFFF",
               padding: "7px 16px",
               borderRadius: "10px",
               fontSize: "0.8rem",
@@ -319,7 +319,7 @@ export default function MatchCard({
               display: "flex",
               alignItems: "center",
               gap: "5px",
-              boxShadow: "0 4px 14px rgba(212, 175, 55, 0.35)",
+              boxShadow: "0 4px 14px #F5E5B8",
               transition: "all 0.2s",
             }}
             onMouseEnter={(e) => {
@@ -328,7 +328,7 @@ export default function MatchCard({
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 14px rgba(212, 175, 55, 0.35)";
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 14px #F5E5B8";
             }}
           >
             <Check size={14} strokeWidth={3} />

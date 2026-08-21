@@ -66,7 +66,7 @@ export default function MyLostReportsPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFFFF" }}>
       <Sidebar variant="user" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -86,12 +86,12 @@ export default function MyLostReportsPage() {
         <header
           style={{
             height: "68px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(21, 14, 28,0.8)",
+            background: "#FFFFFF",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             position: "sticky",
@@ -105,7 +105,7 @@ export default function MyLostReportsPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "rgba(212, 175, 55,0.15)",
+                background: "#FDF4D8",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -115,10 +115,10 @@ export default function MyLostReportsPage() {
               <FileSearch size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1A1A1A" }}>
                 My Lost Item Reports
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
+              <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>
                 {total} active items reported by you
               </p>
             </div>
@@ -129,10 +129,10 @@ export default function MyLostReportsPage() {
               onClick={() => fetchMyReports(page)}
               style={{
                 padding: "8px 12px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
                 borderRadius: "10px",
-                color: "#B8AEC2",
+                color: "#6B6B6B",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -155,7 +155,7 @@ export default function MyLostReportsPage() {
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
-                boxShadow: "0 4px 16px rgba(212, 175, 55,0.35)",
+                boxShadow: "0 4px 16px #F5E5B8",
               }}
             >
               <PlusCircle size={15} />
@@ -178,8 +178,8 @@ export default function MyLostReportsPage() {
             <div
               style={{
                 padding: "72px 20px",
-                background: "rgba(45, 27, 61,0.6)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "#FFFFFF",
+                border: "1px solid #F9FAFB",
                 borderRadius: "24px",
                 textAlign: "center",
                 maxWidth: "480px",
@@ -191,7 +191,7 @@ export default function MyLostReportsPage() {
                   width: "60px",
                   height: "60px",
                   borderRadius: "18px",
-                  background: "rgba(212, 175, 55,0.1)",
+                  background: "#FDF4D8",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -201,10 +201,10 @@ export default function MyLostReportsPage() {
               >
                 <PackageSearch size={30} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1A1A1A", marginBottom: "6px" }}>
                 No reports submitted yet
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#B8AEC2", marginBottom: "24px", lineHeight: 1.5 }}>
+              <p style={{ fontSize: "0.88rem", color: "#6B6B6B", marginBottom: "24px", lineHeight: 1.5 }}>
                 Have you lost a phone, wallet, bag, or keys? Post a report and our AI will start matching immediately.
               </p>
               <Link
@@ -220,7 +220,7 @@ export default function MyLostReportsPage() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  boxShadow: "0 6px 20px rgba(212, 175, 55,0.35)",
+                  boxShadow: "0 6px 20px #F5E5B8",
                 }}
               >
                 <PlusCircle size={16} />
@@ -254,9 +254,9 @@ export default function MyLostReportsPage() {
                 style={{
                   padding: "6px 14px",
                   borderRadius: "8px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  color: page <= 1 ? "#404050" : "#B8AEC2",
+                  background: "#F9FAFB",
+                  border: "1px solid #F9FAFB",
+                  color: page <= 1 ? "#404050" : "#6B6B6B",
                   cursor: page <= 1 ? "not-allowed" : "pointer",
                   display: "flex",
                   alignItems: "center",
@@ -281,9 +281,9 @@ export default function MyLostReportsPage() {
                 style={{
                   padding: "6px 14px",
                   borderRadius: "8px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  color: page >= totalPages ? "#404050" : "#B8AEC2",
+                  background: "#F9FAFB",
+                  border: "1px solid #F9FAFB",
+                  color: page >= totalPages ? "#404050" : "#6B6B6B",
                   cursor: page >= totalPages ? "not-allowed" : "pointer",
                   display: "flex",
                   alignItems: "center",

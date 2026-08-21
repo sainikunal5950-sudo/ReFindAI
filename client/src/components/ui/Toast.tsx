@@ -30,23 +30,23 @@ export default function Toast({ toast, onClose, duration = 4000 }: ToastProps) {
     success: {
       icon: <CheckCircle2 size={18} color="#4ADE80" />,
       border: "rgba(34,197,94,0.3)",
-      bg: "rgba(45, 27, 61,0.95)",
-      textColor: "#F8F5F0",
+      bg: "#FFFFFF",
+      textColor: "#1A1A1A",
       glow: "0 8px 32px rgba(34,197,94,0.15)",
     },
     error: {
       icon: <AlertCircle size={18} color="#F87171" />,
       border: "rgba(239,68,68,0.3)",
-      bg: "rgba(45, 27, 61,0.95)",
-      textColor: "#F8F5F0",
+      bg: "#FFFFFF",
+      textColor: "#1A1A1A",
       glow: "0 8px 32px rgba(239,68,68,0.15)",
     },
     info: {
       icon: <Info size={18} color="#F5C842" />,
-      border: "rgba(212, 175, 55,0.3)",
-      bg: "rgba(45, 27, 61,0.95)",
-      textColor: "#F8F5F0",
-      glow: "0 8px 32px rgba(212, 175, 55,0.15)",
+      border: "#F5E5B8",
+      bg: "#FFFFFF",
+      textColor: "#1A1A1A",
+      glow: "0 8px 32px #FDF4D8",
     },
   }[toast.type];
 
@@ -81,7 +81,7 @@ export default function Toast({ toast, onClose, duration = 4000 }: ToastProps) {
         style={{
           background: "transparent",
           border: "none",
-          color: "#B8AEC2",
+          color: "#6B6B6B",
           cursor: "pointer",
           padding: "2px",
           display: "flex",

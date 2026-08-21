@@ -47,7 +47,7 @@ export default function LoginPage() {
     <main
       style={{
         minHeight: "100vh",
-        background: "#1E1425",
+        background: "#FFFFFF",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -58,7 +58,7 @@ export default function LoginPage() {
     >
       {/* Background orbs */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>
-        <div style={{ position: "absolute", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212, 175, 55,0.15), transparent 70%)", top: "-150px", left: "-100px", animation: "float 10s ease-in-out infinite" }} />
+        <div style={{ position: "absolute", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, #FDF4D8, transparent 70%)", top: "-150px", left: "-100px", animation: "float 10s ease-in-out infinite" }} />
         <div style={{ position: "absolute", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(245, 200, 66,0.10), transparent 70%)", bottom: "-100px", right: "-80px", animation: "float2 12s ease-in-out infinite" }} />
       </div>
 
@@ -73,8 +73,8 @@ export default function LoginPage() {
         {/* Card */}
         <div
           style={{
-            background: "rgba(45, 27, 61,0.85)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "#FFFFFF",
+            border: "1px solid #F9FAFB",
             borderRadius: "24px",
             padding: "48px 40px",
             backdropFilter: "blur(24px)",
@@ -114,10 +114,10 @@ export default function LoginPage() {
             </Link>
           </div>
 
-          <h1 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "8px", color: "#F8F5F0", letterSpacing: "-0.02em" }}>
+          <h1 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "8px", color: "#1A1A1A", letterSpacing: "-0.02em" }}>
             Welcome back
           </h1>
-          <p style={{ textAlign: "center", color: "#B8AEC2", fontSize: "0.9rem", marginBottom: "28px" }}>
+          <p style={{ textAlign: "center", color: "#6B6B6B", fontSize: "0.9rem", marginBottom: "28px" }}>
             Sign in to your account to continue
           </p>
 
@@ -148,7 +148,7 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
             {/* Email */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2", letterSpacing: "0.02em" }}>
+              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B", letterSpacing: "0.02em" }}>
                 Email Address
               </label>
               <div style={{ position: "relative" }}>
@@ -162,10 +162,10 @@ export default function LoginPage() {
                   style={{
                     width: "100%",
                     padding: "12px 16px 12px 42px",
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    background: "#F9FAFB",
+                    border: "1px solid #F3F4F6",
                     borderRadius: "10px",
-                    color: "#F8F5F0",
+                    color: "#1A1A1A",
                     fontSize: "0.95rem",
                     outline: "none",
                     transition: "border-color 0.2s, box-shadow 0.2s",
@@ -173,10 +173,10 @@ export default function LoginPage() {
                   }}
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = "#D4AF37";
-                    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.15)";
+                    e.currentTarget.style.boxShadow = "0 0 0 3px #FDF4D8";
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                    e.currentTarget.style.borderColor = "#F3F4F6";
                     e.currentTarget.style.boxShadow = "none";
                   }}
                 />
@@ -186,7 +186,7 @@ export default function LoginPage() {
             {/* Password */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2", letterSpacing: "0.02em" }}>
+                <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B", letterSpacing: "0.02em" }}>
                   Password
                 </label>
                 <Link href="/forgot-password" style={{ fontSize: "0.8rem", color: "#D4AF37", textDecoration: "none", fontWeight: 500 }}
@@ -207,10 +207,10 @@ export default function LoginPage() {
                   style={{
                     width: "100%",
                     padding: "12px 44px 12px 42px",
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    background: "#F9FAFB",
+                    border: "1px solid #F3F4F6",
                     borderRadius: "10px",
-                    color: "#F8F5F0",
+                    color: "#1A1A1A",
                     fontSize: "0.95rem",
                     outline: "none",
                     transition: "border-color 0.2s, box-shadow 0.2s",
@@ -218,10 +218,10 @@ export default function LoginPage() {
                   }}
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = "#D4AF37";
-                    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.15)";
+                    e.currentTarget.style.boxShadow = "0 0 0 3px #FDF4D8";
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                    e.currentTarget.style.borderColor = "#F3F4F6";
                     e.currentTarget.style.boxShadow = "none";
                   }}
                 />
@@ -298,13 +298,13 @@ export default function LoginPage() {
 
           {/* Divider */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", margin: "24px 0" }}>
-            <div style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.07)" }} />
+            <div style={{ flex: 1, height: "1px", background: "#F9FAFB" }} />
             <span style={{ color: "#606070", fontSize: "0.8rem" }}>or</span>
-            <div style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.07)" }} />
+            <div style={{ flex: 1, height: "1px", background: "#F9FAFB" }} />
           </div>
 
           {/* Register link */}
-          <p style={{ textAlign: "center", color: "#B8AEC2", fontSize: "0.88rem" }}>
+          <p style={{ textAlign: "center", color: "#6B6B6B", fontSize: "0.88rem" }}>
             Don&apos;t have an account?{" "}
             <Link
               href="/register"

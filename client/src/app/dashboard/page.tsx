@@ -19,17 +19,17 @@ import {
 
 const stats = [
   { label: "Total Reports", value: "12", icon: <FileSearch size={22} />, change: "+3 this week", color: "#D4AF37" },
-  { label: "Active Matches", value: "4", icon: <GitCompare size={22} />, change: "2 new today", color: "#F5C842" },
+  { label: "Active Matches", value: "4", icon: <GitCompare size={22} />, change: "2 new today", color: "#92700F" },
   { label: "Claims Pending", value: "2", icon: <AlertCircle size={22} />, change: "Needs action", color: "#F59E0B" },
   { label: "Items Recovered", value: "6", icon: <CheckCircle size={22} />, change: "+1 this week", color: "#22C55E" },
 ];
 
 const activity = [
   { type: "match", icon: <GitCompare size={14} />, color: "#D4AF37", text: "92% match found for your lost iPhone 13 Pro", time: "2 hours ago" },
-  { type: "report", icon: <FileSearch size={14} />, color: "#F5C842", text: "You reported a lost blue backpack near Central Park", time: "5 hours ago" },
+  { type: "report", icon: <FileSearch size={14} />, color: "#92700F", text: "You reported a lost blue backpack near Central Park", time: "5 hours ago" },
   { type: "claim", icon: <AlertCircle size={14} />, color: "#F59E0B", text: "Claim submitted for Found AirPods — awaiting verification", time: "1 day ago" },
   { type: "recovered", icon: <CheckCircle size={14} />, color: "#22C55E", text: "Your wallet has been successfully recovered!", time: "2 days ago" },
-  { type: "report", icon: <FileSearch size={14} />, color: "#F5C842", text: "You reported found car keys at Times Square Station", time: "3 days ago" },
+  { type: "report", icon: <FileSearch size={14} />, color: "#92700F", text: "You reported found car keys at Times Square Station", time: "3 days ago" },
   { type: "match", icon: <Star size={14} />, color: "#D4AF37", text: "New match alert: Your lost headphones — 88% confidence", time: "4 days ago" },
 ];
 
@@ -44,7 +44,7 @@ export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<"activity" | "matches">("activity");
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFFFF" }}>
       <Sidebar variant="user" />
 
       {/* Main Content */}
@@ -53,12 +53,12 @@ export default function DashboardPage() {
         <header
           style={{
             height: "68px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(21, 14, 28,0.8)",
+            background: "#FFFFFF",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             position: "sticky",
@@ -67,19 +67,19 @@ export default function DashboardPage() {
           }}
         >
           <div>
-            <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>Dashboard</h1>
-            <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>Welcome back, John 👋</p>
+            <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1A1A1A" }}>Dashboard</h1>
+            <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>Welcome back, John 👋</p>
           </div>
           <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
             <button
               style={{
                 position: "relative",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
                 borderRadius: "10px",
                 padding: "8px 10px",
                 cursor: "pointer",
-                color: "#B8AEC2",
+                color: "#6B6B6B",
                 display: "flex",
                 alignItems: "center",
               }}
@@ -111,7 +111,7 @@ export default function DashboardPage() {
                 fontWeight: 600,
                 fontSize: "0.85rem",
                 cursor: "pointer",
-                boxShadow: "0 4px 16px rgba(212, 175, 55,0.35)",
+                boxShadow: "0 4px 16px #F5E5B8",
                 fontFamily: "inherit",
               }}
             >
@@ -137,8 +137,8 @@ export default function DashboardPage() {
                 key={s.label}
                 style={{
                   padding: "24px",
-                  background: "rgba(45, 27, 61,0.9)",
-                  border: "1px solid rgba(255,255,255,0.07)",
+                  background: "#FFFFFF",
+                  border: "1px solid #F9FAFB",
                   borderRadius: "16px",
                   backdropFilter: "blur(12px)",
                   transition: "all 0.3s ease",
@@ -152,7 +152,7 @@ export default function DashboardPage() {
                   (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.07)";
+                  (e.currentTarget as HTMLDivElement).style.borderColor = "#F9FAFB";
                   (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
                   (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                 }}
@@ -161,14 +161,14 @@ export default function DashboardPage() {
                 <div style={{ position: "absolute", top: 0, right: 0, width: "100px", height: "100px", borderRadius: "50%", background: `radial-gradient(circle, ${s.color}12, transparent 70%)`, transform: "translate(30%, -30%)" }} />
 
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
-                  <p style={{ fontSize: "0.78rem", fontWeight: 600, color: "#B8AEC2", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+                  <p style={{ fontSize: "0.78rem", fontWeight: 600, color: "#6B6B6B", letterSpacing: "0.04em", textTransform: "uppercase" }}>
                     {s.label}
                   </p>
                   <div style={{ width: "40px", height: "40px", borderRadius: "12px", background: `${s.color}18`, border: `1px solid ${s.color}30`, display: "flex", alignItems: "center", justifyContent: "center", color: s.color }}>
                     {s.icon}
                   </div>
                 </div>
-                <p style={{ fontSize: "2.2rem", fontWeight: 800, color: "#F8F5F0", letterSpacing: "-0.03em", lineHeight: 1, marginBottom: "8px" }}>
+                <p style={{ fontSize: "2.2rem", fontWeight: 800, color: "#1A1A1A", letterSpacing: "-0.03em", lineHeight: 1, marginBottom: "8px" }}>
                   {s.value}
                 </p>
                 <p style={{ fontSize: "0.78rem", color: s.color, fontWeight: 500 }}>
@@ -185,14 +185,14 @@ export default function DashboardPage() {
             {/* Left: Tabs (Activity / Matches) */}
             <div
               style={{
-                background: "rgba(45, 27, 61,0.9)",
-                border: "1px solid rgba(255,255,255,0.07)",
+                background: "#FFFFFF",
+                border: "1px solid #F9FAFB",
                 borderRadius: "16px",
                 overflow: "hidden",
               }}
             >
               {/* Tab Header */}
-              <div style={{ display: "flex", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+              <div style={{ display: "flex", borderBottom: "1px solid #F9FAFB" }}>
                 {(["activity", "matches"] as const).map((tab) => (
                   <button
                     key={tab}
@@ -203,7 +203,7 @@ export default function DashboardPage() {
                       background: activeTab === tab ? "rgba(212, 175, 55,0.08)" : "transparent",
                       border: "none",
                       borderBottom: activeTab === tab ? "2px solid #D4AF37" : "2px solid transparent",
-                      color: activeTab === tab ? "#D4AF37" : "#B8AEC2",
+                      color: activeTab === tab ? "#D4AF37" : "#6B6B6B",
                       fontWeight: 600,
                       fontSize: "0.88rem",
                       cursor: "pointer",
@@ -228,7 +228,7 @@ export default function DashboardPage() {
                           display: "flex",
                           gap: "14px",
                           padding: "16px 0",
-                          borderBottom: i < activity.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none",
+                          borderBottom: i < activity.length - 1 ? "1px solid #F9FAFB" : "none",
                         }}
                       >
                         <div
@@ -248,7 +248,7 @@ export default function DashboardPage() {
                           {item.icon}
                         </div>
                         <div style={{ flex: 1 }}>
-                          <p style={{ fontSize: "0.88rem", color: "#F8F5F0", lineHeight: 1.5 }}>{item.text}</p>
+                          <p style={{ fontSize: "0.88rem", color: "#1A1A1A", lineHeight: 1.5 }}>{item.text}</p>
                           <p style={{ fontSize: "0.75rem", color: "#606070", marginTop: "4px" }}>
                             <Clock size={11} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} />
                             {item.time}
@@ -264,8 +264,8 @@ export default function DashboardPage() {
                         key={i}
                         style={{
                           padding: "16px",
-                          background: "rgba(255,255,255,0.02)",
-                          border: "1px solid rgba(255,255,255,0.06)",
+                          background: "#F9FAFB",
+                          border: "1px solid #F9FAFB",
                           borderRadius: "12px",
                           display: "flex",
                           alignItems: "center",
@@ -274,18 +274,18 @@ export default function DashboardPage() {
                           cursor: "pointer",
                         }}
                         onMouseEnter={(e) => {
-                          (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(212, 175, 55,0.25)";
+                          (e.currentTarget as HTMLDivElement).style.borderColor = "#E5E5E5";
                           (e.currentTarget as HTMLDivElement).style.background = "rgba(212, 175, 55,0.05)";
                         }}
                         onMouseLeave={(e) => {
-                          (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.06)";
-                          (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.02)";
+                          (e.currentTarget as HTMLDivElement).style.borderColor = "#F9FAFB";
+                          (e.currentTarget as HTMLDivElement).style.background = "#F9FAFB";
                         }}
                       >
-                        <div style={{ width: "44px", height: "44px", borderRadius: "10px", background: "linear-gradient(135deg, rgba(212, 175, 55,0.2), rgba(245, 200, 66,0.2))", flexShrink: 0 }} />
+                        <div style={{ width: "44px", height: "44px", borderRadius: "10px", background: "linear-gradient(135deg, #E5E5E5, rgba(245, 200, 66,0.2))", flexShrink: 0 }} />
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <p style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0", marginBottom: "4px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{m.title}</p>
-                          <p style={{ fontSize: "0.76rem", color: "#B8AEC2" }}>
+                          <p style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1A1A1A", marginBottom: "4px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{m.title}</p>
+                          <p style={{ fontSize: "0.76rem", color: "#6B6B6B" }}>
                             <MapPin size={11} style={{ display: "inline", verticalAlign: "middle", marginRight: "3px" }} />
                             {m.location}
                           </p>
@@ -294,9 +294,9 @@ export default function DashboardPage() {
                           <div style={{ fontSize: "1rem", fontWeight: 800, background: "linear-gradient(135deg, #D4AF37, #F5C842)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                             {m.score}%
                           </div>
-                          <div style={{ fontSize: "0.7rem", color: "#B8AEC2" }}>Match</div>
+                          <div style={{ fontSize: "0.7rem", color: "#6B6B6B" }}>Match</div>
                         </div>
-                        <ArrowRight size={14} color="#B8AEC2" />
+                        <ArrowRight size={14} color="#6B6B6B" />
                       </div>
                     ))}
                   </div>
@@ -307,8 +307,8 @@ export default function DashboardPage() {
             {/* Right: Quick Actions + Mini Map */}
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {/* Quick Actions */}
-              <div style={{ padding: "24px", background: "rgba(45, 27, 61,0.9)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "16px" }}>
-                <h3 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "16px" }}>Quick Actions</h3>
+              <div style={{ padding: "24px", background: "#FFFFFF", border: "1px solid #F9FAFB", borderRadius: "16px" }}>
+                <h3 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#1A1A1A", marginBottom: "16px" }}>Quick Actions</h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   {[
                     { label: "Report Lost Item", icon: <FileSearch size={16} />, href: "/lost", primary: true },
@@ -324,20 +324,20 @@ export default function DashboardPage() {
                         gap: "10px",
                         padding: "12px 16px",
                         borderRadius: "10px",
-                        background: action.primary ? "linear-gradient(135deg, #D4AF37, #F5C842)" : "rgba(255,255,255,0.04)",
-                        border: action.primary ? "none" : "1px solid rgba(255,255,255,0.08)",
-                        color: action.primary ? "#fff" : "#B8AEC2",
+                        background: action.primary ? "linear-gradient(135deg, #D4AF37, #F5C842)" : "#F9FAFB",
+                        border: action.primary ? "none" : "1px solid #F9FAFB",
+                        color: action.primary ? "#fff" : "#6B6B6B",
                         fontWeight: 600,
                         fontSize: "0.88rem",
                         textDecoration: "none",
                         transition: "all 0.2s",
-                        boxShadow: action.primary ? "0 4px 16px rgba(212, 175, 55,0.3)" : "none",
+                        boxShadow: action.primary ? "0 4px 16px #F5E5B8" : "none",
                       }}
                       onMouseEnter={(e) => {
                         if (!action.primary) {
-                          (e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0";
+                          (e.currentTarget as HTMLAnchorElement).style.color = "#1A1A1A";
                           (e.currentTarget as HTMLAnchorElement).style.background = "rgba(212, 175, 55,0.08)";
-                          (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(212, 175, 55,0.25)";
+                          (e.currentTarget as HTMLAnchorElement).style.borderColor = "#E5E5E5";
                         } else {
                           (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
                           (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 24px rgba(212, 175, 55,0.45)";
@@ -345,12 +345,12 @@ export default function DashboardPage() {
                       }}
                       onMouseLeave={(e) => {
                         if (!action.primary) {
-                          (e.currentTarget as HTMLAnchorElement).style.color = "#B8AEC2";
-                          (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
-                          (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.08)";
+                          (e.currentTarget as HTMLAnchorElement).style.color = "#6B6B6B";
+                          (e.currentTarget as HTMLAnchorElement).style.background = "#F9FAFB";
+                          (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F9FAFB";
                         } else {
                           (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-                          (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(212, 175, 55,0.3)";
+                          (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px #F5E5B8";
                         }
                       }}
                     >
@@ -367,17 +367,17 @@ export default function DashboardPage() {
                 style={{
                   padding: "24px",
                   background: "linear-gradient(135deg, rgba(184, 150, 40,0.12), rgba(245, 200, 66,0.06))",
-                  border: "1px solid rgba(212, 175, 55,0.2)",
+                  border: "1px solid #E5E5E5",
                   borderRadius: "16px",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-                  <div style={{ width: "32px", height: "32px", borderRadius: "10px", background: "rgba(212, 175, 55,0.2)", display: "flex", alignItems: "center", justifyContent: "center", color: "#D4AF37" }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "10px", background: "#E5E5E5", display: "flex", alignItems: "center", justifyContent: "center", color: "#D4AF37" }}>
                     <Star size={16} />
                   </div>
-                  <h3 style={{ fontSize: "0.88rem", fontWeight: 700, color: "#F8F5F0" }}>AI Insight</h3>
+                  <h3 style={{ fontSize: "0.88rem", fontWeight: 700, color: "#1A1A1A" }}>AI Insight</h3>
                 </div>
-                <p style={{ fontSize: "0.85rem", color: "#B8AEC2", lineHeight: 1.6 }}>
+                <p style={{ fontSize: "0.85rem", color: "#6B6B6B", lineHeight: 1.6 }}>
                   Based on your reports, adding more photos increases match accuracy by <span style={{ color: "#D4AF37", fontWeight: 600 }}>34%</span>. Try updating your item descriptions.
                 </p>
               </div>

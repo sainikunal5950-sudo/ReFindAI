@@ -20,8 +20,8 @@ export default function StatCard({
   return (
     <div
       style={{
-        background: "rgba(45, 27, 61, 0.85)",
-        border: "1px solid rgba(212, 175, 55, 0.2)",
+        background: "#FFFFFF",
+        border: "1px solid #E5E5E5",
         borderRadius: "18px",
         padding: "20px",
         backdropFilter: "blur(20px)",
@@ -38,7 +38,7 @@ export default function StatCard({
         e.currentTarget.style.transform = "translateY(-2px)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.2)";
+        e.currentTarget.style.borderColor = "#E5E5E5";
         e.currentTarget.style.transform = "translateY(0)";
       }}
     >
@@ -60,7 +60,7 @@ export default function StatCard({
 
       {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
+        <span style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>
           {title}
         </span>
         {icon && (
@@ -84,14 +84,14 @@ export default function StatCard({
 
       {/* Value */}
       <div style={{ display: "flex", alignItems: "baseline", gap: "8px" }}>
-        <span style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F8F5F0", letterSpacing: "-0.02em" }}>
+        <span style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1A1A1A", letterSpacing: "-0.02em" }}>
           {value}
         </span>
       </div>
 
       {/* Trend or Subtitle */}
       {trend && (
-        <span style={{ fontSize: "0.74rem", color: "#B8AEC2", fontWeight: 500 }}>
+        <span style={{ fontSize: "0.74rem", color: "#6B6B6B", fontWeight: 500 }}>
           {trend}
         </span>
       )}

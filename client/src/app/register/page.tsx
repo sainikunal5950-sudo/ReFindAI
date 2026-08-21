@@ -49,10 +49,10 @@ export default function RegisterPage() {
   const inputStyle: React.CSSProperties = {
     width: "100%",
     padding: "12px 16px 12px 42px",
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.1)",
+    background: "#F9FAFB",
+    border: "1px solid #F3F4F6",
     borderRadius: "10px",
-    color: "#F8F5F0",
+    color: "#1A1A1A",
     fontSize: "0.95rem",
     outline: "none",
     transition: "border-color 0.2s, box-shadow 0.2s",
@@ -61,10 +61,10 @@ export default function RegisterPage() {
 
   const onFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.currentTarget.style.borderColor = "#D4AF37";
-    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.15)";
+    e.currentTarget.style.boxShadow = "0 0 0 3px #FDF4D8";
   };
   const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+    e.currentTarget.style.borderColor = "#F3F4F6";
     e.currentTarget.style.boxShadow = "none";
   };
 
@@ -81,7 +81,7 @@ export default function RegisterPage() {
     <main
       style={{
         minHeight: "100vh",
-        background: "#1E1425",
+        background: "#FFFFFF",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -93,15 +93,15 @@ export default function RegisterPage() {
       {/* Background orbs */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>
         <div style={{ position: "absolute", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(245, 200, 66,0.12), transparent 70%)", top: "-150px", right: "-100px", animation: "float2 12s ease-in-out infinite" }} />
-        <div style={{ position: "absolute", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212, 175, 55,0.12), transparent 70%)", bottom: "-100px", left: "-80px", animation: "float 10s ease-in-out infinite" }} />
+        <div style={{ position: "absolute", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, #FDF4D8, transparent 70%)", bottom: "-100px", left: "-80px", animation: "float 10s ease-in-out infinite" }} />
       </div>
 
       <div style={{ width: "100%", maxWidth: "460px", position: "relative", zIndex: 5 }}>
         {/* Card */}
         <div
           style={{
-            background: "rgba(45, 27, 61,0.85)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "#FFFFFF",
+            border: "1px solid #F9FAFB",
             borderRadius: "24px",
             padding: "48px 40px",
             backdropFilter: "blur(24px)",
@@ -121,10 +121,10 @@ export default function RegisterPage() {
             </Link>
           </div>
 
-          <h1 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "8px", color: "#F8F5F0", letterSpacing: "-0.02em" }}>
+          <h1 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "8px", color: "#1A1A1A", letterSpacing: "-0.02em" }}>
             Create your account
           </h1>
-          <p style={{ textAlign: "center", color: "#B8AEC2", fontSize: "0.9rem", marginBottom: "28px" }}>
+          <p style={{ textAlign: "center", color: "#6B6B6B", fontSize: "0.9rem", marginBottom: "28px" }}>
             Join thousands recovering their lost items with AI
           </p>
 
@@ -152,7 +152,7 @@ export default function RegisterPage() {
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
             {/* Name */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>Full Name</label>
+              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>Full Name</label>
               <div style={{ position: "relative" }}>
                 <User size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                 <input
@@ -170,7 +170,7 @@ export default function RegisterPage() {
 
             {/* Email */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>Email Address</label>
+              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>Email Address</label>
               <div style={{ position: "relative" }}>
                 <Mail size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                 <input
@@ -188,7 +188,7 @@ export default function RegisterPage() {
 
             {/* Password */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>Password</label>
+              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>Password</label>
               <div style={{ position: "relative" }}>
                 <Lock size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                 <input
@@ -209,7 +209,7 @@ export default function RegisterPage() {
               {form.password.length > 0 && (
                 <div style={{ display: "flex", gap: "4px", marginTop: "4px" }}>
                   {[1, 2, 3, 4].map((n) => (
-                    <div key={n} style={{ flex: 1, height: "3px", borderRadius: "2px", background: n <= strength ? strengthColor : "rgba(255,255,255,0.08)", transition: "background 0.3s" }} />
+                    <div key={n} style={{ flex: 1, height: "3px", borderRadius: "2px", background: n <= strength ? strengthColor : "#F9FAFB", transition: "background 0.3s" }} />
                   ))}
                 </div>
               )}
@@ -217,7 +217,7 @@ export default function RegisterPage() {
 
             {/* Confirm Password */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>Confirm Password</label>
+              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6B6B6B" }}>Confirm Password</label>
               <div style={{ position: "relative" }}>
                 <Lock size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                 <input
@@ -226,7 +226,7 @@ export default function RegisterPage() {
                   value={form.confirm}
                   onChange={(e) => setForm({ ...form, confirm: e.target.value })}
                   required
-                  style={{ ...inputStyle, paddingRight: "44px", borderColor: form.confirm && form.confirm !== form.password ? "#EF4444" : "rgba(255,255,255,0.1)" }}
+                  style={{ ...inputStyle, paddingRight: "44px", borderColor: form.confirm && form.confirm !== form.password ? "#EF4444" : "#F3F4F6" }}
                   onFocus={onFocus}
                   onBlur={onBlur}
                 />
@@ -260,7 +260,7 @@ export default function RegisterPage() {
               >
                 {agreed && <CheckCircle2 size={12} color="#fff" />}
               </div>
-              <span style={{ fontSize: "0.83rem", color: "#B8AEC2", lineHeight: 1.5 }}>
+              <span style={{ fontSize: "0.83rem", color: "#6B6B6B", lineHeight: 1.5 }}>
                 I agree to the{" "}
                 <Link href="#" style={{ color: "#D4AF37", textDecoration: "none" }}>Terms of Service</Link>
                 {" "}and{" "}
@@ -276,7 +276,7 @@ export default function RegisterPage() {
                 width: "100%",
                 padding: "14px",
                 background: loading || !agreed
-                  ? "rgba(212, 175, 55,0.3)"
+                  ? "#F5E5B8"
                   : "linear-gradient(135deg, #D4AF37, #F5C842)",
                 border: "none",
                 borderRadius: "12px",
@@ -318,7 +318,7 @@ export default function RegisterPage() {
           </form>
 
           {/* Login link */}
-          <p style={{ textAlign: "center", color: "#B8AEC2", fontSize: "0.88rem", marginTop: "24px" }}>
+          <p style={{ textAlign: "center", color: "#6B6B6B", fontSize: "0.88rem", marginTop: "24px" }}>
             Already have an account?{" "}
             <Link href="/login" style={{ color: "#D4AF37", fontWeight: 600, textDecoration: "none" }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5C842")}

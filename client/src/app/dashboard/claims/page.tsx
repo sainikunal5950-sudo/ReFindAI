@@ -37,7 +37,7 @@ export default function MyClaimsPage() {
   }, [fetchClaims]);
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFFFF" }}>
       <Sidebar variant="user" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -46,12 +46,12 @@ export default function MyClaimsPage() {
         <header
           style={{
             height: "68px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(21, 14, 28,0.8)",
+            background: "#FFFFFF",
             backdropFilter: "blur(12px)",
             position: "sticky",
             top: 0,
@@ -68,16 +68,16 @@ export default function MyClaimsPage() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#F5C842",
+                color: "#92700F",
               }}
             >
               <ClipboardCheck size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1A1A1A" }}>
                 My Submitted Claims
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
+              <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>
                 {claims.length} verification claims filed by you
               </p>
             </div>
@@ -87,10 +87,10 @@ export default function MyClaimsPage() {
             onClick={fetchClaims}
             style={{
               padding: "8px 12px",
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "#F9FAFB",
+              border: "1px solid #F9FAFB",
               borderRadius: "10px",
-              color: "#B8AEC2",
+              color: "#6B6B6B",
               fontSize: "0.82rem",
               cursor: "pointer",
               display: "flex",
@@ -116,8 +116,8 @@ export default function MyClaimsPage() {
             <div
               style={{
                 padding: "72px 20px",
-                background: "rgba(45, 27, 61,0.6)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "#FFFFFF",
+                border: "1px solid #F9FAFB",
                 borderRadius: "24px",
                 textAlign: "center",
                 maxWidth: "480px",
@@ -133,16 +133,16 @@ export default function MyClaimsPage() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#F5C842",
+                  color: "#92700F",
                   margin: "0 auto 16px",
                 }}
               >
                 <PackageSearch size={30} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1A1A1A", marginBottom: "6px" }}>
                 No claims submitted yet
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#B8AEC2", marginBottom: "24px", lineHeight: 1.5 }}>
+              <p style={{ fontSize: "0.88rem", color: "#6B6B6B", marginBottom: "24px", lineHeight: 1.5 }}>
                 Browse recently found items to file an ownership verification claim if you recognize your lost property.
               </p>
               <Link

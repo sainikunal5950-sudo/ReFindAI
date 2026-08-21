@@ -32,14 +32,14 @@ export default function ScoreBreakdownBar({
             display: "flex",
             alignItems: "center",
             gap: "5px",
-            color: "#B8AEC2",
+            color: "#6B6B6B",
             fontWeight: 500,
           }}
         >
           {icon}
           {label}
         </span>
-        <span style={{ fontWeight: 700, color: "#F8F5F0" }}>{score}%</span>
+        <span style={{ fontWeight: 700, color: "#1A1A1A" }}>{score}%</span>
       </div>
 
       {/* Progress Track */}
@@ -47,7 +47,7 @@ export default function ScoreBreakdownBar({
         style={{
           width: "100%",
           height: "5px",
-          background: "rgba(255, 255, 255, 0.08)",
+          background: "#F9FAFB",
           borderRadius: "999px",
           overflow: "hidden",
         }}

@@ -82,7 +82,7 @@ export default function MyMatchesPage() {
   });
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFFFF" }}>
       <Sidebar variant="user" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -102,12 +102,12 @@ export default function MyMatchesPage() {
         <header
           style={{
             height: "68px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(21, 14, 28,0.8)",
+            background: "#FFFFFF",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             position: "sticky",
@@ -121,20 +121,20 @@ export default function MyMatchesPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, rgba(212, 175, 55,0.2), rgba(245, 200, 66,0.2))",
+                background: "linear-gradient(135deg, #E5E5E5, rgba(245, 200, 66,0.2))",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#F5C842",
+                color: "#92700F",
               }}
             >
               <GitCompare size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1A1A1A" }}>
                 AI Match Suggestions
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
+              <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>
                 {filteredMatches.length} potential matches for your reported items
               </p>
             </div>
@@ -147,28 +147,28 @@ export default function MyMatchesPage() {
               onChange={(e) => setStatusFilter(e.target.value)}
               style={{
                 padding: "8px 14px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background: "#F9FAFB",
+                border: "1px solid #F3F4F6",
                 borderRadius: "10px",
-                color: "#F8F5F0",
+                color: "#1A1A1A",
                 fontSize: "0.82rem",
                 outline: "none",
                 cursor: "pointer",
               }}
             >
-              <option value="all" style={{ background: "#150E1C" }}>All Active Matches</option>
-              <option value="pending" style={{ background: "#150E1C" }}>Pending Review</option>
-              <option value="confirmed" style={{ background: "#150E1C" }}>Confirmed Matches</option>
+              <option value="all" style={{ background: "#FFFFFF" }}>All Active Matches</option>
+              <option value="pending" style={{ background: "#FFFFFF" }}>Pending Review</option>
+              <option value="confirmed" style={{ background: "#FFFFFF" }}>Confirmed Matches</option>
             </select>
 
             <button
               onClick={fetchMatches}
               style={{
                 padding: "8px 12px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
                 borderRadius: "10px",
-                color: "#B8AEC2",
+                color: "#6B6B6B",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -195,8 +195,8 @@ export default function MyMatchesPage() {
             <div
               style={{
                 padding: "72px 20px",
-                background: "rgba(45, 27, 61,0.6)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "#FFFFFF",
+                border: "1px solid #F9FAFB",
                 borderRadius: "24px",
                 textAlign: "center",
                 maxWidth: "480px",
@@ -208,7 +208,7 @@ export default function MyMatchesPage() {
                   width: "60px",
                   height: "60px",
                   borderRadius: "18px",
-                  background: "rgba(212, 175, 55,0.1)",
+                  background: "#FDF4D8",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -218,10 +218,10 @@ export default function MyMatchesPage() {
               >
                 <Sparkles size={28} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1A1A1A", marginBottom: "6px" }}>
                 No active matches found
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#B8AEC2", marginBottom: "24px", lineHeight: 1.5 }}>
+              <p style={{ fontSize: "0.88rem", color: "#6B6B6B", marginBottom: "24px", lineHeight: 1.5 }}>
                 Our AI matching algorithm is actively scanning newly posted items. When an item matching your title, category, location, and date is reported, it will appear here immediately.
               </p>
               <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
@@ -243,10 +243,10 @@ export default function MyMatchesPage() {
                   href="/found/report"
                   style={{
                     padding: "10px 18px",
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    background: "#F9FAFB",
+                    border: "1px solid #F3F4F6",
                     borderRadius: "10px",
-                    color: "#F8F5F0",
+                    color: "#1A1A1A",
                     fontWeight: 600,
                     fontSize: "0.85rem",
                     textDecoration: "none",

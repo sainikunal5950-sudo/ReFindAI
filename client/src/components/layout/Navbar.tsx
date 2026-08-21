@@ -34,13 +34,13 @@ export default function Navbar() {
           zIndex: 100,
           transition: "all 0.3s ease",
           background: scrolled
-            ? "rgba(21, 14, 28, 0.92)"
-            : "rgba(30, 20, 37, 0.65)",
+            ? "#FFFFFF"
+            : "#FFFFFF",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           borderBottom: scrolled
-            ? "1px solid rgba(212, 175, 55, 0.2)"
-            : "1px solid rgba(255, 255, 255, 0.05)",
+            ? "1px solid #E5E5E5"
+            : "1px solid #F9FAFB",
           boxShadow: scrolled ? "0 8px 30px rgba(0,0,0,0.5)" : "none",
         }}
       >
@@ -73,13 +73,13 @@ export default function Navbar() {
                 boxShadow: "0 0 16px rgba(212,175,55,0.45)",
               }}
             >
-              <Search size={18} color="#150E1C" strokeWidth={2.5} />
+              <Search size={18} color="#FFFFFF" strokeWidth={2.5} />
             </div>
             <span
               style={{
                 fontSize: "1.25rem",
                 fontWeight: 800,
-                background: "linear-gradient(135deg, #F8F5F0, #D4AF37)",
+                background: "linear-gradient(135deg, #1A1A1A, #D4AF37)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -111,21 +111,21 @@ export default function Navbar() {
                     borderRadius: "10px",
                     fontSize: "0.9rem",
                     fontWeight: 500,
-                    color: active ? "#F5C842" : "#B8AEC2",
-                    background: active ? "rgba(212, 175, 55, 0.15)" : "transparent",
-                    border: active ? "1px solid rgba(212, 175, 55, 0.35)" : "1px solid transparent",
+                    color: active ? "#F5C842" : "#6B6B6B",
+                    background: active ? "#FDF4D8" : "transparent",
+                    border: active ? "1px solid #F5E5B8" : "1px solid transparent",
                     transition: "all 0.2s ease",
                     textDecoration: "none",
                   }}
                   onMouseEnter={(e) => {
                     if (!active) {
-                      (e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0";
-                      (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.05)";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "#1A1A1A";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "#F9FAFB";
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!active) {
-                      (e.currentTarget as HTMLAnchorElement).style.color = "#B8AEC2";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "#6B6B6B";
                       (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
                     }
                   }}
@@ -146,8 +146,8 @@ export default function Navbar() {
                 borderRadius: "10px",
                 fontSize: "0.875rem",
                 fontWeight: 600,
-                color: "#F8F5F0",
-                border: "1px solid rgba(212,175,55,0.3)",
+                color: "#1A1A1A",
+                border: "1px solid #F5E5B8",
                 background: "rgba(212,175,55,0.04)",
                 transition: "all 0.2s ease",
                 textDecoration: "none",
@@ -155,11 +155,11 @@ export default function Navbar() {
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.color = "#F5C842";
                 (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(212,175,55,0.6)";
-                (e.currentTarget as HTMLAnchorElement).style.background = "rgba(212,175,55,0.1)";
+                (e.currentTarget as HTMLAnchorElement).style.background = "#FDF4D8";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0";
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(212,175,55,0.3)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "#1A1A1A";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5E5B8";
                 (e.currentTarget as HTMLAnchorElement).style.background = "rgba(212,175,55,0.04)";
               }}
             >
@@ -172,9 +172,9 @@ export default function Navbar() {
                 borderRadius: "10px",
                 fontSize: "0.875rem",
                 fontWeight: 700,
-                color: "#150E1C",
+                color: "#FFFFFF",
                 background: "linear-gradient(135deg, #D4AF37, #EAB308)",
-                boxShadow: "0 4px 16px rgba(212,175,55,0.35)",
+                boxShadow: "0 4px 16px #F5E5B8",
                 transition: "all 0.2s ease",
                 textDecoration: "none",
                 display: "flex",
@@ -187,10 +187,10 @@ export default function Navbar() {
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(212,175,55,0.35)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px #F5E5B8";
               }}
             >
-              <Zap size={15} color="#150E1C" /> Get Started
+              <Zap size={15} color="#FFFFFF" /> Get Started
             </Link>
 
             {/* Mobile Hamburger */}
@@ -201,9 +201,9 @@ export default function Navbar() {
                 display: "none",
                 padding: "8px",
                 borderRadius: "8px",
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                color: "#F8F5F0",
+                background: "#F9FAFB",
+                border: "1px solid #F3F4F6",
+                color: "#1A1A1A",
                 cursor: "pointer",
               }}
               aria-label="Toggle menu"
@@ -222,9 +222,9 @@ export default function Navbar() {
             top: "68px",
             left: 0,
             right: 0,
-            background: "rgba(21, 14, 28, 0.98)",
+            background: "#FFFFFF",
             backdropFilter: "blur(24px)",
-            borderBottom: "1px solid rgba(212, 175, 55, 0.2)",
+            borderBottom: "1px solid #E5E5E5",
             padding: "24px",
             display: "flex",
             flexDirection: "column",
@@ -242,8 +242,8 @@ export default function Navbar() {
                 borderRadius: "10px",
                 fontSize: "1rem",
                 fontWeight: 600,
-                color: pathname === link.href ? "#D4AF37" : "#F8F5F0",
-                background: pathname === link.href ? "rgba(212, 175, 55, 0.15)" : "rgba(255,255,255,0.03)",
+                color: pathname === link.href ? "#D4AF37" : "#1A1A1A",
+                background: pathname === link.href ? "#FDF4D8" : "#F9FAFB",
                 textDecoration: "none",
               }}
             >

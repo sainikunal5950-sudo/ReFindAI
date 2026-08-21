@@ -141,7 +141,7 @@ export default function FoundItemDetailPage() {
   };
 
   return (
-    <main style={{ minHeight: "100vh", background: "#1E1425", color: "#F8F5F0" }}>
+    <main style={{ minHeight: "100vh", background: "#FFFFFF", color: "#1A1A1A" }}>
       <Navbar />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -179,7 +179,7 @@ export default function FoundItemDetailPage() {
             style={{
               width: "100%",
               maxWidth: "460px",
-              background: "rgba(45, 27, 61,0.95)",
+              background: "#FFFFFF",
               border: "1px solid rgba(245, 200, 66,0.3)",
               borderRadius: "20px",
               padding: "32px",
@@ -196,16 +196,16 @@ export default function FoundItemDetailPage() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#F5C842",
+                color: "#92700F",
                 margin: "0 auto 16px",
               }}
             >
               <HandMetal size={28} />
             </div>
-            <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#F8F5F0", marginBottom: "8px" }}>
+            <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1A1A1A", marginBottom: "8px" }}>
               Claim Verification
             </h3>
-            <p style={{ fontSize: "0.88rem", color: "#B8AEC2", lineHeight: 1.5, marginBottom: "24px" }}>
+            <p style={{ fontSize: "0.88rem", color: "#6B6B6B", lineHeight: 1.5, marginBottom: "24px" }}>
               To verify that this <strong>{item?.title}</strong> belongs to you, you will be prompted to answer specific verification questions and submit proof of ownership in the upcoming Claims module.
             </p>
             <div style={{ display: "flex", gap: "10px" }}>
@@ -214,10 +214,10 @@ export default function FoundItemDetailPage() {
                 style={{
                   flex: 1,
                   padding: "10px 16px",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F3F4F6",
                   borderRadius: "10px",
-                  color: "#B8AEC2",
+                  color: "#6B6B6B",
                   fontWeight: 600,
                   fontSize: "0.88rem",
                   cursor: "pointer",
@@ -259,13 +259,13 @@ export default function FoundItemDetailPage() {
               display: "inline-flex",
               alignItems: "center",
               gap: "6px",
-              color: "#B8AEC2",
+              color: "#6B6B6B",
               fontSize: "0.88rem",
               textDecoration: "none",
               transition: "color 0.2s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#F8F5F0")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#B8AEC2")}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#1A1A1A")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#6B6B6B")}
           >
             <ArrowLeft size={16} /> Back to Found Items
           </Link>
@@ -278,10 +278,10 @@ export default function FoundItemDetailPage() {
                 alignItems: "center",
                 gap: "6px",
                 padding: "8px 14px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background: "#F9FAFB",
+                border: "1px solid #F3F4F6",
                 borderRadius: "10px",
-                color: "#B8AEC2",
+                color: "#6B6B6B",
                 fontSize: "0.85rem",
                 cursor: "pointer",
               }}
@@ -325,7 +325,7 @@ export default function FoundItemDetailPage() {
           /* Not Found State */
           <div style={{ textAlign: "center", padding: "80px 20px" }}>
             <h2 style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: "8px" }}>Found Item Not Found</h2>
-            <p style={{ color: "#B8AEC2", marginBottom: "20px" }}>
+            <p style={{ color: "#6B6B6B", marginBottom: "20px" }}>
               The requested found item report does not exist or has been resolved.
             </p>
             <Link
@@ -353,8 +353,8 @@ export default function FoundItemDetailPage() {
                   width: "100%",
                   height: "380px",
                   borderRadius: "24px",
-                  background: "rgba(45, 27, 61,0.9)",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "#FFFFFF",
+                  border: "1px solid #F9FAFB",
                   overflow: "hidden",
                   position: "relative",
                   display: "flex",
@@ -402,8 +402,8 @@ export default function FoundItemDetailPage() {
                           height: "72px",
                           borderRadius: "12px",
                           overflow: "hidden",
-                          border: isSelected ? "2px solid #F5C842" : "1px solid rgba(255,255,255,0.1)",
-                          background: "#2D1B3D",
+                          border: isSelected ? "2px solid #F5C842" : "1px solid #F3F4F6",
+                          background: "#FFFFFF",
                           padding: 0,
                           cursor: "pointer",
                           boxShadow: isSelected ? "0 0 14px rgba(245, 200, 66,0.4)" : "none",
@@ -431,7 +431,7 @@ export default function FoundItemDetailPage() {
                   {getStatusBadge(item.status)}
                 </div>
 
-                <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, color: "#F8F5F0", lineHeight: 1.2, letterSpacing: "-0.02em" }}>
+                <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, color: "#1A1A1A", lineHeight: 1.2, letterSpacing: "-0.02em" }}>
                   {item.title}
                 </h1>
               </div>
@@ -468,8 +468,8 @@ export default function FoundItemDetailPage() {
               {/* Location, Handover & Date Highlights */}
               <div
                 style={{
-                  background: "rgba(45, 27, 61,0.8)",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "#FFFFFF",
+                  border: "1px solid #F9FAFB",
                   borderRadius: "16px",
                   padding: "18px 20px",
                   display: "grid",
@@ -478,33 +478,33 @@ export default function FoundItemDetailPage() {
                 }}
               >
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(245, 200, 66,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#F5C842", flexShrink: 0 }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(245, 200, 66,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#92700F", flexShrink: 0 }}>
                     <MapPin size={16} />
                   </div>
                   <div>
                     <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Location Found</div>
-                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>{item.location}</div>
+                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1A1A1A" }}>{item.location}</div>
                   </div>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(212, 175, 55,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#D4AF37", flexShrink: 0 }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "#FDF4D8", display: "flex", alignItems: "center", justifyContent: "center", color: "#D4AF37", flexShrink: 0 }}>
                     <Calendar size={16} />
                   </div>
                   <div>
                     <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Date Found</div>
-                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>{formatDate(item.date)}</div>
+                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1A1A1A" }}>{formatDate(item.date)}</div>
                   </div>
                 </div>
 
                 {item.handoverLocation && (
-                  <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "flex-start", gap: "10px", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                  <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "flex-start", gap: "10px", paddingTop: "12px", borderTop: "1px solid #F9FAFB" }}>
                     <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(168,85,247,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#A855F7", flexShrink: 0 }}>
                       <Building size={16} />
                     </div>
                     <div>
                       <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Handover / Drop-off Point</div>
-                      <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>{item.handoverLocation}</div>
+                      <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1A1A1A" }}>{item.handoverLocation}</div>
                     </div>
                   </div>
                 )}
@@ -512,16 +512,16 @@ export default function FoundItemDetailPage() {
 
               {/* Description Body */}
               <div>
-                <h3 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#B8AEC2", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>
+                <h3 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#6B6B6B", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>
                   Description
                 </h3>
                 <div
                   style={{
-                    background: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.06)",
+                    background: "#F9FAFB",
+                    border: "1px solid #F9FAFB",
                     borderRadius: "14px",
                     padding: "18px 20px",
-                    color: "#F8F5F0",
+                    color: "#1A1A1A",
                     fontSize: "0.92rem",
                     lineHeight: 1.6,
                     whiteSpace: "pre-wrap",
@@ -538,15 +538,15 @@ export default function FoundItemDetailPage() {
                   alignItems: "center",
                   justifyContent: "space-between",
                   padding: "14px 18px",
-                  background: "rgba(45, 27, 61,0.6)",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "#FFFFFF",
+                  border: "1px solid #F9FAFB",
                   borderRadius: "14px",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <Avatar src={item.user?.avatar} name={item.user?.name || "Good Samaritan"} size="sm" glow={false} />
                   <div>
-                    <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "#F8F5F0", display: "block" }}>
+                    <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "#1A1A1A", display: "block" }}>
                       Turned in by {item.user?.name ? item.user.name.split(" ")[0] : "Good Samaritan"}
                     </span>
                     <span style={{ fontSize: "0.72rem", color: "#606070" }}>
@@ -555,7 +555,7 @@ export default function FoundItemDetailPage() {
                   </div>
                 </div>
 
-                <span style={{ fontSize: "0.75rem", color: "#F5C842", display: "flex", alignItems: "center", gap: "4px" }}>
+                <span style={{ fontSize: "0.75rem", color: "#92700F", display: "flex", alignItems: "center", gap: "4px" }}>
                   <Shield size={13} /> Verified Finder
                 </span>
               </div>

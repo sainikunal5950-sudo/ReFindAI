@@ -95,8 +95,8 @@ export default function ItemCard({
   return (
     <article
       style={{
-        background: "rgba(45, 27, 61, 0.85)",
-        border: "1px solid rgba(212, 175, 55, 0.2)",
+        background: "#FFFFFF",
+        border: "1px solid #E5E5E5",
         borderRadius: "20px",
         overflow: "hidden",
         display: "flex",
@@ -107,11 +107,11 @@ export default function ItemCard({
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-4px)";
         e.currentTarget.style.borderColor = "rgba(212,175,55,0.45)";
-        e.currentTarget.style.boxShadow = "0 20px 60px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.2)";
+        e.currentTarget.style.boxShadow = "0 20px 60px rgba(0,0,0,0.5), 0 0 20px #E5E5E5";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.2)";
+        e.currentTarget.style.borderColor = "#E5E5E5";
         e.currentTarget.style.boxShadow = "none";
       }}
     >
@@ -125,7 +125,7 @@ export default function ItemCard({
           alignItems: "center",
           justifyContent: "center",
           background: `linear-gradient(135deg, ${c1}25, ${c2}15)`,
-          borderBottom: "1px solid rgba(255,255,255,0.05)",
+          borderBottom: "1px solid #F9FAFB",
           overflow: "hidden",
           textDecoration: "none",
         }}
@@ -167,14 +167,14 @@ export default function ItemCard({
             position: "absolute",
             bottom: "12px",
             left: "12px",
-            background: "rgba(21, 14, 28, 0.85)",
+            background: "#FFFFFF",
             backdropFilter: "blur(10px)",
             padding: "3px 10px",
             borderRadius: "999px",
             fontSize: "0.72rem",
             fontWeight: 700,
-            color: "#F5C842",
-            border: "1px solid rgba(212,175,55,0.3)",
+            color: "#92700F",
+            border: "1px solid #F5E5B8",
             textTransform: "uppercase",
             letterSpacing: "0.03em",
           }}
@@ -191,7 +191,7 @@ export default function ItemCard({
           style={{
             fontSize: "1.05rem",
             fontWeight: 700,
-            color: "#F8F5F0",
+            color: "#1A1A1A",
             textDecoration: "none",
             lineHeight: 1.3,
             overflow: "hidden",
@@ -206,7 +206,7 @@ export default function ItemCard({
         <p
           style={{
             fontSize: "0.84rem",
-            color: "#B8AEC2",
+            color: "#6B6B6B",
             lineHeight: 1.5,
             margin: 0,
             display: "-webkit-box",
@@ -220,14 +220,14 @@ export default function ItemCard({
 
         {/* Metadata Details */}
         <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "auto" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#B8AEC2" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#6B6B6B" }}>
             <MapPin size={13} color="#D4AF37" style={{ flexShrink: 0 }} />
             <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
               {item.location}
             </span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#B8AEC2" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#6B6B6B" }}>
             <Calendar size={13} color="#D4AF37" style={{ flexShrink: 0 }} />
             <span>{formatDate(item.date)}</span>
           </div>
@@ -237,7 +237,7 @@ export default function ItemCard({
         <div
           style={{
             paddingTop: "12px",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -250,10 +250,10 @@ export default function ItemCard({
                 style={{
                   flex: 1,
                   padding: "8px 12px",
-                  background: "rgba(212,175,55,0.15)",
-                  border: "1px solid rgba(212,175,55,0.35)",
+                  background: "#FDF4D8",
+                  border: "1px solid #F5E5B8",
                   borderRadius: "8px",
-                  color: "#F5C842",
+                  color: "#92700F",
                   fontWeight: 700,
                   fontSize: "0.78rem",
                   textAlign: "center",
@@ -284,7 +284,7 @@ export default function ItemCard({
             </div>
           ) : (
             <>
-              <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>
+              <span style={{ fontSize: "0.75rem", color: "#6B6B6B" }}>
                 By {item.user?.name ? item.user.name.split(" ")[0] : "Finder"}
               </span>
 
@@ -295,21 +295,21 @@ export default function ItemCard({
                   alignItems: "center",
                   gap: "4px",
                   padding: "6px 12px",
-                  background: "rgba(212,175,55,0.15)",
-                  border: "1px solid rgba(212,175,55,0.35)",
+                  background: "#FDF4D8",
+                  border: "1px solid #F5E5B8",
                   borderRadius: "8px",
-                  color: "#F5C842",
+                  color: "#92700F",
                   fontWeight: 700,
                   fontSize: "0.78rem",
                   textDecoration: "none",
                   transition: "all 0.2s",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(212,175,55,0.25)";
-                  e.currentTarget.style.boxShadow = "0 0 12px rgba(212,175,55,0.3)";
+                  e.currentTarget.style.background = "#E5E5E5";
+                  e.currentTarget.style.boxShadow = "0 0 12px #F5E5B8";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(212,175,55,0.15)";
+                  e.currentTarget.style.background = "#FDF4D8";
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >

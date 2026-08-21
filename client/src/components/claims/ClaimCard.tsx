@@ -93,13 +93,13 @@ export default function ClaimCard({
   return (
     <div
       style={{
-        background: isAutoRejected ? "rgba(30, 20, 37, 0.6)" : "rgba(45, 27, 61, 0.85)",
+        background: isAutoRejected ? "#FFFFFF" : "#FFFFFF",
         border: `1px solid ${
           claim.status === "approved"
             ? "rgba(74, 222, 128, 0.35)"
             : claim.status === "rejected"
             ? "rgba(248, 113, 113, 0.25)"
-            : "rgba(212, 175, 55, 0.25)"
+            : "#E5E5E5"
         }`,
         borderRadius: "18px",
         padding: "20px",
@@ -122,8 +122,8 @@ export default function ClaimCard({
                 width: "48px",
                 height: "48px",
                 borderRadius: "12px",
-                background: "rgba(212,175,55,0.1)",
-                border: "1px solid rgba(212,175,55,0.25)",
+                background: "#FDF4D8",
+                border: "1px solid #E5E5E5",
                 overflow: "hidden",
                 display: "flex",
                 alignItems: "center",
@@ -143,13 +143,13 @@ export default function ClaimCard({
             </div>
 
             <div>
-              <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#92700F", textTransform: "uppercase" }}>
                 {claim.foundItem?.category || "Found Item"}
               </span>
-              <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F8F5F0", margin: "2px 0 4px" }}>
+              <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#1A1A1A", margin: "2px 0 4px" }}>
                 {claim.foundItem?.title || "Item Claim"}
               </h4>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.75rem", color: "#B8AEC2" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.75rem", color: "#6B6B6B" }}>
                 <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                   <MapPin size={11} color="#D4AF37" /> {claim.foundItem?.location}
                 </span>
@@ -172,10 +172,10 @@ export default function ClaimCard({
               <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#D4AF37", textTransform: "uppercase" }}>
                 Ownership Claimant
               </span>
-              <h4 style={{ fontSize: "1rem", fontWeight: 700, color: "#F8F5F0", margin: "2px 0" }}>
+              <h4 style={{ fontSize: "1rem", fontWeight: 700, color: "#1A1A1A", margin: "2px 0" }}>
                 {claim.claimant?.name || "Anonymous User"}
               </h4>
-              <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>
+              <span style={{ fontSize: "0.75rem", color: "#6B6B6B" }}>
                 Submitted on {formatDate(claim.createdAt)}
               </span>
             </div>
@@ -210,12 +210,12 @@ export default function ClaimCard({
       {claim.proofMessage && (
         <div
           style={{
-            background: "rgba(21, 14, 28, 0.7)",
+            background: "#FFFFFF",
             padding: "10px 14px",
             borderRadius: "10px",
             fontSize: "0.82rem",
-            color: "#B8AEC2",
-            border: "1px solid rgba(255,255,255,0.05)",
+            color: "#6B6B6B",
+            border: "1px solid #F9FAFB",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px", color: "#D4AF37", fontWeight: 600, fontSize: "0.74rem" }}>
@@ -263,25 +263,25 @@ export default function ClaimCard({
             <div
               style={{
                 marginTop: "10px",
-                background: "rgba(21, 14, 28, 0.8)",
+                background: "#FFFFFF",
                 borderRadius: "12px",
                 padding: "14px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "10px",
-                border: "1px solid rgba(212, 175, 55, 0.15)",
+                border: "1px solid #FDF4D8",
               }}
             >
               {claim.verificationAnswers.map((qa, idx) => (
                 <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-                  <span style={{ fontSize: "0.76rem", color: "#B8AEC2", fontWeight: 600 }}>
+                  <span style={{ fontSize: "0.76rem", color: "#6B6B6B", fontWeight: 600 }}>
                     Q{idx + 1}: {qa.question}
                   </span>
                   <span
                     style={{
                       fontSize: "0.82rem",
-                      color: "#F8F5F0",
-                      background: "rgba(255,255,255,0.04)",
+                      color: "#1A1A1A",
+                      background: "#F9FAFB",
                       padding: "6px 10px",
                       borderRadius: "6px",
                       borderLeft: "2px solid #D4AF37",
@@ -304,7 +304,7 @@ export default function ClaimCard({
             justifyContent: "flex-end",
             alignItems: "center",
             gap: "10px",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid #F9FAFB",
             paddingTop: "12px",
           }}
         >
@@ -338,14 +338,14 @@ export default function ClaimCard({
               borderRadius: "9px",
               background: "linear-gradient(135deg, #D4AF37, #EAB308)",
               border: "none",
-              color: "#150E1C",
+              color: "#FFFFFF",
               fontSize: "0.8rem",
               fontWeight: 700,
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
               gap: "5px",
-              boxShadow: "0 4px 14px rgba(212,175,55,0.35)",
+              boxShadow: "0 4px 14px #F5E5B8",
             }}
           >
             <Check size={14} strokeWidth={3} /> Approve Ownership

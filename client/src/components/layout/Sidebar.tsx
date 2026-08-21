@@ -75,8 +75,8 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
       style={{
         width: "250px",
         minHeight: "100vh",
-        background: "#150E1C",
-        borderRight: "1px solid rgba(212, 175, 55, 0.15)",
+        background: "#FFFFFF",
+        borderRight: "1px solid #FDF4D8",
         display: "flex",
         flexDirection: "column",
         padding: "24px 12px",
@@ -94,7 +94,7 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
           gap: "10px",
           padding: "8px 12px 24px",
           textDecoration: "none",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid #F9FAFB",
           marginBottom: "16px",
         }}
       >
@@ -111,13 +111,13 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
             flexShrink: 0,
           }}
         >
-          <Search size={16} color="#150E1C" strokeWidth={2.5} />
+          <Search size={16} color="#FFFFFF" strokeWidth={2.5} />
         </div>
         <span
           style={{
             fontSize: "1.15rem",
             fontWeight: 800,
-            background: "linear-gradient(135deg, #F8F5F0, #D4AF37)",
+            background: "linear-gradient(135deg, #1A1A1A, #D4AF37)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -131,9 +131,9 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
               marginLeft: "auto",
               fontSize: "0.65rem",
               fontWeight: 700,
-              background: "rgba(212,175,55,0.15)",
-              color: "#F5C842",
-              border: "1px solid rgba(212,175,55,0.3)",
+              background: "#FDF4D8",
+              color: "#92700F",
+              border: "1px solid #F5E5B8",
               borderRadius: "6px",
               padding: "2px 6px",
               letterSpacing: "0.05em",
@@ -158,8 +158,8 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
                 gap: "12px",
                 padding: "10px 14px",
                 borderRadius: "10px",
-                color: active ? "#F5C842" : "#B8AEC2",
-                background: active ? "rgba(212, 175, 55, 0.15)" : "transparent",
+                color: active ? "#F5C842" : "#6B6B6B",
+                background: active ? "#FDF4D8" : "transparent",
                 borderLeft: active ? "3px solid #D4AF37" : "3px solid transparent",
                 fontWeight: active ? 700 : 500,
                 fontSize: "0.875rem",
@@ -168,20 +168,20 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
               }}
               onMouseEnter={(e) => {
                 if (!active) {
-                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
-                  (e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "#F9FAFB";
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#1A1A1A";
                 }
               }}
               onMouseLeave={(e) => {
                 if (!active) {
                   (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-                  (e.currentTarget as HTMLAnchorElement).style.color = "#B8AEC2";
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#6B6B6B";
                 }
               }}
             >
               <span
                 style={{
-                  color: active ? "#F5C842" : "#B8AEC2",
+                  color: active ? "#F5C842" : "#6B6B6B",
                   display: "flex",
                   alignItems: "center",
                   flexShrink: 0,
@@ -193,7 +193,7 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
               {active && (
                 <ChevronRight
                   size={14}
-                  style={{ marginLeft: "auto", color: "#F5C842", opacity: 0.8 }}
+                  style={{ marginLeft: "auto", color: "#92700F", opacity: 0.8 }}
                 />
               )}
             </Link>
@@ -204,7 +204,7 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
       {/* User Section Footer */}
       <div
         style={{
-          borderTop: "1px solid rgba(255,255,255,0.06)",
+          borderTop: "1px solid #F9FAFB",
           paddingTop: "16px",
           display: "flex",
           flexDirection: "column",
@@ -219,8 +219,8 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
               gap: "10px",
               padding: "8px",
               borderRadius: "10px",
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.05)",
+              background: "#F9FAFB",
+              border: "1px solid #F9FAFB",
             }}
           >
             <Avatar
@@ -234,7 +234,7 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
                 style={{
                   fontSize: "0.8125rem",
                   fontWeight: 600,
-                  color: "#F8F5F0",
+                  color: "#1A1A1A",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -246,7 +246,7 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
               <p
                 style={{
                   fontSize: "0.6875rem",
-                  color: "#B8AEC2",
+                  color: "#6B6B6B",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -262,7 +262,7 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
               style={{
                 background: "transparent",
                 border: "none",
-                color: "#B8AEC2",
+                color: "#6B6B6B",
                 cursor: "pointer",
                 padding: "4px",
                 borderRadius: "6px",
@@ -284,12 +284,12 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
               gap: "8px",
               padding: "9px",
               borderRadius: "10px",
-              background: "rgba(212,175,55,0.15)",
-              color: "#F5C842",
+              background: "#FDF4D8",
+              color: "#92700F",
               fontSize: "0.8125rem",
               fontWeight: 600,
               textDecoration: "none",
-              border: "1px solid rgba(212,175,55,0.3)",
+              border: "1px solid #F5E5B8",
             }}
           >
             Log In

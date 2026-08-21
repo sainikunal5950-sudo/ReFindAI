@@ -35,12 +35,12 @@ export default function NotificationItem({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "rgba(212,175,55,0.15)",
-              border: "1px solid rgba(212,175,55,0.3)",
+              background: "#FDF4D8",
+              border: "1px solid #F5E5B8",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#F5C842",
+              color: "#92700F",
               flexShrink: 0,
             }}
           >
@@ -111,8 +111,8 @@ export default function NotificationItem({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "rgba(212,175,55,0.15)",
-              border: "1px solid rgba(212,175,55,0.3)",
+              background: "#FDF4D8",
+              border: "1px solid #F5E5B8",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -130,11 +130,11 @@ export default function NotificationItem({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "rgba(255,255,255,0.06)",
+              background: "#F9FAFB",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#B8AEC2",
+              color: "#6B6B6B",
               flexShrink: 0,
             }}
           >
@@ -183,20 +183,20 @@ export default function NotificationItem({
         alignItems: "flex-start",
         gap: "12px",
         padding: compact ? "12px 14px" : "16px 20px",
-        background: notification.isRead ? "rgba(255,255,255,0.01)" : "rgba(212,175,55,0.08)",
-        border: "1px solid rgba(255,255,255,0.06)",
-        borderLeft: !notification.isRead ? "3px solid #D4AF37" : "1px solid rgba(255,255,255,0.06)",
+        background: notification.isRead ? "#FFFFFF" : "rgba(212,175,55,0.08)",
+        border: "1px solid #F9FAFB",
+        borderLeft: !notification.isRead ? "3px solid #D4AF37" : "1px solid #F9FAFB",
         borderRadius: "14px",
         cursor: "pointer",
         transition: "all 0.2s ease",
         position: "relative",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+        e.currentTarget.style.background = "#F9FAFB";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.background = notification.isRead
-          ? "rgba(255,255,255,0.01)"
+          ? "#FFFFFF"
           : "rgba(212,175,55,0.08)";
       }}
     >
@@ -208,7 +208,7 @@ export default function NotificationItem({
             style={{
               fontSize: compact ? "0.85rem" : "0.92rem",
               fontWeight: notification.isRead ? 600 : 700,
-              color: notification.isRead ? "#F8F5F0" : "#F5C842",
+              color: notification.isRead ? "#1A1A1A" : "#F5C842",
               margin: 0,
               overflow: "hidden",
               textOverflow: "ellipsis",
@@ -217,7 +217,7 @@ export default function NotificationItem({
           >
             {notification.title}
           </h4>
-          <span style={{ fontSize: "0.7rem", color: "#B8AEC2", flexShrink: 0 }}>
+          <span style={{ fontSize: "0.7rem", color: "#6B6B6B", flexShrink: 0 }}>
             {formatTime(notification.createdAt)}
           </span>
         </div>
@@ -225,7 +225,7 @@ export default function NotificationItem({
         <p
           style={{
             fontSize: compact ? "0.78rem" : "0.83rem",
-            color: "#B8AEC2",
+            color: "#6B6B6B",
             margin: 0,
             lineHeight: 1.4,
             display: "-webkit-box",

@@ -78,7 +78,7 @@ export default function ImageUploader({
             border: `2px dashed ${dragOver ? "#D4AF37" : "rgba(255,255,255,0.12)"}`,
             borderRadius: "16px",
             padding: "28px 20px",
-            background: dragOver ? "rgba(212, 175, 55,0.06)" : "rgba(255,255,255,0.02)",
+            background: dragOver ? "rgba(212, 175, 55,0.06)" : "#F9FAFB",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -94,7 +94,7 @@ export default function ImageUploader({
           onMouseLeave={(e) => {
             if (!dragOver) {
               e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
-              e.currentTarget.style.background = "rgba(255,255,255,0.02)";
+              e.currentTarget.style.background = "#F9FAFB";
             }
           }}
         >
@@ -115,7 +115,7 @@ export default function ImageUploader({
               width: "48px",
               height: "48px",
               borderRadius: "14px",
-              background: "rgba(212, 175, 55,0.1)",
+              background: "#FDF4D8",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -126,10 +126,10 @@ export default function ImageUploader({
             <UploadCloud size={24} />
           </div>
 
-          <p style={{ fontSize: "0.92rem", fontWeight: 600, color: "#F8F5F0", marginBottom: "4px" }}>
+          <p style={{ fontSize: "0.92rem", fontWeight: 600, color: "#1A1A1A", marginBottom: "4px" }}>
             Click to upload or drag & drop photos
           </p>
-          <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
+          <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>
             PNG, JPG, WEBP or GIF (Max {maxFiles} images, {maxSizeMB}MB each)
           </p>
         </div>
@@ -169,8 +169,8 @@ export default function ImageUploader({
                   paddingTop: "100%", // 1:1 Aspect ratio
                   borderRadius: "12px",
                   overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  background: "#2D1B3D",
+                  border: "1px solid #F3F4F6",
+                  background: "#FFFFFF",
                 }}
               >
                 <img

@@ -86,7 +86,7 @@ export default function LostListingPage() {
   };
 
   return (
-    <main style={{ minHeight: "100vh", background: "#1E1425", color: "#F8F5F0" }}>
+    <main style={{ minHeight: "100vh", background: "#FFFFFF", color: "#1A1A1A" }}>
       <Navbar />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -99,7 +99,7 @@ export default function LostListingPage() {
                 Lost Registry
               </span>
               <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#D4AF37", boxShadow: "0 0 8px #D4AF37" }} />
-              <span style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>{total} reports listed</span>
+              <span style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>{total} reports listed</span>
             </div>
             <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800, letterSpacing: "-0.03em" }}>
               Browse{" "}
@@ -107,7 +107,7 @@ export default function LostListingPage() {
                 Lost Items
               </span>
             </h1>
-            <p style={{ color: "#B8AEC2", fontSize: "0.95rem", marginTop: "4px" }}>
+            <p style={{ color: "#6B6B6B", fontSize: "0.95rem", marginTop: "4px" }}>
               Help reunite people with their belongings or report something you lost.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function LostListingPage() {
               fontWeight: 700,
               fontSize: "0.9rem",
               textDecoration: "none",
-              boxShadow: "0 6px 24px rgba(212, 175, 55,0.35)",
+              boxShadow: "0 6px 24px #F5E5B8",
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
@@ -153,10 +153,10 @@ export default function LostListingPage() {
               style={{
                 width: "100%",
                 padding: "12px 16px 12px 42px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background: "#F9FAFB",
+                border: "1px solid #F3F4F6",
                 borderRadius: "12px",
-                color: "#F8F5F0",
+                color: "#1A1A1A",
                 fontSize: "0.9rem",
                 outline: "none",
                 fontFamily: "inherit",
@@ -164,10 +164,10 @@ export default function LostListingPage() {
               }}
               onFocus={(e) => {
                 e.currentTarget.style.borderColor = "#D4AF37";
-                e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.12)";
+                e.currentTarget.style.boxShadow = "0 0 0 3px #FDF4D8";
               }}
               onBlur={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                e.currentTarget.style.borderColor = "#F3F4F6";
                 e.currentTarget.style.boxShadow = "none";
               }}
             />
@@ -182,10 +182,10 @@ export default function LostListingPage() {
               alignItems: "center",
               gap: "8px",
               padding: "12px 18px",
-              background: showFilters ? "rgba(212, 175, 55,0.15)" : "rgba(255,255,255,0.04)",
-              border: showFilters ? "1px solid rgba(212, 175, 55,0.3)" : "1px solid rgba(255,255,255,0.1)",
+              background: showFilters ? "#FDF4D8" : "#F9FAFB",
+              border: showFilters ? "1px solid #F5E5B8" : "1px solid #F3F4F6",
               borderRadius: "12px",
-              color: showFilters ? "#F5C842" : "#B8AEC2",
+              color: showFilters ? "#F5C842" : "#6B6B6B",
               fontSize: "0.88rem",
               fontWeight: 600,
               cursor: "pointer",
@@ -205,8 +205,8 @@ export default function LostListingPage() {
           <div
             style={{
               padding: "20px",
-              background: "rgba(45, 27, 61,0.9)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "#FFFFFF",
+              border: "1px solid #F9FAFB",
               borderRadius: "16px",
               marginBottom: "24px",
               display: "grid",
@@ -218,7 +218,7 @@ export default function LostListingPage() {
           >
             {/* Location filter */}
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#B8AEC2" }}>Location / Area</label>
+              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#6B6B6B" }}>Location / Area</label>
               <input
                 type="text"
                 placeholder="e.g. Central Park"
@@ -226,10 +226,10 @@ export default function LostListingPage() {
                 onChange={(e) => setLocation(e.target.value)}
                 style={{
                   padding: "9px 12px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F3F4F6",
                   borderRadius: "8px",
-                  color: "#F8F5F0",
+                  color: "#1A1A1A",
                   fontSize: "0.85rem",
                   outline: "none",
                 }}
@@ -238,41 +238,41 @@ export default function LostListingPage() {
 
             {/* Status filter */}
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#B8AEC2" }}>Status</label>
+              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#6B6B6B" }}>Status</label>
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
                 style={{
                   padding: "9px 12px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F3F4F6",
                   borderRadius: "8px",
-                  color: "#F8F5F0",
+                  color: "#1A1A1A",
                   fontSize: "0.85rem",
                   outline: "none",
                 }}
               >
-                <option value="all" style={{ background: "#150E1C" }}>All Statuses</option>
-                <option value="active" style={{ background: "#150E1C" }}>Active</option>
-                <option value="matched" style={{ background: "#150E1C" }}>Matched</option>
-                <option value="resolved" style={{ background: "#150E1C" }}>Resolved</option>
-                <option value="closed" style={{ background: "#150E1C" }}>Closed</option>
+                <option value="all" style={{ background: "#FFFFFF" }}>All Statuses</option>
+                <option value="active" style={{ background: "#FFFFFF" }}>Active</option>
+                <option value="matched" style={{ background: "#FFFFFF" }}>Matched</option>
+                <option value="resolved" style={{ background: "#FFFFFF" }}>Resolved</option>
+                <option value="closed" style={{ background: "#FFFFFF" }}>Closed</option>
               </select>
             </div>
 
             {/* Start Date */}
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#B8AEC2" }}>From Date</label>
+              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#6B6B6B" }}>From Date</label>
               <input
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
                 style={{
                   padding: "9px 12px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F3F4F6",
                   borderRadius: "8px",
-                  color: "#F8F5F0",
+                  color: "#1A1A1A",
                   fontSize: "0.85rem",
                   outline: "none",
                   colorScheme: "dark",
@@ -282,17 +282,17 @@ export default function LostListingPage() {
 
             {/* End Date */}
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#B8AEC2" }}>To Date</label>
+              <label style={{ fontSize: "0.78rem", fontWeight: 600, color: "#6B6B6B" }}>To Date</label>
               <input
                 type="date"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
                 style={{
                   padding: "9px 12px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F3F4F6",
                   borderRadius: "8px",
-                  color: "#F8F5F0",
+                  color: "#1A1A1A",
                   fontSize: "0.85rem",
                   outline: "none",
                   colorScheme: "dark",
@@ -324,10 +324,10 @@ export default function LostListingPage() {
                 onClick={handleResetFilters}
                 style={{
                   padding: "9px 12px",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F3F4F6",
                   borderRadius: "8px",
-                  color: "#B8AEC2",
+                  color: "#6B6B6B",
                   cursor: "pointer",
                 }}
                 title="Reset Filters"
@@ -349,15 +349,15 @@ export default function LostListingPage() {
                 style={{
                   padding: "8px 18px",
                   borderRadius: "999px",
-                  background: isActive ? "linear-gradient(135deg, #D4AF37, #F5C842)" : "rgba(255,255,255,0.04)",
-                  border: isActive ? "none" : "1px solid rgba(255,255,255,0.1)",
-                  color: isActive ? "#FFFFFF" : "#B8AEC2",
+                  background: isActive ? "linear-gradient(135deg, #D4AF37, #F5C842)" : "#F9FAFB",
+                  border: isActive ? "none" : "1px solid #F3F4F6",
+                  color: isActive ? "#FFFFFF" : "#6B6B6B",
                   fontWeight: 600,
                   fontSize: "0.82rem",
                   cursor: "pointer",
                   whiteSpace: "nowrap",
                   transition: "all 0.2s",
-                  boxShadow: isActive ? "0 4px 14px rgba(212, 175, 55,0.35)" : "none",
+                  boxShadow: isActive ? "0 4px 14px #F5E5B8" : "none",
                   fontFamily: "inherit",
                 }}
               >
@@ -377,8 +377,8 @@ export default function LostListingPage() {
                 style={{
                   height: "360px",
                   borderRadius: "20px",
-                  background: "rgba(45, 27, 61,0.6)",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "#FFFFFF",
+                  border: "1px solid #F9FAFB",
                 }}
                 className="skeleton"
               />
@@ -390,8 +390,8 @@ export default function LostListingPage() {
             style={{
               textAlign: "center",
               padding: "80px 20px",
-              background: "rgba(45, 27, 61,0.4)",
-              border: "1px solid rgba(255,255,255,0.05)",
+              background: "#FFFFFF",
+              border: "1px solid #F9FAFB",
               borderRadius: "24px",
             }}
           >
@@ -400,7 +400,7 @@ export default function LostListingPage() {
                 width: "64px",
                 height: "64px",
                 borderRadius: "20px",
-                background: "rgba(212, 175, 55,0.1)",
+                background: "#FDF4D8",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -410,20 +410,20 @@ export default function LostListingPage() {
             >
               <PackageSearch size={32} />
             </div>
-            <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
+            <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#1A1A1A", marginBottom: "6px" }}>
               No lost items found
             </h3>
-            <p style={{ color: "#B8AEC2", fontSize: "0.9rem", maxWidth: "380px", margin: "0 auto 24px" }}>
+            <p style={{ color: "#6B6B6B", fontSize: "0.9rem", maxWidth: "380px", margin: "0 auto 24px" }}>
               We couldn&apos;t find any items matching your active search terms or category filters.
             </p>
             <button
               onClick={handleResetFilters}
               style={{
                 padding: "10px 20px",
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background: "#F9FAFB",
+                border: "1px solid #F3F4F6",
                 borderRadius: "10px",
-                color: "#F8F5F0",
+                color: "#1A1A1A",
                 fontSize: "0.85rem",
                 fontWeight: 600,
                 cursor: "pointer",
@@ -453,9 +453,9 @@ export default function LostListingPage() {
               style={{
                 padding: "8px 16px",
                 borderRadius: "10px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: page <= 1 ? "#404050" : "#B8AEC2",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
+                color: page <= 1 ? "#404050" : "#6B6B6B",
                 cursor: page <= 1 ? "not-allowed" : "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -480,9 +480,9 @@ export default function LostListingPage() {
                     width: "36px",
                     height: "36px",
                     borderRadius: "10px",
-                    background: isActive ? "linear-gradient(135deg, #D4AF37, #F5C842)" : "rgba(255,255,255,0.04)",
-                    border: isActive ? "none" : "1px solid rgba(255,255,255,0.08)",
-                    color: isActive ? "#FFFFFF" : "#B8AEC2",
+                    background: isActive ? "linear-gradient(135deg, #D4AF37, #F5C842)" : "#F9FAFB",
+                    border: isActive ? "none" : "1px solid #F9FAFB",
+                    color: isActive ? "#FFFFFF" : "#6B6B6B",
                     fontWeight: 700,
                     fontSize: "0.85rem",
                     cursor: "pointer",
@@ -503,9 +503,9 @@ export default function LostListingPage() {
               style={{
                 padding: "8px 16px",
                 borderRadius: "10px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: page >= totalPages ? "#404050" : "#B8AEC2",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
+                color: page >= totalPages ? "#404050" : "#6B6B6B",
                 cursor: page >= totalPages ? "not-allowed" : "pointer",
                 display: "flex",
                 alignItems: "center",

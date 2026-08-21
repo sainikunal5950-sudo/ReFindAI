@@ -83,26 +83,26 @@ export default function NotificationBell() {
           width: "40px",
           height: "40px",
           borderRadius: "12px",
-          background: isOpen ? "rgba(212,175,55,0.15)" : "rgba(255,255,255,0.04)",
-          border: isOpen ? "1px solid rgba(212,175,55,0.35)" : "1px solid rgba(255,255,255,0.08)",
+          background: isOpen ? "#FDF4D8" : "#F9FAFB",
+          border: isOpen ? "1px solid #F5E5B8" : "1px solid #F9FAFB",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: isOpen ? "#F5C842" : "#B8AEC2",
+          color: isOpen ? "#F5C842" : "#6B6B6B",
           cursor: "pointer",
           transition: "all 0.2s ease",
           position: "relative",
         }}
         onMouseEnter={(e) => {
           if (!isOpen) {
-            e.currentTarget.style.background = "rgba(212,175,55,0.1)";
-            e.currentTarget.style.color = "#F8F5F0";
+            e.currentTarget.style.background = "#FDF4D8";
+            e.currentTarget.style.color = "#1A1A1A";
           }
         }}
         onMouseLeave={(e) => {
           if (!isOpen) {
-            e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-            e.currentTarget.style.color = "#B8AEC2";
+            e.currentTarget.style.background = "#F9FAFB";
+            e.currentTarget.style.color = "#6B6B6B";
           }
         }}
         title="Notifications"
@@ -121,14 +121,14 @@ export default function NotificationBell() {
               padding: "0 4px",
               borderRadius: "999px",
               background: "linear-gradient(135deg, #D4AF37, #EAB308)",
-              color: "#150E1C",
+              color: "#FFFFFF",
               fontSize: "0.68rem",
               fontWeight: 800,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               boxShadow: "0 0 10px rgba(212,175,55,0.6)",
-              border: "2px solid #150E1C",
+              border: "2px solid #FFFFFF",
             }}
           >
             {unreadCount > 99 ? "99+" : unreadCount}

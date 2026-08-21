@@ -66,7 +66,7 @@ export default function MyFoundReportsPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFFFF" }}>
       <Sidebar variant="user" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -86,12 +86,12 @@ export default function MyFoundReportsPage() {
         <header
           style={{
             height: "68px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(21, 14, 28,0.8)",
+            background: "#FFFFFF",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             position: "sticky",
@@ -109,16 +109,16 @@ export default function MyFoundReportsPage() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#F5C842",
+                color: "#92700F",
               }}
             >
               <PackageCheck size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1A1A1A" }}>
                 My Found Item Reports
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
+              <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>
                 {total} items found & turned in by you
               </p>
             </div>
@@ -129,10 +129,10 @@ export default function MyFoundReportsPage() {
               onClick={() => fetchMyReports(page)}
               style={{
                 padding: "8px 12px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#F9FAFB",
+                border: "1px solid #F9FAFB",
                 borderRadius: "10px",
-                color: "#B8AEC2",
+                color: "#6B6B6B",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -178,8 +178,8 @@ export default function MyFoundReportsPage() {
             <div
               style={{
                 padding: "72px 20px",
-                background: "rgba(45, 27, 61,0.6)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "#FFFFFF",
+                border: "1px solid #F9FAFB",
                 borderRadius: "24px",
                 textAlign: "center",
                 maxWidth: "480px",
@@ -195,16 +195,16 @@ export default function MyFoundReportsPage() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#F5C842",
+                  color: "#92700F",
                   margin: "0 auto 16px",
                 }}
               >
                 <PackageSearch size={30} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1A1A1A", marginBottom: "6px" }}>
                 No found items reported yet
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#B8AEC2", marginBottom: "24px", lineHeight: 1.5 }}>
+              <p style={{ fontSize: "0.88rem", color: "#6B6B6B", marginBottom: "24px", lineHeight: 1.5 }}>
                 Found someone&apos;s phone, wallet, keys, or luggage? Post a found item report to help the owner reclaim it.
               </p>
               <Link
@@ -254,9 +254,9 @@ export default function MyFoundReportsPage() {
                 style={{
                   padding: "6px 14px",
                   borderRadius: "8px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  color: page <= 1 ? "#404050" : "#B8AEC2",
+                  background: "#F9FAFB",
+                  border: "1px solid #F9FAFB",
+                  color: page <= 1 ? "#404050" : "#6B6B6B",
                   cursor: page <= 1 ? "not-allowed" : "pointer",
                   display: "flex",
                   alignItems: "center",
@@ -281,9 +281,9 @@ export default function MyFoundReportsPage() {
                 style={{
                   padding: "6px 14px",
                   borderRadius: "8px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  color: page >= totalPages ? "#404050" : "#B8AEC2",
+                  background: "#F9FAFB",
+                  border: "1px solid #F9FAFB",
+                  color: page >= totalPages ? "#404050" : "#6B6B6B",
                   cursor: page >= totalPages ? "not-allowed" : "pointer",
                   display: "flex",
                   alignItems: "center",

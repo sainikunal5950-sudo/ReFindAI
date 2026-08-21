@@ -134,7 +134,7 @@ export default function AdminItemsPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFFFF" }}>
       <Sidebar variant="admin" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -155,12 +155,12 @@ export default function AdminItemsPage() {
         <header
           style={{
             height: "68px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid #F9FAFB",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(21, 14, 28,0.8)",
+            background: "#FFFFFF",
             backdropFilter: "blur(12px)",
             position: "sticky",
             top: 0,
@@ -173,20 +173,20 @@ export default function AdminItemsPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "rgba(212, 175, 55,0.15)",
+                background: "#FDF4D8",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#F5C842",
+                color: "#92700F",
               }}
             >
               <Package size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1A1A1A" }}>
                 Platform Items Management
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
+              <p style={{ fontSize: "0.78rem", color: "#6B6B6B" }}>
                 {total} total {activeTab} item reports
               </p>
             </div>
@@ -196,10 +196,10 @@ export default function AdminItemsPage() {
             onClick={fetchItems}
             style={{
               padding: "8px 12px",
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "#F9FAFB",
+              border: "1px solid #F9FAFB",
               borderRadius: "10px",
-              color: "#B8AEC2",
+              color: "#6B6B6B",
               fontSize: "0.82rem",
               cursor: "pointer",
               display: "flex",
@@ -228,10 +228,10 @@ export default function AdminItemsPage() {
             <div
               style={{
                 display: "flex",
-                background: "rgba(255,255,255,0.04)",
+                background: "#F9FAFB",
                 padding: "4px",
                 borderRadius: "12px",
-                border: "1px solid rgba(255,255,255,0.08)",
+                border: "1px solid #F9FAFB",
               }}
             >
               <button
@@ -244,7 +244,7 @@ export default function AdminItemsPage() {
                   padding: "8px 20px",
                   borderRadius: "9px",
                   background: activeTab === "lost" ? "linear-gradient(135deg, #D4AF37, #B89628)" : "transparent",
-                  color: activeTab === "lost" ? "#FFFFFF" : "#B8AEC2",
+                  color: activeTab === "lost" ? "#FFFFFF" : "#6B6B6B",
                   border: "none",
                   fontWeight: 700,
                   fontSize: "0.86rem",
@@ -266,7 +266,7 @@ export default function AdminItemsPage() {
                   padding: "8px 20px",
                   borderRadius: "9px",
                   background: activeTab === "found" ? "linear-gradient(135deg, #F5C842, #0891B2)" : "transparent",
-                  color: activeTab === "found" ? "#FFFFFF" : "#B8AEC2",
+                  color: activeTab === "found" ? "#FFFFFF" : "#6B6B6B",
                   border: "none",
                   fontWeight: 700,
                   fontSize: "0.86rem",
@@ -288,14 +288,14 @@ export default function AdminItemsPage() {
                   display: "flex",
                   alignItems: "center",
                   gap: "8px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F9FAFB",
                   borderRadius: "10px",
                   padding: "6px 12px",
                   minWidth: "220px",
                 }}
               >
-                <Search size={14} color="#9A8FA8" />
+                <Search size={14} color="#8E8E93" />
                 <input
                   type="text"
                   placeholder="Search title..."
@@ -305,7 +305,7 @@ export default function AdminItemsPage() {
                     background: "transparent",
                     border: "none",
                     outline: "none",
-                    color: "#F8F5F0",
+                    color: "#1A1A1A",
                     fontSize: "0.84rem",
                     width: "100%",
                   }}
@@ -321,10 +321,10 @@ export default function AdminItemsPage() {
                 }}
                 style={{
                   padding: "7px 12px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "#F9FAFB",
+                  border: "1px solid #F9FAFB",
                   borderRadius: "10px",
-                  color: "#F8F5F0",
+                  color: "#1A1A1A",
                   fontSize: "0.84rem",
                   outline: "none",
                 }}
@@ -347,10 +347,10 @@ export default function AdminItemsPage() {
                 }}
                 style={{
                   padding: "7px 12px",
-                  background: flagFilter ? "rgba(245,158,11,0.2)" : "rgba(255,255,255,0.04)",
-                  border: flagFilter ? "1px solid rgba(245,158,11,0.4)" : "1px solid rgba(255,255,255,0.08)",
+                  background: flagFilter ? "rgba(245,158,11,0.2)" : "#F9FAFB",
+                  border: flagFilter ? "1px solid rgba(245,158,11,0.4)" : "1px solid #F9FAFB",
                   borderRadius: "10px",
-                  color: flagFilter ? "#FCD34D" : "#B8AEC2",
+                  color: flagFilter ? "#FCD34D" : "#6B6B6B",
                   fontSize: "0.82rem",
                   fontWeight: 600,
                   cursor: "pointer",
@@ -367,8 +367,8 @@ export default function AdminItemsPage() {
           {/* Table Container */}
           <div
             style={{
-              background: "rgba(45, 27, 61,0.85)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "#FFFFFF",
+              border: "1px solid #F9FAFB",
               borderRadius: "18px",
               overflow: "hidden",
               backdropFilter: "blur(20px)",
@@ -376,23 +376,23 @@ export default function AdminItemsPage() {
           >
             <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left" }}>
               <thead>
-                <tr style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                <tr style={{ background: "#F9FAFB", borderBottom: "1px solid #F9FAFB" }}>
+                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     Item
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     Category
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     Status
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     Reporter
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase" }}>
                     Date
                   </th>
-                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase", textAlign: "right" }}>
+                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#8E8E93", textTransform: "uppercase", textAlign: "right" }}>
                     Actions
                   </th>
                 </tr>
@@ -406,7 +406,7 @@ export default function AdminItemsPage() {
                   </tr>
                 ) : items.length === 0 ? (
                   <tr>
-                    <td colSpan={6} style={{ padding: "48px 20px", textAlign: "center", color: "#9A8FA8" }}>
+                    <td colSpan={6} style={{ padding: "48px 20px", textAlign: "center", color: "#8E8E93" }}>
                       No {activeTab} items found matching criteria.
                     </td>
                   </tr>
@@ -420,7 +420,7 @@ export default function AdminItemsPage() {
                       <tr
                         key={id}
                         style={{
-                          borderBottom: "1px solid rgba(255,255,255,0.04)",
+                          borderBottom: "1px solid #F9FAFB",
                           background: isFlagged ? "rgba(245,158,11,0.03)" : "transparent",
                           transition: "background 0.15s",
                         }}
@@ -434,10 +434,10 @@ export default function AdminItemsPage() {
                               </span>
                             )}
                             <div>
-                              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "#F8F5F0" }}>
+                              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "#1A1A1A" }}>
                                 {item.title}
                               </span>
-                              <p style={{ fontSize: "0.75rem", color: "#B8AEC2", margin: "2px 0 0" }}>
+                              <p style={{ fontSize: "0.75rem", color: "#6B6B6B", margin: "2px 0 0" }}>
                                 {item.location}
                               </p>
                             </div>
@@ -450,9 +450,9 @@ export default function AdminItemsPage() {
                             style={{
                               padding: "3px 8px",
                               borderRadius: "6px",
-                              background: "rgba(255,255,255,0.04)",
+                              background: "#F9FAFB",
                               fontSize: "0.76rem",
-                              color: "#F8F5F0",
+                              color: "#1A1A1A",
                             }}
                           >
                             {item.category}
@@ -467,10 +467,10 @@ export default function AdminItemsPage() {
                           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                             <Avatar src={reporter?.avatar} name={reporter?.name || "User"} size="sm" />
                             <div>
-                              <span style={{ fontSize: "0.8rem", color: "#F8F5F0", fontWeight: 500 }}>
+                              <span style={{ fontSize: "0.8rem", color: "#1A1A1A", fontWeight: 500 }}>
                                 {reporter?.name || "Unknown"}
                               </span>
-                              <p style={{ fontSize: "0.7rem", color: "#9A8FA8", margin: 0 }}>
+                              <p style={{ fontSize: "0.7rem", color: "#8E8E93", margin: 0 }}>
                                 {reporter?.email}
                               </p>
                             </div>
@@ -478,7 +478,7 @@ export default function AdminItemsPage() {
                         </td>
 
                         {/* Date */}
-                        <td style={{ padding: "16px", fontSize: "0.8rem", color: "#B8AEC2" }}>
+                        <td style={{ padding: "16px", fontSize: "0.8rem", color: "#6B6B6B" }}>
                           {formatDate(item.createdAt || item.date)}
                         </td>
 
@@ -492,8 +492,8 @@ export default function AdminItemsPage() {
                               style={{
                                 padding: "6px 10px",
                                 borderRadius: "8px",
-                                background: "rgba(255,255,255,0.04)",
-                                color: "#F5C842",
+                                background: "#F9FAFB",
+                                color: "#92700F",
                                 display: "inline-flex",
                                 alignItems: "center",
                                 gap: "4px",
@@ -512,9 +512,9 @@ export default function AdminItemsPage() {
                               style={{
                                 padding: "6px 10px",
                                 borderRadius: "8px",
-                                background: isFlagged ? "rgba(245,158,11,0.15)" : "rgba(255,255,255,0.04)",
+                                background: isFlagged ? "rgba(245,158,11,0.15)" : "#F9FAFB",
                                 border: "none",
-                                color: isFlagged ? "#FCD34D" : "#B8AEC2",
+                                color: isFlagged ? "#FCD34D" : "#6B6B6B",
                                 display: "inline-flex",
                                 alignItems: "center",
                                 gap: "4px",
