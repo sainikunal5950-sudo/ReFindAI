@@ -12,9 +12,10 @@ const authRoutes      = require('./routes/auth.routes');
 const userRoutes      = require('./routes/user.routes');
 const lostItemRoutes  = require('./routes/lostItem.routes');
 const foundItemRoutes = require('./routes/foundItem.routes');
-const matchRoutes     = require('./routes/match.routes');
-const claimRoutes     = require('./routes/claim.routes');
-const adminRoutes     = require('./routes/admin.routes');
+const matchRoutes        = require('./routes/match.routes');
+const claimRoutes        = require('./routes/claim.routes');
+const notificationRoutes = require('./routes/notification.routes');
+const adminRoutes        = require('./routes/admin.routes');
 
 const app = express();
 
@@ -33,13 +34,14 @@ app.get('/api/health', (req, res) => {
 });
 
 // ─── API Routes ───────────────────────────────────────────────────────────────
-app.use('/api/auth',        authRoutes);
-app.use('/api/users',       userRoutes);
-app.use('/api/lost-items',  lostItemRoutes);
-app.use('/api/found-items', foundItemRoutes);
-app.use('/api/matches',     matchRoutes);
-app.use('/api/claims',      claimRoutes);
-app.use('/api/admin',       adminRoutes);
+app.use('/api/auth',          authRoutes);
+app.use('/api/users',         userRoutes);
+app.use('/api/lost-items',    lostItemRoutes);
+app.use('/api/found-items',   foundItemRoutes);
+app.use('/api/matches',       matchRoutes);
+app.use('/api/claims',        claimRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/admin',         adminRoutes);
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────────
 app.use((req, res) => {

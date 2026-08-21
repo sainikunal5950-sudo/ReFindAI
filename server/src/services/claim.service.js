@@ -54,6 +54,23 @@ const createClaim = async (userId, foundItemId, verificationAnswers = [], proofM
     status: 'pending',
   });
 
+  // Notify finder about submitted claim
+  try {
+    const notificationService = require('./notification.service');
+    if (foundItem.user) {
+      await notificationService.createNotification(
+        foundItem.user,
+        'claim_submitted',
+        'New Claim Submitted!',
+        `A user has submitted an ownership claim for your found "${foundItem.title}". Review their verification answers.`,
+        claim._id,
+        `/dashboard/found-items/${foundItem._id}/claims`
+      );
+    }
+  } catch (notifyErr) {
+    console.warn('[ClaimService] Notification dispatch note:', notifyErr.message);
+  }
+
   return await Claim.findById(claim._id)
     .populate('claimant', 'name email avatar phone')
     .populate('foundItem', 'title category location date status images handoverLocation');
@@ -157,6 +174,23 @@ const approveClaim = async (claimId, reviewerId, reviewerRole) => {
   // Update FoundItem status to 'claimed'
   await FoundItem.findByIdAndUpdate(claim.foundItem._id, { status: 'claimed' });
 
+  // Dispatch claim_approved notification to claimant
+  try {
+    const notificationService = require('./notification.service');
+    if (claim.claimant) {
+      await notificationService.createNotification(
+        claim.claimant._id || claim.claimant,
+        'claim_approved',
+        'Your Claim Was Approved! 🎉',
+        `Congratulations! Your claim for "${claim.foundItem.title}" has been verified and approved by the finder.`,
+        claim._id,
+        '/dashboard/claims'
+      );
+    }
+  } catch (notifyErr) {
+    console.warn('[ClaimService] Notification dispatch note:', notifyErr.message);
+  }
+
   return await Claim.findById(claim._id)
     .populate('claimant', 'name email avatar phone')
     .populate('foundItem', 'title category location date status images handoverLocation')
@@ -191,6 +225,23 @@ const rejectClaim = async (claimId, reviewerId, reviewerRole, rejectionReason = 
   claim.reviewedBy = reviewerId;
   claim.rejectionReason = rejectionReason || 'Claim could not be verified by finder';
   await claim.save();
+
+  // Dispatch claim_rejected notification to claimant
+  try {
+    const notificationService = require('./notification.service');
+    if (claim.claimant) {
+      await notificationService.createNotification(
+        claim.claimant._id || claim.claimant,
+        'claim_rejected',
+        'Claim Update',
+        `Your claim for "${claim.foundItem?.title || 'Found item'}" could not be verified: ${claim.rejectionReason}`,
+        claim._id,
+        '/dashboard/claims'
+      );
+    }
+  } catch (notifyErr) {
+    console.warn('[ClaimService] Notification dispatch note:', notifyErr.message);
+  }
 
   return await Claim.findById(claim._id)
     .populate('claimant', 'name email avatar phone')

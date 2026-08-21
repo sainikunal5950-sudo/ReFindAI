@@ -207,6 +207,33 @@ const findPotentialMatches = async (lostItemId, threshold = 40) => {
         { upsert: true, new: true, setDefaultsOnInsert: true }
       );
       matches.push(matchDoc);
+
+      // Trigger notifications for both users
+      try {
+        const notificationService = require('./notification.service');
+        if (lostItem.user) {
+          await notificationService.createNotification(
+            lostItem.user,
+            'match_found',
+            'Potential Match Found!',
+            `A found item matching your "${lostItem.title}" (${matchScore}% match score) was found!`,
+            matchDoc._id,
+            '/dashboard/matches'
+          );
+        }
+        if (foundItem.user && foundItem.user.toString() !== lostItem.user?.toString()) {
+          await notificationService.createNotification(
+            foundItem.user,
+            'match_found',
+            'Potential Match Found!',
+            `A lost item matching your found "${foundItem.title}" (${matchScore}% match score) was reported!`,
+            matchDoc._id,
+            '/dashboard/matches'
+          );
+        }
+      } catch (notifyErr) {
+        console.warn('[MatchingService] Notification dispatch note:', notifyErr.message);
+      }
     }
   }
 
