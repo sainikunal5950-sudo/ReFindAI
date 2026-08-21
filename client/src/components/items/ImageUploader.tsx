@@ -75,10 +75,10 @@ export default function ImageUploader({
           onDrop={handleDrop}
           onClick={() => inputRef.current?.click()}
           style={{
-            border: `2px dashed ${dragOver ? "#3B82F6" : "rgba(255,255,255,0.12)"}`,
+            border: `2px dashed ${dragOver ? "#D4AF37" : "rgba(255,255,255,0.12)"}`,
             borderRadius: "16px",
             padding: "28px 20px",
-            background: dragOver ? "rgba(59,130,246,0.06)" : "rgba(255,255,255,0.02)",
+            background: dragOver ? "rgba(212, 175, 55,0.06)" : "rgba(255,255,255,0.02)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -88,8 +88,8 @@ export default function ImageUploader({
             transition: "all 0.2s ease",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "#3B82F6";
-            e.currentTarget.style.background = "rgba(59,130,246,0.04)";
+            e.currentTarget.style.borderColor = "#D4AF37";
+            e.currentTarget.style.background = "rgba(212, 175, 55,0.04)";
           }}
           onMouseLeave={(e) => {
             if (!dragOver) {
@@ -115,21 +115,21 @@ export default function ImageUploader({
               width: "48px",
               height: "48px",
               borderRadius: "14px",
-              background: "rgba(59,130,246,0.1)",
+              background: "rgba(212, 175, 55,0.1)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#3B82F6",
+              color: "#D4AF37",
               marginBottom: "12px",
             }}
           >
             <UploadCloud size={24} />
           </div>
 
-          <p style={{ fontSize: "0.92rem", fontWeight: 600, color: "#F5F5F7", marginBottom: "4px" }}>
+          <p style={{ fontSize: "0.92rem", fontWeight: 600, color: "#F8F5F0", marginBottom: "4px" }}>
             Click to upload or drag & drop photos
           </p>
-          <p style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>
+          <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
             PNG, JPG, WEBP or GIF (Max {maxFiles} images, {maxSizeMB}MB each)
           </p>
         </div>
@@ -170,7 +170,7 @@ export default function ImageUploader({
                   borderRadius: "12px",
                   overflow: "hidden",
                   border: "1px solid rgba(255,255,255,0.1)",
-                  background: "#12141C",
+                  background: "#2D1B3D",
                 }}
               >
                 <img

@@ -20,25 +20,25 @@ const features = [
     icon: <Cpu size={24} />,
     title: "AI Matching Engine",
     desc: "Computer vision and NLP compare descriptions, images, and context to find the best matches automatically.",
-    color: "#3B82F6",
+    color: "#D4AF37",
   },
   {
     icon: <MapPin size={24} />,
     title: "Location-Aware",
     desc: "Search within a custom radius — items are matched with nearby reports first for faster recovery.",
-    color: "#06B6D4",
+    color: "#F5C842",
   },
   {
     icon: <Bell size={24} />,
     title: "Instant Alerts",
     desc: "Get notified the moment a match is found. Real-time push notifications keep you in the loop.",
-    color: "#3B82F6",
+    color: "#D4AF37",
   },
   {
     icon: <ShieldCheck size={24} />,
     title: "Secure Claims",
     desc: "Verified identity checks and secure claim workflows protect both reporters and finders.",
-    color: "#06B6D4",
+    color: "#F5C842",
   },
 ];
 
@@ -65,8 +65,8 @@ export default function HomePage() {
     <main
       style={{
         minHeight: "100vh",
-        background: "#0A0A0F",
-        color: "#F5F5F7",
+        background: "#1E1425",
+        color: "#F8F5F0",
         overflowX: "hidden",
         position: "relative",
       }}
@@ -87,7 +87,7 @@ export default function HomePage() {
             width: "600px",
             height: "600px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(59,130,246,0.18), transparent 70%)",
+            background: "radial-gradient(circle, rgba(212, 175, 55,0.18), transparent 70%)",
             top: "-180px",
             left: "-120px",
             animation: "float 10s ease-in-out infinite",
@@ -99,7 +99,7 @@ export default function HomePage() {
             width: "500px",
             height: "500px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(6,182,212,0.12), transparent 70%)",
+            background: "radial-gradient(circle, rgba(245, 200, 66,0.12), transparent 70%)",
             bottom: "0",
             right: "-100px",
             animation: "float2 13s ease-in-out infinite",
@@ -111,7 +111,7 @@ export default function HomePage() {
             width: "350px",
             height: "350px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(59,130,246,0.08), transparent 70%)",
+            background: "radial-gradient(circle, rgba(212, 175, 55,0.08), transparent 70%)",
             top: "40%",
             left: "35%",
             animation: "float 16s ease-in-out infinite reverse",
@@ -125,7 +125,7 @@ export default function HomePage() {
           position: "sticky",
           top: 0,
           zIndex: 50,
-          background: "rgba(10,10,15,0.7)",
+          background: "rgba(30, 20, 37,0.7)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
@@ -149,11 +149,11 @@ export default function HomePage() {
                 width: "36px",
                 height: "36px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: "0 0 18px rgba(59,130,246,0.4)",
+                boxShadow: "0 0 18px rgba(212, 175, 55,0.4)",
               }}
             >
               <Search size={18} color="#fff" strokeWidth={2.5} />
@@ -162,7 +162,7 @@ export default function HomePage() {
               style={{
                 fontSize: "1.3rem",
                 fontWeight: 800,
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -185,14 +185,14 @@ export default function HomePage() {
                 style={{
                   padding: "8px 16px",
                   borderRadius: "8px",
-                  color: "#A1A1AA",
+                  color: "#B8AEC2",
                   fontSize: "0.9rem",
                   fontWeight: 500,
                   textDecoration: "none",
                   transition: "color 0.2s",
                 }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5F5F7")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#A1A1AA")}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#B8AEC2")}
               >
                 {l.label}
               </Link>
@@ -206,7 +206,7 @@ export default function HomePage() {
               style={{
                 padding: "9px 20px",
                 borderRadius: "10px",
-                color: "#A1A1AA",
+                color: "#B8AEC2",
                 border: "1px solid rgba(255,255,255,0.1)",
                 fontSize: "0.875rem",
                 fontWeight: 600,
@@ -214,11 +214,11 @@ export default function HomePage() {
                 transition: "all 0.2s",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = "#F5F5F7";
+                (e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0";
                 (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.2)";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = "#A1A1AA";
+                (e.currentTarget as HTMLAnchorElement).style.color = "#B8AEC2";
                 (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)";
               }}
             >
@@ -229,12 +229,12 @@ export default function HomePage() {
               style={{
                 padding: "9px 20px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 color: "#fff",
                 fontSize: "0.875rem",
                 fontWeight: 600,
                 textDecoration: "none",
-                boxShadow: "0 4px 16px rgba(59,130,246,0.35)",
+                boxShadow: "0 4px 16px rgba(212, 175, 55,0.35)",
                 transition: "all 0.2s",
                 display: "flex",
                 alignItems: "center",
@@ -242,11 +242,11 @@ export default function HomePage() {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 24px rgba(59,130,246,0.5)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 24px rgba(212, 175, 55,0.5)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(59,130,246,0.35)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(212, 175, 55,0.35)";
               }}
             >
               <Sparkles size={14} />
@@ -274,12 +274,12 @@ export default function HomePage() {
             alignItems: "center",
             gap: "8px",
             padding: "8px 18px",
-            background: "rgba(59,130,246,0.1)",
-            border: "1px solid rgba(59,130,246,0.25)",
+            background: "rgba(212, 175, 55,0.1)",
+            border: "1px solid rgba(212, 175, 55,0.25)",
             borderRadius: "999px",
             fontSize: "0.78rem",
             fontWeight: 700,
-            color: "#60A5FA",
+            color: "#F5C842",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
             marginBottom: "32px",
@@ -313,7 +313,7 @@ export default function HomePage() {
           <br />
           <span
             style={{
-              background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+              background: "linear-gradient(135deg, #D4AF37, #F5C842)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -327,7 +327,7 @@ export default function HomePage() {
         <p
           style={{
             fontSize: "1.15rem",
-            color: "#A1A1AA",
+            color: "#B8AEC2",
             lineHeight: 1.75,
             maxWidth: "600px",
             margin: "0 auto 48px",
@@ -355,22 +355,22 @@ export default function HomePage() {
               alignItems: "center",
               gap: "10px",
               padding: "16px 36px",
-              background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+              background: "linear-gradient(135deg, #D4AF37, #F5C842)",
               borderRadius: "14px",
               color: "#fff",
               fontWeight: 700,
               fontSize: "1rem",
-              boxShadow: "0 8px 32px rgba(59,130,246,0.4)",
+              boxShadow: "0 8px 32px rgba(212, 175, 55,0.4)",
               transition: "all 0.25s ease",
               textDecoration: "none",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 16px 48px rgba(59,130,246,0.55)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 16px 48px rgba(212, 175, 55,0.55)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 32px rgba(59,130,246,0.4)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 32px rgba(212, 175, 55,0.4)";
             }}
           >
             <Search size={18} />
@@ -386,7 +386,7 @@ export default function HomePage() {
               background: "rgba(255,255,255,0.04)",
               border: "1.5px solid rgba(255,255,255,0.12)",
               borderRadius: "14px",
-              color: "#F5F5F7",
+              color: "#F8F5F0",
               fontWeight: 700,
               fontSize: "1rem",
               backdropFilter: "blur(10px)",
@@ -394,8 +394,8 @@ export default function HomePage() {
               textDecoration: "none",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "rgba(59,130,246,0.08)";
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(59,130,246,0.35)";
+              (e.currentTarget as HTMLAnchorElement).style.background = "rgba(212, 175, 55,0.08)";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(212, 175, 55,0.35)";
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)";
             }}
             onMouseLeave={(e) => {
@@ -439,12 +439,12 @@ export default function HomePage() {
                 borderRight: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none",
               }}
             >
-              <span style={{ color: "#3B82F6", marginBottom: "4px" }}>{s.icon}</span>
+              <span style={{ color: "#D4AF37", marginBottom: "4px" }}>{s.icon}</span>
               <span
                 style={{
                   fontSize: "1.8rem",
                   fontWeight: 800,
-                  background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                  background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -453,7 +453,7 @@ export default function HomePage() {
               >
                 {s.num}
               </span>
-              <span style={{ fontSize: "0.75rem", color: "#A1A1AA", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "0.75rem", color: "#B8AEC2", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" }}>
                 {s.label}
               </span>
             </div>
@@ -472,14 +472,14 @@ export default function HomePage() {
         }}
       >
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#3B82F6", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "12px" }}>
+          <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#D4AF37", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "12px" }}>
             How It Works
           </p>
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 800, letterSpacing: "-0.02em" }}>
             Three steps to{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -506,10 +506,10 @@ export default function HomePage() {
                 overflow: "hidden",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.background = "rgba(59,130,246,0.06)";
-                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(59,130,246,0.25)";
+                (e.currentTarget as HTMLDivElement).style.background = "rgba(212, 175, 55,0.06)";
+                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(212, 175, 55,0.25)";
                 (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 16px 48px rgba(59,130,246,0.15)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 16px 48px rgba(212, 175, 55,0.15)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.02)";
@@ -523,7 +523,7 @@ export default function HomePage() {
                 style={{
                   fontSize: "4rem",
                   fontWeight: 900,
-                  color: "rgba(59,130,246,0.08)",
+                  color: "rgba(212, 175, 55,0.08)",
                   position: "absolute",
                   top: "16px",
                   right: "20px",
@@ -540,13 +540,13 @@ export default function HomePage() {
                   width: "48px",
                   height: "48px",
                   borderRadius: "14px",
-                  background: "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2))",
-                  border: "1px solid rgba(59,130,246,0.3)",
+                  background: "linear-gradient(135deg, rgba(212, 175, 55,0.2), rgba(245, 200, 66,0.2))",
+                  border: "1px solid rgba(212, 175, 55,0.3)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   marginBottom: "20px",
-                  color: "#3B82F6",
+                  color: "#D4AF37",
                   fontWeight: 800,
                   fontSize: "1.1rem",
                 }}
@@ -554,14 +554,14 @@ export default function HomePage() {
                 {i + 1}
               </div>
 
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "10px", color: "#F5F5F7" }}>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "10px", color: "#F8F5F0" }}>
                 {step.title}
               </h3>
-              <p style={{ fontSize: "0.9rem", color: "#A1A1AA", lineHeight: 1.7 }}>{step.desc}</p>
+              <p style={{ fontSize: "0.9rem", color: "#B8AEC2", lineHeight: 1.7 }}>{step.desc}</p>
 
               {i < 2 && (
                 <div style={{ marginTop: "24px", display: "flex", justifyContent: "flex-end" }}>
-                  <ArrowRight size={16} color="#3B82F6" />
+                  <ArrowRight size={16} color="#D4AF37" />
                 </div>
               )}
             </div>
@@ -580,14 +580,14 @@ export default function HomePage() {
         }}
       >
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#06B6D4", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "12px" }}>
+          <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#F5C842", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "12px" }}>
             Features
           </p>
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 800, letterSpacing: "-0.02em" }}>
             Built for{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -612,10 +612,10 @@ export default function HomePage() {
                 cursor: "default",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.background = "rgba(59,130,246,0.05)";
-                (e.currentTarget as HTMLDivElement).style.borderColor = `rgba(${f.color === "#3B82F6" ? "59,130,246" : "6,182,212"},0.3)`;
+                (e.currentTarget as HTMLDivElement).style.background = "rgba(212, 175, 55,0.05)";
+                (e.currentTarget as HTMLDivElement).style.borderColor = `rgba(${f.color === "#D4AF37" ? "59,130,246" : "6,182,212"},0.3)`;
                 (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-                (e.currentTarget as HTMLDivElement).style.boxShadow = `0 12px 40px rgba(${f.color === "#3B82F6" ? "59,130,246" : "6,182,212"},0.12)`;
+                (e.currentTarget as HTMLDivElement).style.boxShadow = `0 12px 40px rgba(${f.color === "#D4AF37" ? "59,130,246" : "6,182,212"},0.12)`;
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.02)";
@@ -629,8 +629,8 @@ export default function HomePage() {
                   width: "52px",
                   height: "52px",
                   borderRadius: "16px",
-                  background: `rgba(${f.color === "#3B82F6" ? "59,130,246" : "6,182,212"},0.12)`,
-                  border: `1px solid rgba(${f.color === "#3B82F6" ? "59,130,246" : "6,182,212"},0.25)`,
+                  background: `rgba(${f.color === "#D4AF37" ? "59,130,246" : "6,182,212"},0.12)`,
+                  border: `1px solid rgba(${f.color === "#D4AF37" ? "59,130,246" : "6,182,212"},0.25)`,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -640,10 +640,10 @@ export default function HomePage() {
               >
                 {f.icon}
               </div>
-              <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "10px" }}>
+              <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "10px" }}>
                 {f.title}
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#A1A1AA", lineHeight: 1.7 }}>{f.desc}</p>
+              <p style={{ fontSize: "0.88rem", color: "#B8AEC2", lineHeight: 1.7 }}>{f.desc}</p>
             </div>
           ))}
         </div>
@@ -662,8 +662,8 @@ export default function HomePage() {
         <div
           style={{
             padding: "64px 48px",
-            background: "linear-gradient(135deg, rgba(37,99,235,0.15), rgba(6,182,212,0.08))",
-            border: "1px solid rgba(59,130,246,0.2)",
+            background: "linear-gradient(135deg, rgba(184, 150, 40,0.15), rgba(245, 200, 66,0.08))",
+            border: "1px solid rgba(212, 175, 55,0.2)",
             borderRadius: "28px",
             backdropFilter: "blur(16px)",
             textAlign: "center",
@@ -678,7 +678,7 @@ export default function HomePage() {
               width: "400px",
               height: "400px",
               borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%)",
+              background: "radial-gradient(circle, rgba(212, 175, 55,0.15), transparent 70%)",
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
@@ -688,7 +688,7 @@ export default function HomePage() {
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "16px", position: "relative" }}>
             Ready to find what you&apos;ve lost?
           </h2>
-          <p style={{ color: "#A1A1AA", fontSize: "1rem", marginBottom: "36px", maxWidth: "480px", margin: "0 auto 36px", position: "relative" }}>
+          <p style={{ color: "#B8AEC2", fontSize: "1rem", marginBottom: "36px", maxWidth: "480px", margin: "0 auto 36px", position: "relative" }}>
             Join thousands of users who&apos;ve recovered their belongings using ReFind&apos;s intelligent platform.
           </p>
           <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
@@ -699,22 +699,22 @@ export default function HomePage() {
                 alignItems: "center",
                 gap: "8px",
                 padding: "14px 32px",
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 borderRadius: "12px",
                 color: "#fff",
                 fontWeight: 700,
                 fontSize: "1rem",
-                boxShadow: "0 8px 32px rgba(59,130,246,0.4)",
+                boxShadow: "0 8px 32px rgba(212, 175, 55,0.4)",
                 transition: "all 0.25s ease",
                 textDecoration: "none",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 16px 48px rgba(59,130,246,0.55)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 16px 48px rgba(212, 175, 55,0.55)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 32px rgba(59,130,246,0.4)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 32px rgba(212, 175, 55,0.4)";
               }}
             >
               <Sparkles size={16} />
@@ -730,19 +730,19 @@ export default function HomePage() {
                 background: "transparent",
                 border: "1.5px solid rgba(255,255,255,0.15)",
                 borderRadius: "12px",
-                color: "#F5F5F7",
+                color: "#F8F5F0",
                 fontWeight: 700,
                 fontSize: "1rem",
                 transition: "all 0.25s ease",
                 textDecoration: "none",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(59,130,246,0.4)";
-                (e.currentTarget as HTMLAnchorElement).style.color = "#60A5FA";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(212, 175, 55,0.4)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "#F5C842";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.15)";
-                (e.currentTarget as HTMLAnchorElement).style.color = "#F5F5F7";
+                (e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0";
               }}
             >
               <Search size={16} />
@@ -769,7 +769,7 @@ export default function HomePage() {
                 width: "28px",
                 height: "28px",
                 borderRadius: "8px",
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -780,7 +780,7 @@ export default function HomePage() {
             <span
               style={{
                 fontWeight: 700,
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -795,7 +795,7 @@ export default function HomePage() {
           <div style={{ display: "flex", gap: "20px" }}>
             {["Privacy", "Terms", "Contact"].map((l) => (
               <Link key={l} href="#" style={{ color: "#606070", fontSize: "0.85rem", transition: "color 0.2s", textDecoration: "none" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#3B82F6")}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#D4AF37")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#606070")}
               >
                 {l}

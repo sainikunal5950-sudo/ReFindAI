@@ -1,5 +1,5 @@
 /* ============================================================
-   Retrivo — Global Styles  |  Black & Blue Dark Tech Theme
+   Retrivo — Global Styles  |  Deep Plum & Warm Gold Theme
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
@@ -8,35 +8,44 @@
 /* ─── CSS Variables ─────────────────────────────────────────── */
 :root {
   /* Backgrounds */
-  --bg-primary:    #0A0A0F;
-  --bg-secondary:  #0D0F14;
-  --bg-card:       #12141C;
-  --bg-card-2:     #161925;
+  --bg-primary:    #1E1425;
+  --bg-secondary:  #150E1C;
+  --bg-card:       #2D1B3D;
+  --bg-card-2:     #26182F;
 
   /* Accents */
-  --accent-blue:   #3B82F6;
-  --accent-blue-d: #2563EB;
-  --accent-cyan:   #06B6D4;
+  --accent-gold:        #D4AF37;
+  --accent-gold-bright: #F5C842;
+  --accent-amber:       #EAB308;
+
+  /* Legacy alias mappings for maximum component compatibility */
+  --accent-blue:   #D4AF37;
+  --accent-blue-d: #B89628;
+  --accent-cyan:   #F5C842;
 
   /* Text */
-  --text-primary:  #F5F5F7;
-  --text-secondary:#A1A1AA;
+  --text-primary:  #F8F5F0;
+  --text-secondary:#B8AEC2;
 
   /* Semantic */
-  --success:       #22C55E;
-  --error:         #EF4444;
-  --warning:       #F59E0B;
+  --success:       #4ADE80;
+  --error:         #F87171;
+  --warning:       #FBBF24;
 
   /* Borders */
-  --border:        rgba(255,255,255,0.06);
-  --border-blue:   rgba(59,130,246,0.25);
+  --border:        rgba(255,255,255,0.08);
+  --border-gold:   rgba(212,175,55,0.25);
+  --border-blue:   rgba(212,175,55,0.25);
 
   /* Effects */
-  --glass:         rgba(255,255,255,0.03);
-  --glass-blue:    rgba(59,130,246,0.06);
-  --glow-blue:     0 0 30px rgba(59,130,246,0.3);
-  --glow-blue-lg:  0 0 60px rgba(59,130,246,0.4);
-  --glow-cyan:     0 0 20px rgba(6,182,212,0.3);
+  --glass:         rgba(45,27,61,0.65);
+  --glass-gold:    rgba(212,175,55,0.08);
+  --glass-blue:    rgba(212,175,55,0.08);
+  --glow-gold:     0 0 25px rgba(212,175,55,0.3);
+  --glow-gold-lg:  0 0 50px rgba(212,175,55,0.45);
+  --glow-blue:     0 0 25px rgba(212,175,55,0.3);
+  --glow-blue-lg:  0 0 50px rgba(212,175,55,0.45);
+  --glow-cyan:     0 0 20px rgba(245,200,66,0.3);
 
   /* Radii */
   --radius-sm:     8px;
@@ -82,10 +91,10 @@ img {
 }
 
 /* ─── Scrollbar ─────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-secondary); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--accent-blue), var(--accent-cyan));
+  background: linear-gradient(180deg, var(--accent-gold), var(--accent-gold-bright));
   border-radius: 3px;
 }
 
@@ -100,47 +109,49 @@ img {
   border-radius: var(--radius-lg);
 }
 
+.glass-card-gold,
 .glass-card-blue {
-  background: var(--glass-blue);
+  background: var(--glass-gold);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-blue);
+  border: 1px solid var(--border-gold);
   border-radius: var(--radius-lg);
 }
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  background: linear-gradient(135deg, #D4AF37, #F5C842);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-white {
-  background: linear-gradient(135deg, #ffffff 30%, #93C5FD);
+  background: linear-gradient(135deg, #F8F5F0 30%, #D4AF37);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Blue Glow Buttons */
+/* Gold Glow Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-  color: white;
-  font-weight: 600;
+  background: linear-gradient(135deg, #D4AF37, #EAB308);
+  color: #150E1C;
+  font-weight: 700;
   padding: 12px 28px;
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
   transition: all var(--transition);
-  box-shadow: 0 4px 20px rgba(59,130,246,0.35);
+  box-shadow: 0 4px 20px rgba(212,175,55,0.35);
   position: relative;
   overflow: hidden;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(59,130,246,0.5);
+  box-shadow: 0 8px 32px rgba(212,175,55,0.5);
+  color: #000000;
 }
 
 .btn-primary:active {
@@ -148,20 +159,21 @@ img {
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--accent-blue);
+  background: rgba(212,175,55,0.06);
+  color: var(--accent-gold);
   font-weight: 600;
   padding: 12px 28px;
   border-radius: var(--radius-md);
-  border: 1.5px solid rgba(59,130,246,0.5);
+  border: 1.5px solid rgba(212,175,55,0.4);
   cursor: pointer;
   transition: all var(--transition);
 }
 
 .btn-secondary:hover {
-  background: rgba(59,130,246,0.08);
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 16px rgba(59,130,246,0.2);
+  background: rgba(212,175,55,0.15);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 16px rgba(212,175,55,0.25);
+  color: var(--accent-gold-bright);
 }
 
 /* Input Styles */
@@ -179,8 +191,8 @@ img {
 }
 
 .input-dark:focus {
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
 }
 
 .input-dark::placeholder {
@@ -223,7 +235,7 @@ img {
 .skeleton {
   background: linear-gradient(90deg,
     rgba(255,255,255,0.04) 25%,
-    rgba(59,130,246,0.08) 50%,
+    rgba(212,175,55,0.12) 50%,
     rgba(255,255,255,0.04) 75%
   );
   background-size: 200% 100%;

@@ -82,7 +82,7 @@ export default function MyMatchesPage() {
   });
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0A0A0F" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
       <Sidebar variant="user" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -107,7 +107,7 @@ export default function MyMatchesPage() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(13,15,20,0.8)",
+            background: "rgba(21, 14, 28,0.8)",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             position: "sticky",
@@ -121,20 +121,20 @@ export default function MyMatchesPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2))",
+                background: "linear-gradient(135deg, rgba(212, 175, 55,0.2), rgba(245, 200, 66,0.2))",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#60A5FA",
+                color: "#F5C842",
               }}
             >
               <GitCompare size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
                 AI Match Suggestions
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>
+              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
                 {filteredMatches.length} potential matches for your reported items
               </p>
             </div>
@@ -150,15 +150,15 @@ export default function MyMatchesPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: "10px",
-                color: "#F5F5F7",
+                color: "#F8F5F0",
                 fontSize: "0.82rem",
                 outline: "none",
                 cursor: "pointer",
               }}
             >
-              <option value="all" style={{ background: "#0D0F14" }}>All Active Matches</option>
-              <option value="pending" style={{ background: "#0D0F14" }}>Pending Review</option>
-              <option value="confirmed" style={{ background: "#0D0F14" }}>Confirmed Matches</option>
+              <option value="all" style={{ background: "#150E1C" }}>All Active Matches</option>
+              <option value="pending" style={{ background: "#150E1C" }}>Pending Review</option>
+              <option value="confirmed" style={{ background: "#150E1C" }}>Confirmed Matches</option>
             </select>
 
             <button
@@ -168,7 +168,7 @@ export default function MyMatchesPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "10px",
-                color: "#A1A1AA",
+                color: "#B8AEC2",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -195,7 +195,7 @@ export default function MyMatchesPage() {
             <div
               style={{
                 padding: "72px 20px",
-                background: "rgba(18,20,28,0.6)",
+                background: "rgba(45, 27, 61,0.6)",
                 border: "1px solid rgba(255,255,255,0.06)",
                 borderRadius: "24px",
                 textAlign: "center",
@@ -208,20 +208,20 @@ export default function MyMatchesPage() {
                   width: "60px",
                   height: "60px",
                   borderRadius: "18px",
-                  background: "rgba(59,130,246,0.1)",
+                  background: "rgba(212, 175, 55,0.1)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#3B82F6",
+                  color: "#D4AF37",
                   margin: "0 auto 16px",
                 }}
               >
                 <Sparkles size={28} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "6px" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
                 No active matches found
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#A1A1AA", marginBottom: "24px", lineHeight: 1.5 }}>
+              <p style={{ fontSize: "0.88rem", color: "#B8AEC2", marginBottom: "24px", lineHeight: 1.5 }}>
                 Our AI matching algorithm is actively scanning newly posted items. When an item matching your title, category, location, and date is reported, it will appear here immediately.
               </p>
               <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
@@ -229,7 +229,7 @@ export default function MyMatchesPage() {
                   href="/lost/report"
                   style={{
                     padding: "10px 18px",
-                    background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                    background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                     borderRadius: "10px",
                     color: "#FFFFFF",
                     fontWeight: 700,
@@ -246,7 +246,7 @@ export default function MyMatchesPage() {
                     background: "rgba(255,255,255,0.05)",
                     border: "1px solid rgba(255,255,255,0.1)",
                     borderRadius: "10px",
-                    color: "#F5F5F7",
+                    color: "#F8F5F0",
                     fontWeight: 600,
                     fontSize: "0.85rem",
                     textDecoration: "none",

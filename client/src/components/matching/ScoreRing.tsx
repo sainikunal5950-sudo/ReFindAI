@@ -23,7 +23,7 @@ export default function ScoreRing({
   const isMedMatch = score >= 60 && score < 80;
 
   const gradId = `scoreGrad-${score}-${size}`;
-  const glowColor = isHighMatch ? "#3B82F6" : isMedMatch ? "#06B6D4" : "#F59E0B";
+  const glowColor = isHighMatch ? "#D4AF37" : isMedMatch ? "#F5C842" : "#FBBF24";
 
   return (
     <div
@@ -40,8 +40,8 @@ export default function ScoreRing({
       <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
         <defs>
           <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3B82F6" />
-            <stop offset="100%" stopColor="#06B6D4" />
+            <stop offset="0%" stopColor="#D4AF37" />
+            <stop offset="100%" stopColor="#F5C842" />
           </linearGradient>
         </defs>
 
@@ -68,7 +68,7 @@ export default function ScoreRing({
           strokeLinecap="round"
           style={{
             transition: "stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
-            filter: `drop-shadow(0 0 6px ${glowColor}60)`,
+            filter: `drop-shadow(0 0 6px ${glowColor}70)`,
           }}
         />
       </svg>
@@ -88,7 +88,7 @@ export default function ScoreRing({
           style={{
             fontSize: size > 80 ? "1.2rem" : "0.95rem",
             fontWeight: 800,
-            color: "#F5F5F7",
+            color: "#F8F5F0",
             letterSpacing: "-0.02em",
           }}
         >
@@ -98,7 +98,7 @@ export default function ScoreRing({
           style={{
             fontSize: size > 80 ? "0.65rem" : "0.55rem",
             fontWeight: 700,
-            color: "#06B6D4",
+            color: "#D4AF37",
             textTransform: "uppercase",
             letterSpacing: "0.05em",
             marginTop: "2px",

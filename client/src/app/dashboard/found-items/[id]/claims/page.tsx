@@ -96,7 +96,7 @@ export default function ReviewClaimsPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0A0A0F" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
       <Sidebar variant="user" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -134,7 +134,7 @@ export default function ReviewClaimsPage() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(13,15,20,0.8)",
+            background: "rgba(21, 14, 28,0.8)",
             backdropFilter: "blur(12px)",
             position: "sticky",
             top: 0,
@@ -148,7 +148,7 @@ export default function ReviewClaimsPage() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "4px",
-                color: "#A1A1AA",
+                color: "#B8AEC2",
                 fontSize: "0.82rem",
                 textDecoration: "none",
                 marginRight: "8px",
@@ -163,16 +163,16 @@ export default function ReviewClaimsPage() {
                   width: "28px",
                   height: "28px",
                   borderRadius: "8px",
-                  background: "rgba(6,182,212,0.15)",
+                  background: "rgba(245, 200, 66,0.15)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#06B6D4",
+                  color: "#F5C842",
                 }}
               >
                 <Users size={15} />
               </div>
-              <h1 style={{ fontSize: "1rem", fontWeight: 700, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "1rem", fontWeight: 700, color: "#F8F5F0" }}>
                 Review Claims ({claims.length})
               </h1>
             </div>
@@ -185,7 +185,7 @@ export default function ReviewClaimsPage() {
               background: "rgba(255,255,255,0.04)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "10px",
-              color: "#A1A1AA",
+              color: "#B8AEC2",
               fontSize: "0.82rem",
               cursor: "pointer",
               display: "flex",
@@ -203,7 +203,7 @@ export default function ReviewClaimsPage() {
           {item && (
             <div
               style={{
-                background: "rgba(18,20,28,0.7)",
+                background: "rgba(45, 27, 61,0.7)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "16px",
                 padding: "18px 20px",
@@ -216,15 +216,15 @@ export default function ReviewClaimsPage() {
               }}
             >
               <div>
-                <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#06B6D4", textTransform: "uppercase" }}>
+                <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase" }}>
                   {item.category}
                 </span>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F5F5F7", margin: "2px 0 4px" }}>
+                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F8F5F0", margin: "2px 0 4px" }}>
                   {item.title}
                 </h3>
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.78rem", color: "#A1A1AA" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.78rem", color: "#B8AEC2" }}>
                   <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                    <MapPin size={12} color="#60A5FA" /> {item.location}
+                    <MapPin size={12} color="#F5C842" /> {item.location}
                   </span>
                 </div>
               </div>
@@ -235,9 +235,9 @@ export default function ReviewClaimsPage() {
                   borderRadius: "999px",
                   fontSize: "0.78rem",
                   fontWeight: 700,
-                  background: item.status === "claimed" ? "rgba(34,197,94,0.15)" : "rgba(6,182,212,0.15)",
-                  color: item.status === "claimed" ? "#4ADE80" : "#22D3EE",
-                  border: `1px solid ${item.status === "claimed" ? "rgba(34,197,94,0.3)" : "rgba(6,182,212,0.3)"}`,
+                  background: item.status === "claimed" ? "rgba(34,197,94,0.15)" : "rgba(245, 200, 66,0.15)",
+                  color: item.status === "claimed" ? "#4ADE80" : "#FDE047",
+                  border: `1px solid ${item.status === "claimed" ? "rgba(34,197,94,0.3)" : "rgba(245, 200, 66,0.3)"}`,
                 }}
               >
                 Status: {item.status.toUpperCase()}
@@ -256,7 +256,7 @@ export default function ReviewClaimsPage() {
             <div
               style={{
                 padding: "60px 20px",
-                background: "rgba(18,20,28,0.6)",
+                background: "rgba(45, 27, 61,0.6)",
                 border: "1px solid rgba(255,255,255,0.06)",
                 borderRadius: "20px",
                 textAlign: "center",
@@ -267,20 +267,20 @@ export default function ReviewClaimsPage() {
                   width: "56px",
                   height: "56px",
                   borderRadius: "16px",
-                  background: "rgba(6,182,212,0.1)",
+                  background: "rgba(245, 200, 66,0.1)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#06B6D4",
+                  color: "#F5C842",
                   margin: "0 auto 14px",
                 }}
               >
                 <ShieldCheck size={28} />
               </div>
-              <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "4px" }}>
+              <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "4px" }}>
                 No claims filed yet
               </h4>
-              <p style={{ fontSize: "0.85rem", color: "#A1A1AA", maxWidth: "360px", margin: "0 auto" }}>
+              <p style={{ fontSize: "0.85rem", color: "#B8AEC2", maxWidth: "360px", margin: "0 auto" }}>
                 When users file ownership verification claims for this item, they will appear here for your review.
               </p>
             </div>

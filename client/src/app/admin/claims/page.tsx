@@ -69,7 +69,7 @@ export default function AdminClaimsPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0A0A0F" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
       <Sidebar variant="admin" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -83,7 +83,7 @@ export default function AdminClaimsPage() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(13,15,20,0.8)",
+            background: "rgba(21, 14, 28,0.8)",
             backdropFilter: "blur(12px)",
             position: "sticky",
             top: 0,
@@ -96,20 +96,20 @@ export default function AdminClaimsPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "rgba(6,182,212,0.15)",
+                background: "rgba(245, 200, 66,0.15)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#06B6D4",
+                color: "#F5C842",
               }}
             >
               <ClipboardCheck size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
                 Platform Claims Monitor
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>
+              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
                 {total} total ownership claims filed across the platform
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function AdminClaimsPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "10px",
-                color: "#F5F5F7",
+                color: "#F8F5F0",
                 fontSize: "0.84rem",
                 outline: "none",
               }}
@@ -146,7 +146,7 @@ export default function AdminClaimsPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "10px",
-                color: "#A1A1AA",
+                color: "#B8AEC2",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -163,7 +163,7 @@ export default function AdminClaimsPage() {
         <div style={{ flex: 1, padding: "32px", maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
           <div
             style={{
-              background: "rgba(18,20,28,0.85)",
+              background: "rgba(45, 27, 61,0.85)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "18px",
               overflow: "hidden",
@@ -173,19 +173,19 @@ export default function AdminClaimsPage() {
             <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left" }}>
               <thead>
                 <tr style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
                     Target Found Item
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
                     Claimant
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
                     Verification Details
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
                     Status
                   </th>
-                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase", textAlign: "right" }}>
+                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase", textAlign: "right" }}>
                     Date Submitted
                   </th>
                 </tr>
@@ -194,12 +194,12 @@ export default function AdminClaimsPage() {
                 {loading ? (
                   <tr>
                     <td colSpan={5} style={{ padding: "40px", textAlign: "center" }}>
-                      <RefreshCw size={24} className="animate-spin" color="#06B6D4" style={{ margin: "0 auto" }} />
+                      <RefreshCw size={24} className="animate-spin" color="#F5C842" style={{ margin: "0 auto" }} />
                     </td>
                   </tr>
                 ) : claims.length === 0 ? (
                   <tr>
-                    <td colSpan={5} style={{ padding: "48px 20px", textAlign: "center", color: "#71717A" }}>
+                    <td colSpan={5} style={{ padding: "48px 20px", textAlign: "center", color: "#9A8FA8" }}>
                       No claims found matching filter criteria.
                     </td>
                   </tr>
@@ -220,10 +220,10 @@ export default function AdminClaimsPage() {
                         {/* Target Found Item */}
                         <td style={{ padding: "16px 20px" }}>
                           <div>
-                            <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "#F5F5F7" }}>
+                            <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "#F8F5F0" }}>
                               {item?.title || "Found Item"}
                             </span>
-                            <p style={{ fontSize: "0.75rem", color: "#06B6D4", margin: "2px 0 0" }}>
+                            <p style={{ fontSize: "0.75rem", color: "#F5C842", margin: "2px 0 0" }}>
                               {item?.category || "Category"} • {item?.location || "Location"}
                             </p>
                           </div>
@@ -234,10 +234,10 @@ export default function AdminClaimsPage() {
                           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                             <Avatar src={claimant?.avatar} name={claimant?.name || "Claimant"} size="sm" />
                             <div>
-                              <span style={{ fontSize: "0.82rem", color: "#F5F5F7", fontWeight: 500 }}>
+                              <span style={{ fontSize: "0.82rem", color: "#F8F5F0", fontWeight: 500 }}>
                                 {claimant?.name || "Unknown"}
                               </span>
-                              <p style={{ fontSize: "0.72rem", color: "#71717A", margin: 0 }}>
+                              <p style={{ fontSize: "0.72rem", color: "#9A8FA8", margin: 0 }}>
                                 {claimant?.email}
                               </p>
                             </div>
@@ -246,8 +246,8 @@ export default function AdminClaimsPage() {
 
                         {/* Verification Details */}
                         <td style={{ padding: "16px" }}>
-                          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.8rem", color: "#A1A1AA" }}>
-                            <FileQuestion size={13} color="#06B6D4" />
+                          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.8rem", color: "#B8AEC2" }}>
+                            <FileQuestion size={13} color="#F5C842" />
                             <span>{claim.verificationAnswers?.length || 0} answers submitted</span>
                           </div>
                         </td>
@@ -256,7 +256,7 @@ export default function AdminClaimsPage() {
                         <td style={{ padding: "16px" }}>{getStatusBadge(claim.status)}</td>
 
                         {/* Date Submitted */}
-                        <td style={{ padding: "16px 20px", fontSize: "0.8rem", color: "#A1A1AA", textAlign: "right" }}>
+                        <td style={{ padding: "16px 20px", fontSize: "0.8rem", color: "#B8AEC2", textAlign: "right" }}>
                           {formatDate(claim.createdAt)}
                         </td>
                       </tr>

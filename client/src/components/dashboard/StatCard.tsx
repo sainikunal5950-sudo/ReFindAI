@@ -15,17 +15,17 @@ export default function StatCard({
   value,
   icon,
   trend,
-  accentColor = "#3B82F6",
+  accentColor = "#D4AF37",
 }: StatCardProps) {
   return (
     <div
       style={{
-        background: "rgba(18, 20, 28, 0.85)",
-        border: "1px solid rgba(255, 255, 255, 0.08)",
+        background: "rgba(45, 27, 61, 0.85)",
+        border: "1px solid rgba(212, 175, 55, 0.2)",
         borderRadius: "18px",
         padding: "20px",
         backdropFilter: "blur(20px)",
-        boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
         display: "flex",
         flexDirection: "column",
         gap: "12px",
@@ -34,11 +34,11 @@ export default function StatCard({
         transition: "all 0.2s ease",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = `${accentColor}55`;
+        e.currentTarget.style.borderColor = `${accentColor}80`;
         e.currentTarget.style.transform = "translateY(-2px)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.08)";
+        e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.2)";
         e.currentTarget.style.transform = "translateY(0)";
       }}
     >
@@ -53,14 +53,14 @@ export default function StatCard({
           borderRadius: "50%",
           background: accentColor,
           filter: "blur(40px)",
-          opacity: 0.15,
+          opacity: 0.18,
           pointerEvents: "none",
         }}
       />
 
       {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: "0.82rem", fontWeight: 600, color: "#A1A1AA" }}>
+        <span style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
           {title}
         </span>
         {icon && (
@@ -84,14 +84,14 @@ export default function StatCard({
 
       {/* Value */}
       <div style={{ display: "flex", alignItems: "baseline", gap: "8px" }}>
-        <span style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F5F5F7", letterSpacing: "-0.02em" }}>
+        <span style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F8F5F0", letterSpacing: "-0.02em" }}>
           {value}
         </span>
       </div>
 
       {/* Trend or Subtitle */}
       {trend && (
-        <span style={{ fontSize: "0.74rem", color: "#71717A", fontWeight: 500 }}>
+        <span style={{ fontSize: "0.74rem", color: "#B8AEC2", fontWeight: 500 }}>
           {trend}
         </span>
       )}

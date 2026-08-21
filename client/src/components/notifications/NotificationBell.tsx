@@ -83,26 +83,26 @@ export default function NotificationBell() {
           width: "40px",
           height: "40px",
           borderRadius: "12px",
-          background: isOpen ? "rgba(59,130,246,0.15)" : "rgba(255,255,255,0.04)",
-          border: isOpen ? "1px solid rgba(59,130,246,0.3)" : "1px solid rgba(255,255,255,0.08)",
+          background: isOpen ? "rgba(212,175,55,0.15)" : "rgba(255,255,255,0.04)",
+          border: isOpen ? "1px solid rgba(212,175,55,0.35)" : "1px solid rgba(255,255,255,0.08)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: isOpen ? "#60A5FA" : "#A1A1AA",
+          color: isOpen ? "#F5C842" : "#B8AEC2",
           cursor: "pointer",
           transition: "all 0.2s ease",
           position: "relative",
         }}
         onMouseEnter={(e) => {
           if (!isOpen) {
-            e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-            e.currentTarget.style.color = "#F5F5F7";
+            e.currentTarget.style.background = "rgba(212,175,55,0.1)";
+            e.currentTarget.style.color = "#F8F5F0";
           }
         }}
         onMouseLeave={(e) => {
           if (!isOpen) {
             e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-            e.currentTarget.style.color = "#A1A1AA";
+            e.currentTarget.style.color = "#B8AEC2";
           }
         }}
         title="Notifications"
@@ -120,15 +120,15 @@ export default function NotificationBell() {
               height: "18px",
               padding: "0 4px",
               borderRadius: "999px",
-              background: "linear-gradient(135deg, #EF4444, #DC2626)",
-              color: "#FFFFFF",
+              background: "linear-gradient(135deg, #D4AF37, #EAB308)",
+              color: "#150E1C",
               fontSize: "0.68rem",
               fontWeight: 800,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 0 10px rgba(239,68,68,0.6)",
-              border: "2px solid #0A0A0F",
+              boxShadow: "0 0 10px rgba(212,175,55,0.6)",
+              border: "2px solid #150E1C",
             }}
           >
             {unreadCount > 99 ? "99+" : unreadCount}

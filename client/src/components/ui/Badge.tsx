@@ -3,6 +3,7 @@
 import React from "react";
 
 type BadgeVariant =
+  | "gold"
   | "blue"
   | "cyan"
   | "success"
@@ -14,77 +15,89 @@ type BadgeVariant =
   | "neutral";
 
 const variantStyles: Record<BadgeVariant, React.CSSProperties> = {
+  gold: {
+    background: "rgba(212,175,55,0.15)",
+    color: "#F5C842",
+    border: "1px solid rgba(212,175,55,0.35)",
+  },
   blue: {
-    background: "rgba(59,130,246,0.15)",
-    color: "#60A5FA",
-    border: "1px solid rgba(59,130,246,0.3)",
+    background: "rgba(212,175,55,0.15)",
+    color: "#F5C842",
+    border: "1px solid rgba(212,175,55,0.35)",
   },
   cyan: {
-    background: "rgba(6,182,212,0.12)",
-    color: "#22D3EE",
-    border: "1px solid rgba(6,182,212,0.3)",
+    background: "rgba(234,179,8,0.15)",
+    color: "#FDE047",
+    border: "1px solid rgba(234,179,8,0.35)",
   },
   success: {
-    background: "rgba(34,197,94,0.12)",
+    background: "rgba(74,222,128,0.12)",
     color: "#4ADE80",
-    border: "1px solid rgba(34,197,94,0.3)",
+    border: "1px solid rgba(74,222,128,0.3)",
   },
   error: {
-    background: "rgba(239,68,68,0.12)",
+    background: "rgba(248,113,113,0.12)",
     color: "#F87171",
-    border: "1px solid rgba(239,68,68,0.3)",
+    border: "1px solid rgba(248,113,113,0.3)",
   },
   warning: {
-    background: "rgba(245,158,11,0.12)",
-    color: "#FCD34D",
-    border: "1px solid rgba(245,158,11,0.3)",
+    background: "rgba(251,191,36,0.12)",
+    color: "#FBBF24",
+    border: "1px solid rgba(251,191,36,0.3)",
   },
   pending: {
-    background: "rgba(245,158,11,0.12)",
-    color: "#FCD34D",
-    border: "1px solid rgba(245,158,11,0.3)",
+    background: "rgba(251,191,36,0.12)",
+    color: "#FBBF24",
+    border: "1px solid rgba(251,191,36,0.3)",
   },
   approved: {
-    background: "rgba(34,197,94,0.12)",
+    background: "rgba(74,222,128,0.12)",
     color: "#4ADE80",
-    border: "1px solid rgba(34,197,94,0.3)",
+    border: "1px solid rgba(74,222,128,0.3)",
   },
   rejected: {
-    background: "rgba(239,68,68,0.12)",
+    background: "rgba(248,113,113,0.12)",
     color: "#F87171",
-    border: "1px solid rgba(239,68,68,0.3)",
+    border: "1px solid rgba(248,113,113,0.3)",
   },
   neutral: {
     background: "rgba(255,255,255,0.06)",
-    color: "#A1A1AA",
+    color: "#B8AEC2",
     border: "1px solid rgba(255,255,255,0.1)",
   },
 };
 
 interface BadgeProps {
-  variant?: BadgeVariant;
   children: React.ReactNode;
+  variant?: BadgeVariant;
   dot?: boolean;
+  size?: "sm" | "md";
+  className?: string;
   style?: React.CSSProperties;
 }
 
 export default function Badge({
-  variant = "blue",
   children,
+  variant = "neutral",
   dot = false,
-  style,
+  size = "md",
+  className = "",
+  style = {},
 }: BadgeProps) {
+  const isSm = size === "sm";
+
   return (
     <span
+      className={className}
       style={{
         display: "inline-flex",
         alignItems: "center",
-        gap: "5px",
-        padding: "3px 10px",
+        gap: isSm ? "4px" : "6px",
+        padding: isSm ? "2px 7px" : "3px 10px",
         borderRadius: "999px",
-        fontSize: "0.72rem",
+        fontSize: isSm ? "0.72rem" : "0.78rem",
         fontWeight: 600,
-        letterSpacing: "0.03em",
+        letterSpacing: "0.02em",
         whiteSpace: "nowrap",
         ...variantStyles[variant],
         ...style,
@@ -93,11 +106,11 @@ export default function Badge({
       {dot && (
         <span
           style={{
-            width: "6px",
-            height: "6px",
+            width: isSm ? "5px" : "6px",
+            height: isSm ? "5px" : "6px",
             borderRadius: "50%",
-            background: "currentColor",
-            animation: "pulse-dot 2s ease-in-out infinite",
+            backgroundColor: "currentColor",
+            boxShadow: "0 0 6px currentColor",
             flexShrink: 0,
           }}
         />

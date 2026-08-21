@@ -33,14 +33,14 @@ interface ItemCardProps {
 }
 
 const categoryGradients: Record<string, [string, string]> = {
-  electronics: ["#2563EB", "#06B6D4"],
+  electronics: ["#D4AF37", "#F5C842"],
   documents: ["#059669", "#10B981"],
-  bags: ["#7C3AED", "#6366F1"],
-  jewelry: ["#D97706", "#F59E0B"],
-  clothing: ["#DB2777", "#EC4899"],
-  keys: ["#DC2626", "#EF4444"],
-  others: ["#475569", "#64748B"],
-  other: ["#475569", "#64748B"],
+  bags: ["#A855F7", "#EC4899"],
+  jewelry: ["#D4AF37", "#EAB308"],
+  clothing: ["#E11D48", "#FB7185"],
+  keys: ["#EA580C", "#F97316"],
+  others: ["#6B7280", "#9CA3AF"],
+  other: ["#6B7280", "#9CA3AF"],
 };
 
 export default function ItemCard({
@@ -51,7 +51,7 @@ export default function ItemCard({
   showActions = false,
 }: ItemCardProps) {
   const catKey = (item.category || "others").toLowerCase();
-  const [c1, c2] = categoryGradients[catKey] || ["#3B82F6", "#06B6D4"];
+  const [c1, c2] = categoryGradients[catKey] || ["#D4AF37", "#F5C842"];
   const detailPath = type === "found" ? `/found/${item._id || item.id}` : `/lost/${item._id || item.id}`;
 
   const getFullImageUrl = (imgPath?: string) => {
@@ -79,7 +79,7 @@ export default function ItemCard({
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "matched":
-        return <Badge variant="cyan" dot>Matched</Badge>;
+        return <Badge variant="gold" dot>Matched</Badge>;
       case "claimed":
         return <Badge variant="success" dot>Claimed</Badge>;
       case "resolved":
@@ -88,15 +88,15 @@ export default function ItemCard({
         return <Badge variant="neutral">Closed</Badge>;
       case "active":
       default:
-        return <Badge variant="blue" dot>Active</Badge>;
+        return <Badge variant="gold" dot>Active</Badge>;
     }
   };
 
   return (
     <article
       style={{
-        background: "rgba(18,20,28,0.9)",
-        border: "1px solid rgba(255,255,255,0.07)",
+        background: "rgba(45, 27, 61, 0.85)",
+        border: "1px solid rgba(212, 175, 55, 0.2)",
         borderRadius: "20px",
         overflow: "hidden",
         display: "flex",
@@ -106,12 +106,12 @@ export default function ItemCard({
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-4px)";
-        e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)";
-        e.currentTarget.style.boxShadow = "0 20px 60px rgba(59,130,246,0.12)";
+        e.currentTarget.style.borderColor = "rgba(212,175,55,0.45)";
+        e.currentTarget.style.boxShadow = "0 20px 60px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.2)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
+        e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.2)";
         e.currentTarget.style.boxShadow = "none";
       }}
     >
@@ -150,7 +150,7 @@ export default function ItemCard({
               height: "60px",
               borderRadius: "16px",
               background: `linear-gradient(135deg, ${c1}, ${c2})`,
-              opacity: 0.8,
+              opacity: 0.85,
               boxShadow: `0 8px 24px ${c1}40`,
             }}
           />
@@ -161,21 +161,22 @@ export default function ItemCard({
           {getStatusBadge(item.status)}
         </div>
 
-        {/* Category Tag */}
+        {/* Category Pill */}
         <div
           style={{
             position: "absolute",
-            top: "12px",
+            bottom: "12px",
             left: "12px",
-            padding: "4px 10px",
-            background: "rgba(10,10,15,0.85)",
-            backdropFilter: "blur(8px)",
-            borderRadius: "8px",
-            border: "1px solid rgba(255,255,255,0.1)",
+            background: "rgba(21, 14, 28, 0.85)",
+            backdropFilter: "blur(10px)",
+            padding: "3px 10px",
+            borderRadius: "999px",
             fontSize: "0.72rem",
             fontWeight: 700,
-            color: "#F5F5F7",
-            letterSpacing: "0.02em",
+            color: "#F5C842",
+            border: "1px solid rgba(212,175,55,0.3)",
+            textTransform: "uppercase",
+            letterSpacing: "0.03em",
           }}
         >
           {item.category}
@@ -183,55 +184,52 @@ export default function ItemCard({
       </Link>
 
       {/* Body Content */}
-      <div style={{ padding: "20px", display: "flex", flexDirection: "column", flex: 1 }}>
-        <Link href={detailPath} style={{ textDecoration: "none" }}>
-          <h3
-            style={{
-              fontSize: "1rem",
-              fontWeight: 700,
-              color: "#F5F5F7",
-              marginBottom: "8px",
-              lineHeight: 1.3,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#60A5FA")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#F5F5F7")}
-          >
-            {item.title}
-          </h3>
+      <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "12px", flex: 1 }}>
+        {/* Title */}
+        <Link
+          href={detailPath}
+          style={{
+            fontSize: "1.05rem",
+            fontWeight: 700,
+            color: "#F8F5F0",
+            textDecoration: "none",
+            lineHeight: 1.3,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {item.title}
         </Link>
 
+        {/* Description snippet */}
         <p
           style={{
-            fontSize: "0.83rem",
-            color: "#A1A1AA",
+            fontSize: "0.84rem",
+            color: "#B8AEC2",
             lineHeight: 1.5,
-            marginBottom: "16px",
+            margin: 0,
             display: "-webkit-box",
             WebkitLineClamp: 2,
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
-            flex: 1,
           }}
         >
-          {item.description}
+          {item.description || "No description provided."}
         </p>
 
-        {/* Location & Date */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "16px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#A1A1AA" }}>
-            <MapPin size={13} color="#60A5FA" style={{ flexShrink: 0 }} />
+        {/* Metadata Details */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#B8AEC2" }}>
+            <MapPin size={13} color="#D4AF37" style={{ flexShrink: 0 }} />
             <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
               {item.location}
             </span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#606070" }}>
-            <Calendar size={13} style={{ flexShrink: 0 }} />
-            <span>{type === "found" ? "Found on" : "Lost on"} {formatDate(item.date)}</span>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.78rem", color: "#B8AEC2" }}>
+            <Calendar size={13} color="#D4AF37" style={{ flexShrink: 0 }} />
+            <span>{formatDate(item.date)}</span>
           </div>
         </div>
 
@@ -252,11 +250,11 @@ export default function ItemCard({
                 style={{
                   flex: 1,
                   padding: "8px 12px",
-                  background: "rgba(59,130,246,0.1)",
-                  border: "1px solid rgba(59,130,246,0.25)",
+                  background: "rgba(212,175,55,0.15)",
+                  border: "1px solid rgba(212,175,55,0.35)",
                   borderRadius: "8px",
-                  color: "#60A5FA",
-                  fontWeight: 600,
+                  color: "#F5C842",
+                  fontWeight: 700,
                   fontSize: "0.78rem",
                   textAlign: "center",
                   textDecoration: "none",
@@ -286,7 +284,7 @@ export default function ItemCard({
             </div>
           ) : (
             <>
-              <span style={{ fontSize: "0.75rem", color: "#606070" }}>
+              <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>
                 By {item.user?.name ? item.user.name.split(" ")[0] : "Finder"}
               </span>
 
@@ -297,21 +295,21 @@ export default function ItemCard({
                   alignItems: "center",
                   gap: "4px",
                   padding: "6px 12px",
-                  background: "rgba(59,130,246,0.1)",
-                  border: "1px solid rgba(59,130,246,0.25)",
+                  background: "rgba(212,175,55,0.15)",
+                  border: "1px solid rgba(212,175,55,0.35)",
                   borderRadius: "8px",
-                  color: "#60A5FA",
-                  fontWeight: 600,
+                  color: "#F5C842",
+                  fontWeight: 700,
                   fontSize: "0.78rem",
                   textDecoration: "none",
                   transition: "all 0.2s",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(59,130,246,0.2)";
-                  e.currentTarget.style.boxShadow = "0 0 12px rgba(59,130,246,0.25)";
+                  e.currentTarget.style.background = "rgba(212,175,55,0.25)";
+                  e.currentTarget.style.boxShadow = "0 0 12px rgba(212,175,55,0.3)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(59,130,246,0.1)";
+                  e.currentTarget.style.background = "rgba(212,175,55,0.15)";
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >

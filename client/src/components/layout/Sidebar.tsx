@@ -50,13 +50,14 @@ const adminNav: NavItem[] = [
   { href: "/admin/users", label: "Users", icon: <Users size={18} /> },
   { href: "/admin/items", label: "Items", icon: <Package size={18} /> },
   { href: "/admin/claims", label: "Claims", icon: <ClipboardCheck size={18} /> },
+  { href: "/admin/matches", label: "Matches", icon: <GitCompare size={18} /> },
   { href: "/admin/settings", label: "Settings", icon: <Settings size={18} /> },
 ];
 
 export default function Sidebar({ variant = "user" }: SidebarProps) {
   const pathname = usePathname();
-  const nav = variant === "admin" ? adminNav : userNav;
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const nav = variant === "admin" ? adminNav : userNav;
 
   useEffect(() => {
     const user = authService.getCurrentUser();
@@ -74,8 +75,8 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
       style={{
         width: "250px",
         minHeight: "100vh",
-        background: "#0D0F14",
-        borderRight: "1px solid rgba(255,255,255,0.06)",
+        background: "#150E1C",
+        borderRight: "1px solid rgba(212, 175, 55, 0.15)",
         display: "flex",
         flexDirection: "column",
         padding: "24px 12px",
@@ -102,21 +103,21 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
             width: "34px",
             height: "34px",
             borderRadius: "10px",
-            background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+            background: "linear-gradient(135deg, #D4AF37, #F5C842)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: "0 0 14px rgba(59,130,246,0.4)",
+            boxShadow: "0 0 14px rgba(212,175,55,0.45)",
             flexShrink: 0,
           }}
         >
-          <Search size={16} color="#fff" strokeWidth={2.5} />
+          <Search size={16} color="#150E1C" strokeWidth={2.5} />
         </div>
         <span
           style={{
             fontSize: "1.15rem",
             fontWeight: 800,
-            background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+            background: "linear-gradient(135deg, #F8F5F0, #D4AF37)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -130,9 +131,9 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
               marginLeft: "auto",
               fontSize: "0.65rem",
               fontWeight: 700,
-              background: "rgba(239,68,68,0.15)",
-              color: "#EF4444",
-              border: "1px solid rgba(239,68,68,0.3)",
+              background: "rgba(212,175,55,0.15)",
+              color: "#F5C842",
+              border: "1px solid rgba(212,175,55,0.3)",
               borderRadius: "6px",
               padding: "2px 6px",
               letterSpacing: "0.05em",
@@ -157,91 +158,143 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
                 gap: "12px",
                 padding: "10px 14px",
                 borderRadius: "10px",
-                color: active ? "#3B82F6" : "#A1A1AA",
-                background: active ? "rgba(59,130,246,0.1)" : "transparent",
-                borderLeft: active ? "2px solid #3B82F6" : "2px solid transparent",
-                fontWeight: active ? 600 : 400,
-                fontSize: "0.9rem",
+                color: active ? "#F5C842" : "#B8AEC2",
+                background: active ? "rgba(212, 175, 55, 0.15)" : "transparent",
+                borderLeft: active ? "3px solid #D4AF37" : "3px solid transparent",
+                fontWeight: active ? 700 : 500,
+                fontSize: "0.875rem",
                 transition: "all 0.2s ease",
                 textDecoration: "none",
               }}
               onMouseEnter={(e) => {
                 if (!active) {
-                  (e.currentTarget as HTMLAnchorElement).style.color = "#F5F5F7";
                   (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0";
                 }
               }}
               onMouseLeave={(e) => {
                 if (!active) {
-                  (e.currentTarget as HTMLAnchorElement).style.color = "#A1A1AA";
                   (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#B8AEC2";
                 }
               }}
             >
-              <span style={{ color: active ? "#3B82F6" : "#606070" }}>{item.icon}</span>
+              <span
+                style={{
+                  color: active ? "#F5C842" : "#B8AEC2",
+                  display: "flex",
+                  alignItems: "center",
+                  flexShrink: 0,
+                }}
+              >
+                {item.icon}
+              </span>
               <span>{item.label}</span>
               {active && (
-                <ChevronRight size={14} style={{ marginLeft: "auto", color: "#3B82F6" }} />
+                <ChevronRight
+                  size={14}
+                  style={{ marginLeft: "auto", color: "#F5C842", opacity: 0.8 }}
+                />
               )}
             </Link>
           );
         })}
       </nav>
 
-      {/* Bottom user profile card */}
+      {/* User Section Footer */}
       <div
         style={{
-          marginTop: "auto",
-          padding: "12px",
-          background: "rgba(255,255,255,0.03)",
-          border: "1px solid rgba(255,255,255,0.06)",
-          borderRadius: "12px",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          paddingTop: "16px",
           display: "flex",
-          alignItems: "center",
-          gap: "10px",
+          flexDirection: "column",
+          gap: "12px",
         }}
       >
-        <Link
-          href="/dashboard/profile"
-          style={{ display: "flex", alignItems: "center", gap: "10px", flex: 1, minWidth: 0, textDecoration: "none" }}
-        >
-          <Avatar
-            src={currentUser?.avatar}
-            name={currentUser?.name || (variant === "admin" ? "Admin User" : "John Doe")}
-            size="sm"
-            glow={false}
-          />
-          <div style={{ overflow: "hidden" }}>
-            <p style={{ fontSize: "0.82rem", fontWeight: 600, color: "#F5F5F7", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-              {currentUser?.name || (variant === "admin" ? "Admin User" : "John Doe")}
-            </p>
-            <p style={{ fontSize: "0.72rem", color: "#A1A1AA", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-              {currentUser?.email || (variant === "admin" ? "admin@refind.ai" : "user@refind.ai")}
-            </p>
+        {currentUser ? (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              padding: "8px",
+              borderRadius: "10px",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.05)",
+            }}
+          >
+            <Avatar
+              src={currentUser.avatar}
+              name={currentUser.name}
+              size="sm"
+              glow={false}
+            />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  fontWeight: 600,
+                  color: "#F8F5F0",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                  margin: 0,
+                }}
+              >
+                {currentUser.name}
+              </p>
+              <p
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "#B8AEC2",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                  margin: 0,
+                  textTransform: "capitalize",
+                }}
+              >
+                {currentUser.role}
+              </p>
+            </div>
+            <button
+              onClick={handleLogout}
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "#B8AEC2",
+                cursor: "pointer",
+                padding: "4px",
+                borderRadius: "6px",
+                display: "flex",
+                alignItems: "center",
+              }}
+              title="Log out"
+            >
+              <LogOut size={15} />
+            </button>
           </div>
-        </Link>
-
-        <button
-          onClick={handleLogout}
-          title="Logout"
-          style={{
-            background: "transparent",
-            border: "none",
-            color: "#606070",
-            cursor: "pointer",
-            padding: "6px",
-            borderRadius: "6px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "all 0.2s",
-            flexShrink: 0,
-          }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#EF4444")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#606070")}
-        >
-          <LogOut size={16} />
-        </button>
+        ) : (
+          <Link
+            href="/login"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
+              padding: "9px",
+              borderRadius: "10px",
+              background: "rgba(212,175,55,0.15)",
+              color: "#F5C842",
+              fontSize: "0.8125rem",
+              fontWeight: 600,
+              textDecoration: "none",
+              border: "1px solid rgba(212,175,55,0.3)",
+            }}
+          >
+            Log In
+          </Link>
+        )}
       </div>
     </aside>
   );

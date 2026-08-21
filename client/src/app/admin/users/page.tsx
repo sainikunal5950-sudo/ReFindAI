@@ -148,7 +148,7 @@ export default function AdminUsersPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0A0A0F" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
       <Sidebar variant="admin" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -199,7 +199,7 @@ export default function AdminUsersPage() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(13,15,20,0.8)",
+            background: "rgba(21, 14, 28,0.8)",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             position: "sticky",
@@ -213,20 +213,20 @@ export default function AdminUsersPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "rgba(59,130,246,0.15)",
+                background: "rgba(212, 175, 55,0.15)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#3B82F6",
+                color: "#D4AF37",
               }}
             >
               <UsersIcon size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
                 User Management
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>
+              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
                 {total} total registered accounts
               </p>
             </div>
@@ -239,7 +239,7 @@ export default function AdminUsersPage() {
               background: "rgba(255,255,255,0.04)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "10px",
-              color: "#A1A1AA",
+              color: "#B8AEC2",
               fontSize: "0.82rem",
               fontWeight: 600,
               cursor: "pointer",
@@ -248,8 +248,8 @@ export default function AdminUsersPage() {
               gap: "6px",
               transition: "all 0.2s",
             }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#F5F5F7")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#A1A1AA")}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#F8F5F0")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#B8AEC2")}
           >
             <RefreshCw size={14} />
             Refresh
@@ -261,7 +261,7 @@ export default function AdminUsersPage() {
           {/* Controls Bar: Search & Filters */}
           <div
             style={{
-              background: "rgba(18,20,28,0.9)",
+              background: "rgba(45, 27, 61,0.9)",
               border: "1px solid rgba(255,255,255,0.07)",
               borderRadius: "16px",
               padding: "16px 20px",
@@ -290,15 +290,15 @@ export default function AdminUsersPage() {
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "10px",
-                  color: "#F5F5F7",
+                  color: "#F8F5F0",
                   fontSize: "0.88rem",
                   outline: "none",
                   transition: "border-color 0.2s, box-shadow 0.2s",
                   fontFamily: "inherit",
                 }}
                 onFocus={(e) => {
-                  e.currentTarget.style.borderColor = "#3B82F6";
-                  e.currentTarget.style.boxShadow = "0 0 0 2px rgba(59,130,246,0.15)";
+                  e.currentTarget.style.borderColor = "#D4AF37";
+                  e.currentTarget.style.boxShadow = "0 0 0 2px rgba(212, 175, 55,0.15)";
                 }}
                 onBlur={(e) => {
                   e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
@@ -317,7 +317,7 @@ export default function AdminUsersPage() {
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "10px",
-                  color: "#A1A1AA",
+                  color: "#B8AEC2",
                   fontSize: "0.85rem",
                   outline: "none",
                   cursor: "pointer",
@@ -325,9 +325,9 @@ export default function AdminUsersPage() {
                   appearance: "none",
                 }}
               >
-                <option value="all" style={{ background: "#0D0F14" }}>All Roles</option>
-                <option value="user" style={{ background: "#0D0F14" }}>User</option>
-                <option value="admin" style={{ background: "#0D0F14" }}>Admin</option>
+                <option value="all" style={{ background: "#150E1C" }}>All Roles</option>
+                <option value="user" style={{ background: "#150E1C" }}>User</option>
+                <option value="admin" style={{ background: "#150E1C" }}>Admin</option>
               </select>
               <ChevronDown size={14} color="#606070" style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
             </div>
@@ -342,7 +342,7 @@ export default function AdminUsersPage() {
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "10px",
-                  color: "#A1A1AA",
+                  color: "#B8AEC2",
                   fontSize: "0.85rem",
                   outline: "none",
                   cursor: "pointer",
@@ -350,9 +350,9 @@ export default function AdminUsersPage() {
                   appearance: "none",
                 }}
               >
-                <option value="all" style={{ background: "#0D0F14" }}>All Statuses</option>
-                <option value="active" style={{ background: "#0D0F14" }}>Active</option>
-                <option value="blocked" style={{ background: "#0D0F14" }}>Blocked</option>
+                <option value="all" style={{ background: "#150E1C" }}>All Statuses</option>
+                <option value="active" style={{ background: "#150E1C" }}>Active</option>
+                <option value="blocked" style={{ background: "#150E1C" }}>Blocked</option>
               </select>
               <ChevronDown size={14} color="#606070" style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
             </div>
@@ -361,7 +361,7 @@ export default function AdminUsersPage() {
           {/* Table Container */}
           <div
             style={{
-              background: "rgba(18,20,28,0.9)",
+              background: "rgba(45, 27, 61,0.9)",
               border: "1px solid rgba(255,255,255,0.07)",
               borderRadius: "16px",
               overflow: "hidden",
@@ -382,20 +382,20 @@ export default function AdminUsersPage() {
                     width: "56px",
                     height: "56px",
                     borderRadius: "16px",
-                    background: "rgba(59,130,246,0.1)",
+                    background: "rgba(212, 175, 55,0.1)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#3B82F6",
+                    color: "#D4AF37",
                     marginBottom: "16px",
                   }}
                 >
                   <UserX size={28} />
                 </div>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "6px" }}>
+                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
                   No users found
                 </h3>
-                <p style={{ fontSize: "0.88rem", color: "#A1A1AA", maxWidth: "340px" }}>
+                <p style={{ fontSize: "0.88rem", color: "#B8AEC2", maxWidth: "340px" }}>
                   No registered accounts matched your active filters or search terms.
                 </p>
               </div>
@@ -432,7 +432,7 @@ export default function AdminUsersPage() {
                           borderBottom: "1px solid rgba(255,255,255,0.04)",
                           transition: "background 0.15s ease",
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(59,130,246,0.04)")}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(212, 175, 55,0.04)")}
                         onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                       >
                         {/* User / Avatar + Name */}
@@ -440,7 +440,7 @@ export default function AdminUsersPage() {
                           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                             <Avatar src={u.avatar} name={u.name} size="sm" glow={false} />
                             <div>
-                              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "#F5F5F7", display: "block" }}>
+                              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "#F8F5F0", display: "block" }}>
                                 {u.name}
                               </span>
                               {u.phone && (
@@ -451,7 +451,7 @@ export default function AdminUsersPage() {
                         </td>
 
                         {/* Email */}
-                        <td style={{ padding: "14px 20px", fontSize: "0.85rem", color: "#A1A1AA" }}>
+                        <td style={{ padding: "14px 20px", fontSize: "0.85rem", color: "#B8AEC2" }}>
                           {u.email}
                         </td>
 
@@ -483,18 +483,18 @@ export default function AdminUsersPage() {
                               onClick={() => handleOpenDetails(u)}
                               style={{
                                 padding: "6px 10px",
-                                background: "rgba(59,130,246,0.1)",
-                                border: "1px solid rgba(59,130,246,0.25)",
+                                background: "rgba(212, 175, 55,0.1)",
+                                border: "1px solid rgba(212, 175, 55,0.25)",
                                 borderRadius: "8px",
-                                color: "#60A5FA",
+                                color: "#F5C842",
                                 cursor: "pointer",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
                                 transition: "all 0.2s",
                               }}
-                              onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(59,130,246,0.2)")}
-                              onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(59,130,246,0.1)")}
+                              onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(212, 175, 55,0.2)")}
+                              onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(212, 175, 55,0.1)")}
                             >
                               <Eye size={14} />
                             </button>
@@ -579,7 +579,7 @@ export default function AdminUsersPage() {
                       borderRadius: "8px",
                       background: "rgba(255,255,255,0.04)",
                       border: "1px solid rgba(255,255,255,0.08)",
-                      color: page <= 1 ? "#404050" : "#A1A1AA",
+                      color: page <= 1 ? "#404050" : "#B8AEC2",
                       cursor: page <= 1 ? "not-allowed" : "pointer",
                       display: "flex",
                       alignItems: "center",
@@ -605,10 +605,10 @@ export default function AdminUsersPage() {
                           height: "32px",
                           borderRadius: "8px",
                           background: isActive
-                            ? "linear-gradient(135deg, #3B82F6, #06B6D4)"
+                            ? "linear-gradient(135deg, #D4AF37, #F5C842)"
                             : "rgba(255,255,255,0.04)",
                           border: isActive ? "none" : "1px solid rgba(255,255,255,0.08)",
-                          color: isActive ? "#FFFFFF" : "#A1A1AA",
+                          color: isActive ? "#FFFFFF" : "#B8AEC2",
                           fontWeight: 600,
                           fontSize: "0.82rem",
                           cursor: "pointer",
@@ -631,7 +631,7 @@ export default function AdminUsersPage() {
                       borderRadius: "8px",
                       background: "rgba(255,255,255,0.04)",
                       border: "1px solid rgba(255,255,255,0.08)",
-                      color: page >= totalPages ? "#404050" : "#A1A1AA",
+                      color: page >= totalPages ? "#404050" : "#B8AEC2",
                       cursor: page >= totalPages ? "not-allowed" : "pointer",
                       display: "flex",
                       alignItems: "center",

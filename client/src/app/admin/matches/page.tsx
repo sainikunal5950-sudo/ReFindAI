@@ -71,7 +71,7 @@ export default function AdminMatchesPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0A0A0F" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
       <Sidebar variant="admin" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -85,7 +85,7 @@ export default function AdminMatchesPage() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(13,15,20,0.8)",
+            background: "rgba(21, 14, 28,0.8)",
             backdropFilter: "blur(12px)",
             position: "sticky",
             top: 0,
@@ -108,10 +108,10 @@ export default function AdminMatchesPage() {
               <GitCompare size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
                 AI Matches Overview
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>
+              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
                 {total} potential and confirmed AI match pairs platform-wide
               </p>
             </div>
@@ -130,7 +130,7 @@ export default function AdminMatchesPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "10px",
-                color: "#F5F5F7",
+                color: "#F8F5F0",
                 fontSize: "0.84rem",
                 outline: "none",
               }}
@@ -148,7 +148,7 @@ export default function AdminMatchesPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "10px",
-                color: "#A1A1AA",
+                color: "#B8AEC2",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -165,7 +165,7 @@ export default function AdminMatchesPage() {
         <div style={{ flex: 1, padding: "32px", maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
           <div
             style={{
-              background: "rgba(18,20,28,0.85)",
+              background: "rgba(45, 27, 61,0.85)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "18px",
               overflow: "hidden",
@@ -175,19 +175,19 @@ export default function AdminMatchesPage() {
             <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left" }}>
               <thead>
                 <tr style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
                     Lost Item (Reported)
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
                     Found Item (Discovered)
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
                     AI Score
                   </th>
-                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase" }}>
+                  <th style={{ padding: "14px 16px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase" }}>
                     Match Status
                   </th>
-                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase", textAlign: "right" }}>
+                  <th style={{ padding: "14px 20px", fontSize: "0.76rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase", textAlign: "right" }}>
                     Date Generated
                   </th>
                 </tr>
@@ -201,7 +201,7 @@ export default function AdminMatchesPage() {
                   </tr>
                 ) : matches.length === 0 ? (
                   <tr>
-                    <td colSpan={5} style={{ padding: "48px 20px", textAlign: "center", color: "#71717A" }}>
+                    <td colSpan={5} style={{ padding: "48px 20px", textAlign: "center", color: "#9A8FA8" }}>
                       No AI matches generated matching criteria.
                     </td>
                   </tr>
@@ -222,10 +222,10 @@ export default function AdminMatchesPage() {
                         {/* Lost Item */}
                         <td style={{ padding: "16px 20px" }}>
                           <div>
-                            <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F5F5F7" }}>
+                            <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>
                               {lost?.title || "Lost Item"}
                             </span>
-                            <p style={{ fontSize: "0.74rem", color: "#60A5FA", margin: "2px 0 0" }}>
+                            <p style={{ fontSize: "0.74rem", color: "#F5C842", margin: "2px 0 0" }}>
                               {lost?.category} • {lost?.location}
                             </p>
                           </div>
@@ -234,10 +234,10 @@ export default function AdminMatchesPage() {
                         {/* Found Item */}
                         <td style={{ padding: "16px" }}>
                           <div>
-                            <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F5F5F7" }}>
+                            <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>
                               {found?.title || "Found Item"}
                             </span>
-                            <p style={{ fontSize: "0.74rem", color: "#06B6D4", margin: "2px 0 0" }}>
+                            <p style={{ fontSize: "0.74rem", color: "#F5C842", margin: "2px 0 0" }}>
                               {found?.category} • {found?.location}
                             </p>
                           </div>
@@ -251,7 +251,7 @@ export default function AdminMatchesPage() {
                               style={{
                                 fontSize: "0.86rem",
                                 fontWeight: 800,
-                                color: match.matchScore >= 80 ? "#4ADE80" : match.matchScore >= 60 ? "#22D3EE" : "#FCD34D",
+                                color: match.matchScore >= 80 ? "#4ADE80" : match.matchScore >= 60 ? "#FDE047" : "#FCD34D",
                               }}
                             >
                               {match.matchScore}%
@@ -263,7 +263,7 @@ export default function AdminMatchesPage() {
                         <td style={{ padding: "16px" }}>{getStatusBadge(match.status)}</td>
 
                         {/* Date Generated */}
-                        <td style={{ padding: "16px 20px", fontSize: "0.8rem", color: "#A1A1AA", textAlign: "right" }}>
+                        <td style={{ padding: "16px 20px", fontSize: "0.8rem", color: "#B8AEC2", textAlign: "right" }}>
                           {formatDate(match.createdAt)}
                         </td>
                       </tr>

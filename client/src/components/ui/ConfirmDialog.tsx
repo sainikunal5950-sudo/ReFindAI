@@ -42,10 +42,10 @@ export default function ConfirmDialog({
       btnGlow: "0 4px 16px rgba(245,158,11,0.35)",
     },
     primary: {
-      icon: <Check size={24} color="#3B82F6" />,
-      iconBg: "rgba(59,130,246,0.15)",
-      btnBg: "linear-gradient(135deg, #3B82F6, #06B6D4)",
-      btnGlow: "0 4px 16px rgba(59,130,246,0.35)",
+      icon: <Check size={24} color="#D4AF37" />,
+      iconBg: "rgba(212, 175, 55,0.15)",
+      btnBg: "linear-gradient(135deg, #D4AF37, #F5C842)",
+      btnGlow: "0 4px 16px rgba(212, 175, 55,0.35)",
     },
   }[variant];
 
@@ -72,7 +72,7 @@ export default function ConfirmDialog({
         style={{
           width: "100%",
           maxWidth: "420px",
-          background: "rgba(18,20,28,0.95)",
+          background: "rgba(45, 27, 61,0.95)",
           border: "1px solid rgba(255,255,255,0.1)",
           borderRadius: "20px",
           padding: "28px",
@@ -97,10 +97,10 @@ export default function ConfirmDialog({
             {config.icon}
           </div>
           <div style={{ flex: 1 }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "6px" }}>
+            <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
               {title}
             </h3>
-            <p style={{ fontSize: "0.88rem", color: "#A1A1AA", lineHeight: 1.5 }}>{message}</p>
+            <p style={{ fontSize: "0.88rem", color: "#B8AEC2", lineHeight: 1.5 }}>{message}</p>
           </div>
         </div>
 
@@ -114,17 +114,17 @@ export default function ConfirmDialog({
               borderRadius: "10px",
               background: "rgba(255,255,255,0.05)",
               border: "1px solid rgba(255,255,255,0.1)",
-              color: "#A1A1AA",
+              color: "#B8AEC2",
               fontSize: "0.88rem",
               fontWeight: 600,
               cursor: isLoading ? "not-allowed" : "pointer",
               transition: "all 0.2s",
             }}
             onMouseEnter={(e) => {
-              if (!isLoading) (e.currentTarget as HTMLButtonElement).style.color = "#F5F5F7";
+              if (!isLoading) (e.currentTarget as HTMLButtonElement).style.color = "#F8F5F0";
             }}
             onMouseLeave={(e) => {
-              if (!isLoading) (e.currentTarget as HTMLButtonElement).style.color = "#A1A1AA";
+              if (!isLoading) (e.currentTarget as HTMLButtonElement).style.color = "#B8AEC2";
             }}
           >
             {cancelText}

@@ -133,7 +133,7 @@ export default function LostItemDetailPage() {
   };
 
   return (
-    <main style={{ minHeight: "100vh", background: "#0A0A0F", color: "#F5F5F7" }}>
+    <main style={{ minHeight: "100vh", background: "#1E1425", color: "#F8F5F0" }}>
       <Navbar />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -157,13 +157,13 @@ export default function LostItemDetailPage() {
               display: "inline-flex",
               alignItems: "center",
               gap: "6px",
-              color: "#A1A1AA",
+              color: "#B8AEC2",
               fontSize: "0.88rem",
               textDecoration: "none",
               transition: "color 0.2s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#F5F5F7")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#A1A1AA")}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#F8F5F0")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#B8AEC2")}
           >
             <ArrowLeft size={16} /> Back to Lost Items
           </Link>
@@ -179,7 +179,7 @@ export default function LostItemDetailPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: "10px",
-                color: "#A1A1AA",
+                color: "#B8AEC2",
                 fontSize: "0.85rem",
                 cursor: "pointer",
               }}
@@ -223,14 +223,14 @@ export default function LostItemDetailPage() {
           /* Not Found State */
           <div style={{ textAlign: "center", padding: "80px 20px" }}>
             <h2 style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: "8px" }}>Item Report Not Found</h2>
-            <p style={{ color: "#A1A1AA", marginBottom: "20px" }}>
+            <p style={{ color: "#B8AEC2", marginBottom: "20px" }}>
               The requested lost item report does not exist or has been removed.
             </p>
             <Link
               href="/lost"
               style={{
                 padding: "10px 20px",
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 borderRadius: "10px",
                 color: "#FFFFFF",
                 fontWeight: 600,
@@ -251,7 +251,7 @@ export default function LostItemDetailPage() {
                   width: "100%",
                   height: "380px",
                   borderRadius: "24px",
-                  background: "rgba(18,20,28,0.9)",
+                  background: "rgba(45, 27, 61,0.9)",
                   border: "1px solid rgba(255,255,255,0.08)",
                   overflow: "hidden",
                   position: "relative",
@@ -278,9 +278,9 @@ export default function LostItemDetailPage() {
                       width: "90px",
                       height: "90px",
                       borderRadius: "24px",
-                      background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                      background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                       opacity: 0.8,
-                      boxShadow: "0 12px 36px rgba(59,130,246,0.4)",
+                      boxShadow: "0 12px 36px rgba(212, 175, 55,0.4)",
                     }}
                   />
                 )}
@@ -300,11 +300,11 @@ export default function LostItemDetailPage() {
                           height: "72px",
                           borderRadius: "12px",
                           overflow: "hidden",
-                          border: isSelected ? "2px solid #3B82F6" : "1px solid rgba(255,255,255,0.1)",
-                          background: "#12141C",
+                          border: isSelected ? "2px solid #D4AF37" : "1px solid rgba(255,255,255,0.1)",
+                          background: "#2D1B3D",
                           padding: 0,
                           cursor: "pointer",
-                          boxShadow: isSelected ? "0 0 14px rgba(59,130,246,0.4)" : "none",
+                          boxShadow: isSelected ? "0 0 14px rgba(212, 175, 55,0.4)" : "none",
                           flexShrink: 0,
                         }}
                       >
@@ -329,7 +329,7 @@ export default function LostItemDetailPage() {
                   {getStatusBadge(item.status)}
                 </div>
 
-                <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, color: "#F5F5F7", lineHeight: 1.2, letterSpacing: "-0.02em" }}>
+                <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, color: "#F8F5F0", lineHeight: 1.2, letterSpacing: "-0.02em" }}>
                   {item.title}
                 </h1>
               </div>
@@ -337,7 +337,7 @@ export default function LostItemDetailPage() {
               {/* Key Location & Date Highlights */}
               <div
                 style={{
-                  background: "rgba(18,20,28,0.8)",
+                  background: "rgba(45, 27, 61,0.8)",
                   border: "1px solid rgba(255,255,255,0.06)",
                   borderRadius: "16px",
                   padding: "18px 20px",
@@ -347,29 +347,29 @@ export default function LostItemDetailPage() {
                 }}
               >
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(59,130,246,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#3B82F6", flexShrink: 0 }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(212, 175, 55,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#D4AF37", flexShrink: 0 }}>
                     <MapPin size={16} />
                   </div>
                   <div>
                     <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Location Lost</div>
-                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F5F5F7" }}>{item.location}</div>
+                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>{item.location}</div>
                   </div>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(6,182,212,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#06B6D4", flexShrink: 0 }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(245, 200, 66,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#F5C842", flexShrink: 0 }}>
                     <Calendar size={16} />
                   </div>
                   <div>
                     <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Date Lost</div>
-                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F5F5F7" }}>{formatDate(item.date)}</div>
+                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#F8F5F0" }}>{formatDate(item.date)}</div>
                   </div>
                 </div>
               </div>
 
               {/* Description Body */}
               <div>
-                <h3 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#A1A1AA", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>
+                <h3 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#B8AEC2", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>
                   Description
                 </h3>
                 <div
@@ -378,7 +378,7 @@ export default function LostItemDetailPage() {
                     border: "1px solid rgba(255,255,255,0.06)",
                     borderRadius: "14px",
                     padding: "18px 20px",
-                    color: "#F5F5F7",
+                    color: "#F8F5F0",
                     fontSize: "0.92rem",
                     lineHeight: 1.6,
                     whiteSpace: "pre-wrap",
@@ -395,7 +395,7 @@ export default function LostItemDetailPage() {
                   alignItems: "center",
                   justifyContent: "space-between",
                   padding: "14px 18px",
-                  background: "rgba(18,20,28,0.6)",
+                  background: "rgba(45, 27, 61,0.6)",
                   border: "1px solid rgba(255,255,255,0.06)",
                   borderRadius: "14px",
                 }}
@@ -403,7 +403,7 @@ export default function LostItemDetailPage() {
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <Avatar src={item.user?.avatar} name={item.user?.name || "Community Member"} size="sm" glow={false} />
                   <div>
-                    <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "#F5F5F7", display: "block" }}>
+                    <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "#F8F5F0", display: "block" }}>
                       Reported by {item.user?.name || "Community Member"}
                     </span>
                     <span style={{ fontSize: "0.72rem", color: "#606070" }}>
@@ -412,7 +412,7 @@ export default function LostItemDetailPage() {
                   </div>
                 </div>
 
-                <span style={{ fontSize: "0.75rem", color: "#3B82F6", display: "flex", alignItems: "center", gap: "4px" }}>
+                <span style={{ fontSize: "0.75rem", color: "#D4AF37", display: "flex", alignItems: "center", gap: "4px" }}>
                   <Shield size={13} /> Verified Report
                 </span>
               </div>

@@ -13,7 +13,7 @@ export default function ScoreBreakdownBar({
   label,
   score,
   icon,
-  color = "#3B82F6",
+  color = "#D4AF37",
 }: ScoreBreakdownBarProps) {
   const normalized = Math.min(100, Math.max(0, score));
 
@@ -32,14 +32,14 @@ export default function ScoreBreakdownBar({
             display: "flex",
             alignItems: "center",
             gap: "5px",
-            color: "#A1A1AA",
+            color: "#B8AEC2",
             fontWeight: 500,
           }}
         >
           {icon}
           {label}
         </span>
-        <span style={{ fontWeight: 700, color: "#F5F5F7" }}>{score}%</span>
+        <span style={{ fontWeight: 700, color: "#F8F5F0" }}>{score}%</span>
       </div>
 
       {/* Progress Track */}
@@ -58,7 +58,7 @@ export default function ScoreBreakdownBar({
             height: "100%",
             background: color.startsWith("linear")
               ? color
-              : `linear-gradient(90deg, ${color}, #06B6D4)`,
+              : `linear-gradient(90deg, ${color}, #F5C842)`,
             borderRadius: "999px",
             transition: "width 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
           }}

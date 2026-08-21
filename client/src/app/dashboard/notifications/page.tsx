@@ -99,7 +99,7 @@ export default function NotificationCenterPage() {
   const { today, yesterday, earlier } = groupNotifications(filteredNotifications);
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0A0A0F" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
       <Sidebar variant="user" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -113,7 +113,7 @@ export default function NotificationCenterPage() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(13,15,20,0.8)",
+            background: "rgba(21, 14, 28,0.8)",
             backdropFilter: "blur(12px)",
             position: "sticky",
             top: 0,
@@ -126,20 +126,20 @@ export default function NotificationCenterPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "rgba(59,130,246,0.15)",
+                background: "rgba(212, 175, 55,0.15)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#60A5FA",
+                color: "#F5C842",
               }}
             >
               <Bell size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
                 Notification Center
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>
+              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
                 {unreadCount > 0 ? `${unreadCount} unread notifications` : "You're all caught up"}
               </p>
             </div>
@@ -162,8 +162,8 @@ export default function NotificationCenterPage() {
                 style={{
                   padding: "5px 12px",
                   borderRadius: "7px",
-                  background: filter === "all" ? "rgba(59,130,246,0.2)" : "transparent",
-                  color: filter === "all" ? "#60A5FA" : "#A1A1AA",
+                  background: filter === "all" ? "rgba(212, 175, 55,0.2)" : "transparent",
+                  color: filter === "all" ? "#F5C842" : "#B8AEC2",
                   border: "none",
                   fontSize: "0.78rem",
                   fontWeight: 600,
@@ -178,8 +178,8 @@ export default function NotificationCenterPage() {
                 style={{
                   padding: "5px 12px",
                   borderRadius: "7px",
-                  background: filter === "unread" ? "rgba(59,130,246,0.2)" : "transparent",
-                  color: filter === "unread" ? "#60A5FA" : "#A1A1AA",
+                  background: filter === "unread" ? "rgba(212, 175, 55,0.2)" : "transparent",
+                  color: filter === "unread" ? "#F5C842" : "#B8AEC2",
                   border: "none",
                   fontSize: "0.78rem",
                   fontWeight: 600,
@@ -196,10 +196,10 @@ export default function NotificationCenterPage() {
                 onClick={handleMarkAllRead}
                 style={{
                   padding: "8px 14px",
-                  background: "rgba(59,130,246,0.1)",
-                  border: "1px solid rgba(59,130,246,0.25)",
+                  background: "rgba(212, 175, 55,0.1)",
+                  border: "1px solid rgba(212, 175, 55,0.25)",
                   borderRadius: "10px",
-                  color: "#60A5FA",
+                  color: "#F5C842",
                   fontSize: "0.82rem",
                   fontWeight: 600,
                   cursor: "pointer",
@@ -219,7 +219,7 @@ export default function NotificationCenterPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "10px",
-                color: "#A1A1AA",
+                color: "#B8AEC2",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -244,7 +244,7 @@ export default function NotificationCenterPage() {
             <div
               style={{
                 padding: "72px 20px",
-                background: "rgba(18,20,28,0.6)",
+                background: "rgba(45, 27, 61,0.6)",
                 border: "1px solid rgba(255,255,255,0.06)",
                 borderRadius: "24px",
                 textAlign: "center",
@@ -257,20 +257,20 @@ export default function NotificationCenterPage() {
                   width: "60px",
                   height: "60px",
                   borderRadius: "18px",
-                  background: "rgba(59,130,246,0.1)",
+                  background: "rgba(212, 175, 55,0.1)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#3B82F6",
+                  color: "#D4AF37",
                   margin: "0 auto 16px",
                 }}
               >
                 <Bell size={28} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "6px" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
                 {filter === "unread" ? "No unread notifications" : "No notifications yet"}
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#A1A1AA", margin: 0, lineHeight: 1.5 }}>
+              <p style={{ fontSize: "0.88rem", color: "#B8AEC2", margin: 0, lineHeight: 1.5 }}>
                 {filter === "unread"
                   ? "You have read all your alerts. Switch to 'All' to view your full history."
                   : "We'll keep you posted when AI matches, claims, or verification updates occur."}
@@ -281,7 +281,7 @@ export default function NotificationCenterPage() {
               {/* TODAY */}
               {today.length > 0 && (
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                     Today
                   </span>
                   {today.map((notif) => (
@@ -297,7 +297,7 @@ export default function NotificationCenterPage() {
               {/* YESTERDAY */}
               {yesterday.length > 0 && (
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                     Yesterday
                   </span>
                   {yesterday.map((notif) => (
@@ -313,7 +313,7 @@ export default function NotificationCenterPage() {
               {/* EARLIER */}
               {earlier.length > 0 && (
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#71717A", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#9A8FA8", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                     Earlier
                   </span>
                   {earlier.map((notif) => (

@@ -78,15 +78,15 @@ export default function MatchCard({
   return (
     <div
       style={{
-        background: "rgba(18, 20, 28, 0.9)",
-        border: "1px solid rgba(59, 130, 246, 0.2)",
+        background: "rgba(45, 27, 61, 0.85)",
+        border: "1px solid rgba(212, 175, 55, 0.25)",
         borderRadius: "20px",
         padding: "20px",
         display: "flex",
         flexDirection: "column",
         gap: "16px",
         backdropFilter: "blur(16px)",
-        boxShadow: "0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(6,182,212,0.08)",
+        boxShadow: "0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.08)",
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         opacity: isFadingOut ? 0 : 1,
         transform: isFadingOut ? "scale(0.95) translateY(10px)" : "none",
@@ -102,7 +102,7 @@ export default function MatchCard({
             height: "84px",
             borderRadius: "14px",
             background: "rgba(255, 255, 255, 0.04)",
-            border: "1px solid rgba(255, 255, 255, 0.08)",
+            border: "1px solid rgba(212, 175, 55, 0.2)",
             overflow: "hidden",
             display: "flex",
             alignItems: "center",
@@ -123,8 +123,8 @@ export default function MatchCard({
                 width: "40px",
                 height: "40px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
-                opacity: 0.7,
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
+                opacity: 0.8,
               }}
             />
           )}
@@ -137,15 +137,15 @@ export default function MatchCard({
               style={{
                 fontSize: "0.72rem",
                 fontWeight: 700,
-                color: "#06B6D4",
+                color: "#F5C842",
                 textTransform: "uppercase",
                 letterSpacing: "0.04em",
               }}
             >
               {targetItem.category}
             </span>
-            <span style={{ width: "3px", height: "3px", borderRadius: "50%", background: "#606070" }} />
-            <span style={{ fontSize: "0.72rem", color: "#A1A1AA" }}>
+            <span style={{ width: "3px", height: "3px", borderRadius: "50%", background: "#B8AEC2" }} />
+            <span style={{ fontSize: "0.72rem", color: "#B8AEC2" }}>
               {perspective === "lost" ? "Found Report" : "Lost Report"}
             </span>
           </div>
@@ -155,7 +155,7 @@ export default function MatchCard({
             style={{
               fontSize: "1rem",
               fontWeight: 700,
-              color: "#F5F5F7",
+              color: "#F8F5F0",
               textDecoration: "none",
               overflow: "hidden",
               textOverflow: "ellipsis",
@@ -165,154 +165,177 @@ export default function MatchCard({
             {targetItem.title}
           </Link>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.78rem", color: "#A1A1AA", marginTop: "2px" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-              <MapPin size={12} color="#60A5FA" /> {targetItem.location}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              fontSize: "0.78rem",
+              color: "#B8AEC2",
+              flexWrap: "wrap",
+            }}
+          >
+            <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              <MapPin size={12} color="#D4AF37" />
+              {targetItem.location}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", flexShrink: 0 }}>
-              <Calendar size={12} color="#606070" /> {formatDate(targetItem.date)}
+            <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              <Calendar size={12} color="#D4AF37" />
+              {formatDate(targetItem.date || (targetItem as any).dateLost || (targetItem as any).dateFound)}
             </span>
           </div>
         </div>
 
-        {/* Circular Score Ring */}
-        <ScoreRing score={match.matchScore} size={68} strokeWidth={5} />
+        {/* Circular Match Score Ring */}
+        <ScoreRing score={match.matchScore} size={72} strokeWidth={6} />
       </div>
 
-      {/* Expandable Score Breakdown Toggle */}
-      <button
-        type="button"
-        onClick={() => setShowBreakdown(!showBreakdown)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "8px 12px",
-          background: "rgba(255, 255, 255, 0.03)",
-          border: "1px solid rgba(255, 255, 255, 0.06)",
-          borderRadius: "10px",
-          color: "#A1A1AA",
-          fontSize: "0.78rem",
-          fontWeight: 600,
-          cursor: "pointer",
-          transition: "all 0.2s",
-        }}
-      >
-        <span>AI Match Breakdown</span>
-        <ChevronDown
-          size={14}
-          style={{
-            transform: showBreakdown ? "rotate(180deg)" : "none",
-            transition: "transform 0.2s",
-          }}
-        />
-      </button>
-
-      {/* Breakdown Drawer */}
+      {/* Expandable Breakdown Drawer */}
       {showBreakdown && (
         <div
           style={{
+            background: "rgba(21, 14, 28, 0.8)",
+            borderRadius: "14px",
+            padding: "16px",
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "12px",
-            padding: "12px 14px",
-            background: "rgba(0, 0, 0, 0.2)",
-            borderRadius: "12px",
-            border: "1px solid rgba(255, 255, 255, 0.04)",
-            animation: "fadeIn 0.2s ease-out",
+            border: "1px solid rgba(212, 175, 55, 0.15)",
           }}
         >
           <ScoreBreakdownBar
-            label="Category Match (25%)"
-            score={match.breakdown?.categorySimilarity || 0}
-            icon={<Tag size={12} color="#06B6D4" />}
-            color="#06B6D4"
+            label="Category"
+            score={match.breakdown?.categorySimilarity ?? 0}
+            icon={<Tag size={12} color="#D4AF37" />}
+            color="#D4AF37"
           />
           <ScoreBreakdownBar
-            label="Text & Keywords (30%)"
-            score={match.breakdown?.textSimilarity || 0}
-            icon={<FileText size={12} color="#3B82F6" />}
-            color="#3B82F6"
+            label="Text & Keywords"
+            score={match.breakdown?.textSimilarity ?? 0}
+            icon={<FileText size={12} color="#F5C842" />}
+            color="#F5C842"
           />
           <ScoreBreakdownBar
-            label="Location Match (25%)"
-            score={match.breakdown?.locationSimilarity || 0}
-            icon={<MapPin size={12} color="#8B5CF6" />}
-            color="#8B5CF6"
+            label="Location"
+            score={match.breakdown?.locationSimilarity ?? 0}
+            icon={<MapPin size={12} color="#EAB308" />}
+            color="#EAB308"
           />
           <ScoreBreakdownBar
-            label="Time Proximity (20%)"
-            score={match.breakdown?.timeSimilarity || 0}
-            icon={<Clock size={12} color="#10B981" />}
-            color="#10B981"
+            label="Date / Time"
+            score={match.breakdown?.timeSimilarity ?? 0}
+            icon={<Clock size={12} color="#FBBF24" />}
+            color="#FBBF24"
           />
         </div>
       )}
 
       {/* Action Footer */}
-      <div style={{ display: "flex", gap: "10px", alignItems: "center", paddingTop: "4px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+          paddingTop: "12px",
+          gap: "8px",
+        }}
+      >
+        {/* Toggle Details button */}
         <button
           type="button"
-          disabled={isConfirming || match.status === "confirmed"}
-          onClick={() => onConfirm(match)}
+          onClick={() => setShowBreakdown(!showBreakdown)}
           style={{
-            flex: 1,
-            padding: "10px 16px",
-            background: match.status === "confirmed"
-              ? "rgba(34, 197, 94, 0.2)"
-              : "linear-gradient(135deg, #10B981, #059669)",
+            background: "transparent",
             border: "none",
-            borderRadius: "10px",
-            color: "#FFFFFF",
-            fontWeight: 700,
-            fontSize: "0.85rem",
-            cursor: match.status === "confirmed" ? "default" : "pointer",
+            color: "#B8AEC2",
+            fontSize: "0.78rem",
+            fontWeight: 500,
+            cursor: "pointer",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            gap: "6px",
-            boxShadow: match.status === "confirmed" ? "none" : "0 4px 14px rgba(16,185,129,0.3)",
+            gap: "4px",
+            padding: "4px 8px",
+            borderRadius: "6px",
+            transition: "all 0.2s",
           }}
         >
-          <Check size={15} />
-          {match.status === "confirmed" ? "Match Confirmed" : "Confirm Match"}
+          {showBreakdown ? "Hide Breakdown" : "View Breakdown"}
+          <ChevronDown
+            size={14}
+            style={{
+              transform: showBreakdown ? "rotate(180deg)" : "none",
+              transition: "transform 0.2s",
+            }}
+          />
         </button>
 
-        {match.status !== "confirmed" && (
+        {/* Match Decision Actions */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          {/* Not a Match Button */}
           <button
             type="button"
             onClick={handleRejectClick}
             style={{
-              padding: "10px 14px",
-              background: "rgba(255, 255, 255, 0.04)",
+              background: "transparent",
               border: "1px solid rgba(255, 255, 255, 0.1)",
+              color: "#B8AEC2",
+              padding: "7px 14px",
               borderRadius: "10px",
-              color: "#A1A1AA",
-              fontSize: "0.85rem",
+              fontSize: "0.8rem",
               fontWeight: 600,
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
-              gap: "6px",
+              gap: "5px",
               transition: "all 0.2s",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#EF4444";
-              e.currentTarget.style.borderColor = "rgba(239, 68, 68, 0.3)";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(248, 113, 113, 0.4)";
+              (e.currentTarget as HTMLButtonElement).style.color = "#F87171";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#A1A1AA";
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255, 255, 255, 0.1)";
+              (e.currentTarget as HTMLButtonElement).style.color = "#B8AEC2";
             }}
           >
             <X size={14} /> Not a Match
           </button>
-        )}
-      </div>
 
-      <style>{`
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-      `}</style>
+          {/* Confirm Match CTA */}
+          <button
+            type="button"
+            onClick={() => onConfirm(match)}
+            disabled={isConfirming}
+            style={{
+              background: "linear-gradient(135deg, #D4AF37, #EAB308)",
+              border: "none",
+              color: "#150E1C",
+              padding: "7px 16px",
+              borderRadius: "10px",
+              fontSize: "0.8rem",
+              fontWeight: 700,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              boxShadow: "0 4px 14px rgba(212, 175, 55, 0.35)",
+              transition: "all 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 6px 20px rgba(212, 175, 55, 0.5)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 14px rgba(212, 175, 55, 0.35)";
+            }}
+          >
+            <Check size={14} strokeWidth={3} />
+            {isConfirming ? "Processing..." : "Confirm Match"}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -64,7 +64,7 @@ export default function AdminDashboardPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0A0A0F" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
       <Sidebar variant="admin" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -78,7 +78,7 @@ export default function AdminDashboardPage() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(13,15,20,0.8)",
+            background: "rgba(21, 14, 28,0.8)",
             backdropFilter: "blur(12px)",
             position: "sticky",
             top: 0,
@@ -91,21 +91,21 @@ export default function AdminDashboardPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 color: "#FFFFFF",
-                boxShadow: "0 0 16px rgba(59,130,246,0.35)",
+                boxShadow: "0 0 16px rgba(212, 175, 55,0.35)",
               }}
             >
               <ShieldCheck size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
                 Admin Control Center
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>
+              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
                 Platform metrics, item moderation, claims & system health
               </p>
             </div>
@@ -118,7 +118,7 @@ export default function AdminDashboardPage() {
               background: "rgba(255,255,255,0.04)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "10px",
-              color: "#A1A1AA",
+              color: "#B8AEC2",
               fontSize: "0.82rem",
               cursor: "pointer",
               display: "flex",
@@ -146,21 +146,21 @@ export default function AdminDashboardPage() {
               value={stats?.users?.total ?? 0}
               icon={<Users size={20} />}
               trend="+12% this week"
-              accentColor="#3B82F6"
+              accentColor="#D4AF37"
             />
             <StatCard
               title="Lost Item Reports"
               value={stats?.items?.totalLost ?? 0}
               icon={<FileSearch size={20} />}
               trend="Active in pool"
-              accentColor="#60A5FA"
+              accentColor="#F5C842"
             />
             <StatCard
               title="Found Item Reports"
               value={stats?.items?.totalFound ?? 0}
               icon={<Package size={20} />}
               trend="Awaiting owners"
-              accentColor="#06B6D4"
+              accentColor="#F5C842"
             />
             <StatCard
               title="AI Match Pairs"
@@ -197,7 +197,7 @@ export default function AdminDashboardPage() {
             {/* System Visual Breakdown Bar */}
             <div
               style={{
-                background: "rgba(18,20,28,0.85)",
+                background: "rgba(45, 27, 61,0.85)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "20px",
                 padding: "24px",
@@ -209,14 +209,14 @@ export default function AdminDashboardPage() {
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div>
-                  <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7", margin: 0 }}>
+                  <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0", margin: 0 }}>
                     Platform Activity Distribution
                   </h3>
-                  <p style={{ fontSize: "0.8rem", color: "#A1A1AA", margin: "2px 0 0" }}>
+                  <p style={{ fontSize: "0.8rem", color: "#B8AEC2", margin: "2px 0 0" }}>
                     Breakdown of lost vs. found vs. resolved items
                   </p>
                 </div>
-                <Activity size={18} color="#06B6D4" />
+                <Activity size={18} color="#F5C842" />
               </div>
 
               {/* Graphical Stacked Distribution */}
@@ -237,7 +237,7 @@ export default function AdminDashboardPage() {
                         10,
                         ((stats?.items?.totalLost || 1) / ((stats?.items?.totalItems || 2) + 1)) * 100
                       )}%`,
-                      background: "linear-gradient(90deg, #3B82F6, #60A5FA)",
+                      background: "linear-gradient(90deg, #D4AF37, #F5C842)",
                     }}
                     title="Lost Items"
                   />
@@ -247,7 +247,7 @@ export default function AdminDashboardPage() {
                         10,
                         ((stats?.items?.totalFound || 1) / ((stats?.items?.totalItems || 2) + 1)) * 100
                       )}%`,
-                      background: "linear-gradient(90deg, #06B6D4, #22D3EE)",
+                      background: "linear-gradient(90deg, #F5C842, #FDE047)",
                     }}
                     title="Found Items"
                   />
@@ -264,12 +264,12 @@ export default function AdminDashboardPage() {
                 </div>
 
                 <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "8px", fontSize: "0.78rem" }}>
-                  <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#60A5FA" }}>
-                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#3B82F6" }} />
+                  <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#F5C842" }}>
+                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#D4AF37" }} />
                     Lost: {stats?.items?.totalLost ?? 0}
                   </span>
-                  <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#22D3EE" }}>
-                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#06B6D4" }} />
+                  <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#FDE047" }}>
+                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#F5C842" }} />
                     Found: {stats?.items?.totalFound ?? 0}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#4ADE80" }}>
@@ -300,7 +300,7 @@ export default function AdminDashboardPage() {
                     border: "1px solid rgba(255,255,255,0.06)",
                     borderRadius: "12px",
                     textDecoration: "none",
-                    color: "#F5F5F7",
+                    color: "#F8F5F0",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
@@ -309,7 +309,7 @@ export default function AdminDashboardPage() {
                   }}
                 >
                   <span>Manage Items</span>
-                  <ArrowUpRight size={14} color="#60A5FA" />
+                  <ArrowUpRight size={14} color="#F5C842" />
                 </Link>
                 <Link
                   href="/admin/claims"
@@ -319,7 +319,7 @@ export default function AdminDashboardPage() {
                     border: "1px solid rgba(255,255,255,0.06)",
                     borderRadius: "12px",
                     textDecoration: "none",
-                    color: "#F5F5F7",
+                    color: "#F8F5F0",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
@@ -328,7 +328,7 @@ export default function AdminDashboardPage() {
                   }}
                 >
                   <span>Verify Claims</span>
-                  <ArrowUpRight size={14} color="#06B6D4" />
+                  <ArrowUpRight size={14} color="#F5C842" />
                 </Link>
               </div>
             </div>
@@ -336,7 +336,7 @@ export default function AdminDashboardPage() {
             {/* Recent Audit Actions Feed */}
             <div
               style={{
-                background: "rgba(18,20,28,0.85)",
+                background: "rgba(45, 27, 61,0.85)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "20px",
                 padding: "24px",
@@ -347,15 +347,15 @@ export default function AdminDashboardPage() {
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7", margin: 0 }}>
+                <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0", margin: 0 }}>
                   Recent Administrative Actions
                 </h3>
-                <span style={{ fontSize: "0.75rem", color: "#A1A1AA" }}>Audit Log</span>
+                <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>Audit Log</span>
               </div>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "10px", maxHeight: "240px", overflowY: "auto" }}>
                 {logs.length === 0 ? (
-                  <p style={{ fontSize: "0.85rem", color: "#71717A", textAlign: "center", margin: "24px 0" }}>
+                  <p style={{ fontSize: "0.85rem", color: "#9A8FA8", textAlign: "center", margin: "24px 0" }}>
                     No recent admin actions logged.
                   </p>
                 ) : (
@@ -376,15 +376,15 @@ export default function AdminDashboardPage() {
                       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                         <Avatar name={log.admin?.name || "Admin"} size="sm" />
                         <div>
-                          <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#F5F5F7" }}>
+                          <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#F8F5F0" }}>
                             {log.action.replace(/_/g, " ")}
                           </span>
-                          <p style={{ fontSize: "0.72rem", color: "#A1A1AA", margin: 0 }}>
+                          <p style={{ fontSize: "0.72rem", color: "#B8AEC2", margin: 0 }}>
                             {log.details?.title || log.targetType}
                           </p>
                         </div>
                       </div>
-                      <span style={{ fontSize: "0.7rem", color: "#71717A", flexShrink: 0 }}>
+                      <span style={{ fontSize: "0.7rem", color: "#9A8FA8", flexShrink: 0 }}>
                         {formatDate(log.createdAt)}
                       </span>
                     </div>

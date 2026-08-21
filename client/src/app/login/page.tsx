@@ -47,7 +47,7 @@ export default function LoginPage() {
     <main
       style={{
         minHeight: "100vh",
-        background: "#0A0A0F",
+        background: "#1E1425",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -58,8 +58,8 @@ export default function LoginPage() {
     >
       {/* Background orbs */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>
-        <div style={{ position: "absolute", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%)", top: "-150px", left: "-100px", animation: "float 10s ease-in-out infinite" }} />
-        <div style={{ position: "absolute", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(6,182,212,0.10), transparent 70%)", bottom: "-100px", right: "-80px", animation: "float2 12s ease-in-out infinite" }} />
+        <div style={{ position: "absolute", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212, 175, 55,0.15), transparent 70%)", top: "-150px", left: "-100px", animation: "float 10s ease-in-out infinite" }} />
+        <div style={{ position: "absolute", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(245, 200, 66,0.10), transparent 70%)", bottom: "-100px", right: "-80px", animation: "float2 12s ease-in-out infinite" }} />
       </div>
 
       <div
@@ -73,13 +73,13 @@ export default function LoginPage() {
         {/* Card */}
         <div
           style={{
-            background: "rgba(18,20,28,0.85)",
+            background: "rgba(45, 27, 61,0.85)",
             border: "1px solid rgba(255,255,255,0.08)",
             borderRadius: "24px",
             padding: "48px 40px",
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",
-            boxShadow: "0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.08)",
+            boxShadow: "0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(212, 175, 55,0.08)",
           }}
         >
           {/* Logo */}
@@ -90,11 +90,11 @@ export default function LoginPage() {
                   width: "44px",
                   height: "44px",
                   borderRadius: "14px",
-                  background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                  background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: "0 0 24px rgba(59,130,246,0.5)",
+                  boxShadow: "0 0 24px rgba(212, 175, 55,0.5)",
                 }}
               >
                 <Search size={22} color="#fff" strokeWidth={2.5} />
@@ -103,7 +103,7 @@ export default function LoginPage() {
                 style={{
                   fontSize: "1.4rem",
                   fontWeight: 800,
-                  background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                  background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -114,10 +114,10 @@ export default function LoginPage() {
             </Link>
           </div>
 
-          <h1 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "8px", color: "#F5F5F7", letterSpacing: "-0.02em" }}>
+          <h1 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "8px", color: "#F8F5F0", letterSpacing: "-0.02em" }}>
             Welcome back
           </h1>
-          <p style={{ textAlign: "center", color: "#A1A1AA", fontSize: "0.9rem", marginBottom: "28px" }}>
+          <p style={{ textAlign: "center", color: "#B8AEC2", fontSize: "0.9rem", marginBottom: "28px" }}>
             Sign in to your account to continue
           </p>
 
@@ -148,7 +148,7 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
             {/* Email */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#A1A1AA", letterSpacing: "0.02em" }}>
+              <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2", letterSpacing: "0.02em" }}>
                 Email Address
               </label>
               <div style={{ position: "relative" }}>
@@ -165,15 +165,15 @@ export default function LoginPage() {
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(255,255,255,0.1)",
                     borderRadius: "10px",
-                    color: "#F5F5F7",
+                    color: "#F8F5F0",
                     fontSize: "0.95rem",
                     outline: "none",
                     transition: "border-color 0.2s, box-shadow 0.2s",
                     fontFamily: "inherit",
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "#3B82F6";
-                    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(59,130,246,0.15)";
+                    e.currentTarget.style.borderColor = "#D4AF37";
+                    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.15)";
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
@@ -186,12 +186,12 @@ export default function LoginPage() {
             {/* Password */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#A1A1AA", letterSpacing: "0.02em" }}>
+                <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2", letterSpacing: "0.02em" }}>
                   Password
                 </label>
-                <Link href="/forgot-password" style={{ fontSize: "0.8rem", color: "#3B82F6", textDecoration: "none", fontWeight: 500 }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#60A5FA")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#3B82F6")}
+                <Link href="/forgot-password" style={{ fontSize: "0.8rem", color: "#D4AF37", textDecoration: "none", fontWeight: 500 }}
+                  onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5C842")}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#D4AF37")}
                 >
                   Forgot password?
                 </Link>
@@ -210,15 +210,15 @@ export default function LoginPage() {
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(255,255,255,0.1)",
                     borderRadius: "10px",
-                    color: "#F5F5F7",
+                    color: "#F8F5F0",
                     fontSize: "0.95rem",
                     outline: "none",
                     transition: "border-color 0.2s, box-shadow 0.2s",
                     fontFamily: "inherit",
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "#3B82F6";
-                    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(59,130,246,0.15)";
+                    e.currentTarget.style.borderColor = "#D4AF37";
+                    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(212, 175, 55,0.15)";
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
@@ -255,15 +255,15 @@ export default function LoginPage() {
                 width: "100%",
                 padding: "14px",
                 background: loading
-                  ? "rgba(59,130,246,0.5)"
-                  : "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                  ? "rgba(212, 175, 55,0.5)"
+                  : "linear-gradient(135deg, #D4AF37, #F5C842)",
                 border: "none",
                 borderRadius: "12px",
                 color: "#fff",
                 fontWeight: 700,
                 fontSize: "1rem",
                 cursor: loading ? "not-allowed" : "pointer",
-                boxShadow: loading ? "none" : "0 6px 24px rgba(59,130,246,0.4)",
+                boxShadow: loading ? "none" : "0 6px 24px rgba(212, 175, 55,0.4)",
                 transition: "all 0.25s ease",
                 display: "flex",
                 alignItems: "center",
@@ -275,12 +275,12 @@ export default function LoginPage() {
               onMouseEnter={(e) => {
                 if (!loading) {
                   (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)";
-                  (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 12px 36px rgba(59,130,246,0.5)";
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 12px 36px rgba(212, 175, 55,0.5)";
                 }
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
-                (e.currentTarget as HTMLButtonElement).style.boxShadow = loading ? "none" : "0 6px 24px rgba(59,130,246,0.4)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = loading ? "none" : "0 6px 24px rgba(212, 175, 55,0.4)";
               }}
             >
               {loading ? (
@@ -304,13 +304,13 @@ export default function LoginPage() {
           </div>
 
           {/* Register link */}
-          <p style={{ textAlign: "center", color: "#A1A1AA", fontSize: "0.88rem" }}>
+          <p style={{ textAlign: "center", color: "#B8AEC2", fontSize: "0.88rem" }}>
             Don&apos;t have an account?{" "}
             <Link
               href="/register"
-              style={{ color: "#3B82F6", fontWeight: 600, textDecoration: "none" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#60A5FA")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#3B82F6")}
+              style={{ color: "#D4AF37", fontWeight: 600, textDecoration: "none" }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5C842")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#D4AF37")}
             >
               Create one free <Sparkles size={12} style={{ display: "inline", verticalAlign: "middle" }} />
             </Link>

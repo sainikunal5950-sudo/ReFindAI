@@ -137,7 +137,7 @@ export default function ReportLostPage() {
   };
 
   return (
-    <main style={{ minHeight: "100vh", background: "#0A0A0F", color: "#F5F5F7" }}>
+    <main style={{ minHeight: "100vh", background: "#1E1425", color: "#F8F5F0" }}>
       <Navbar />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -146,7 +146,7 @@ export default function ReportLostPage() {
         {createdItem ? (
           <div
             style={{
-              background: "rgba(18,20,28,0.9)",
+              background: "rgba(45, 27, 61,0.9)",
               border: "1px solid rgba(34,197,94,0.3)",
               borderRadius: "24px",
               padding: "48px 36px",
@@ -173,10 +173,10 @@ export default function ReportLostPage() {
               <CheckCircle2 size={36} />
             </div>
 
-            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F5F5F7", marginBottom: "8px" }}>
+            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F8F5F0", marginBottom: "8px" }}>
               Report Published Successfully!
             </h1>
-            <p style={{ color: "#A1A1AA", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto 32px" }}>
+            <p style={{ color: "#B8AEC2", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto 32px" }}>
               Our AI engine is now actively scanning newly found items in real-time to find matches for your item.
             </p>
 
@@ -192,14 +192,14 @@ export default function ReportLostPage() {
                 textAlign: "left",
               }}
             >
-              <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#3B82F6", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#D4AF37", textTransform: "uppercase" }}>
                 {createdItem.category}
               </span>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F5F5F7", margin: "4px 0 8px" }}>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#F8F5F0", margin: "4px 0 8px" }}>
                 {createdItem.title}
               </h3>
-              <p style={{ fontSize: "0.82rem", color: "#A1A1AA", display: "flex", alignItems: "center", gap: "6px" }}>
-                <MapPin size={13} color="#60A5FA" /> {createdItem.location}
+              <p style={{ fontSize: "0.82rem", color: "#B8AEC2", display: "flex", alignItems: "center", gap: "6px" }}>
+                <MapPin size={13} color="#F5C842" /> {createdItem.location}
               </p>
             </div>
 
@@ -208,13 +208,13 @@ export default function ReportLostPage() {
                 href={`/lost/${createdItem._id || createdItem.id}`}
                 style={{
                   padding: "12px 24px",
-                  background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                  background: "linear-gradient(135deg, #D4AF37, #F5C842)",
                   borderRadius: "12px",
                   color: "#FFFFFF",
                   fontWeight: 700,
                   fontSize: "0.92rem",
                   textDecoration: "none",
-                  boxShadow: "0 6px 20px rgba(59,130,246,0.35)",
+                  boxShadow: "0 6px 20px rgba(212, 175, 55,0.35)",
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
@@ -229,7 +229,7 @@ export default function ReportLostPage() {
                   background: "rgba(255,255,255,0.05)",
                   border: "1px solid rgba(255,255,255,0.1)",
                   borderRadius: "12px",
-                  color: "#A1A1AA",
+                  color: "#B8AEC2",
                   fontWeight: 600,
                   fontSize: "0.92rem",
                   cursor: "pointer",
@@ -243,31 +243,31 @@ export default function ReportLostPage() {
           /* Form Container */
           <div
             style={{
-              background: "rgba(18,20,28,0.85)",
+              background: "rgba(45, 27, 61,0.85)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "24px",
               padding: "44px 36px",
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
-              boxShadow: "0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.06)",
+              boxShadow: "0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(212, 175, 55,0.06)",
             }}
           >
             {/* Header */}
             <div style={{ marginBottom: "32px", textAlign: "left" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#3B82F6", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#D4AF37", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   Lost Item Form
                 </span>
-                <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#3B82F6" }} />
-                <span style={{ fontSize: "0.75rem", color: "#A1A1AA" }}>Step 1 of 1</span>
+                <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#D4AF37" }} />
+                <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>Step 1 of 1</span>
               </div>
-              <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, letterSpacing: "-0.02em", color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, letterSpacing: "-0.02em", color: "#F8F5F0" }}>
                 Report a{" "}
-                <span style={{ background: "linear-gradient(135deg, #3B82F6, #06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                <span style={{ background: "linear-gradient(135deg, #D4AF37, #F5C842)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   Lost Item
                 </span>
               </h1>
-              <p style={{ color: "#A1A1AA", fontSize: "0.92rem", marginTop: "6px" }}>
+              <p style={{ color: "#B8AEC2", fontSize: "0.92rem", marginTop: "6px" }}>
                 Fill in the details below. Our AI matching system will immediately cross-reference incoming found reports.
               </p>
             </div>
@@ -276,15 +276,15 @@ export default function ReportLostPage() {
               {/* SECTION 1: Item Information */}
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "8px" }}>
-                  <Layers size={16} color="#3B82F6" />
-                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#60A5FA", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  <Layers size={16} color="#D4AF37" />
+                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     1. Item Information
                   </span>
                 </div>
 
                 {/* Title */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#A1A1AA" }}>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
                     Item Title <span style={{ color: "#EF4444" }}>*</span>
                   </label>
                   <input
@@ -300,13 +300,13 @@ export default function ReportLostPage() {
                       background: "rgba(255,255,255,0.04)",
                       border: `1px solid ${errors.title ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
                       borderRadius: "10px",
-                      color: "#F5F5F7",
+                      color: "#F8F5F0",
                       fontSize: "0.95rem",
                       outline: "none",
                       fontFamily: "inherit",
                     }}
                     onFocus={(e) => {
-                      if (!errors.title) e.currentTarget.style.borderColor = "#3B82F6";
+                      if (!errors.title) e.currentTarget.style.borderColor = "#D4AF37";
                     }}
                     onBlur={(e) => {
                       if (!errors.title) e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
@@ -317,7 +317,7 @@ export default function ReportLostPage() {
 
                 {/* Category Dropdown */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#A1A1AA" }}>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
                     Category <span style={{ color: "#EF4444" }}>*</span>
                   </label>
                   <div style={{ position: "relative" }}>
@@ -330,7 +330,7 @@ export default function ReportLostPage() {
                         background: "rgba(255,255,255,0.04)",
                         border: "1px solid rgba(255,255,255,0.1)",
                         borderRadius: "10px",
-                        color: "#F5F5F7",
+                        color: "#F8F5F0",
                         fontSize: "0.95rem",
                         outline: "none",
                         appearance: "none",
@@ -339,7 +339,7 @@ export default function ReportLostPage() {
                       }}
                     >
                       {CATEGORIES.map((cat) => (
-                        <option key={cat} value={cat} style={{ background: "#0D0F14" }}>
+                        <option key={cat} value={cat} style={{ background: "#150E1C" }}>
                           {cat}
                         </option>
                       ))}
@@ -354,7 +354,7 @@ export default function ReportLostPage() {
 
                 {/* Description */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#A1A1AA" }}>
+                  <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
                     Detailed Description <span style={{ color: "#EF4444" }}>*</span>
                   </label>
                   <textarea
@@ -370,7 +370,7 @@ export default function ReportLostPage() {
                       background: "rgba(255,255,255,0.04)",
                       border: `1px solid ${errors.description ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
                       borderRadius: "10px",
-                      color: "#F5F5F7",
+                      color: "#F8F5F0",
                       fontSize: "0.92rem",
                       outline: "none",
                       fontFamily: "inherit",
@@ -378,7 +378,7 @@ export default function ReportLostPage() {
                       lineHeight: 1.5,
                     }}
                     onFocus={(e) => {
-                      if (!errors.description) e.currentTarget.style.borderColor = "#3B82F6";
+                      if (!errors.description) e.currentTarget.style.borderColor = "#D4AF37";
                     }}
                     onBlur={(e) => {
                       if (!errors.description) e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
@@ -393,8 +393,8 @@ export default function ReportLostPage() {
               {/* SECTION 2: Location & Date */}
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "8px" }}>
-                  <MapPin size={16} color="#06B6D4" />
-                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#22D3EE", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  <MapPin size={16} color="#F5C842" />
+                  <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#FDE047", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     2. Location & Date
                   </span>
                 </div>
@@ -402,7 +402,7 @@ export default function ReportLostPage() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   {/* Location */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                    <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#A1A1AA" }}>
+                    <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
                       Where was it lost? <span style={{ color: "#EF4444" }}>*</span>
                     </label>
                     <input
@@ -418,7 +418,7 @@ export default function ReportLostPage() {
                         background: "rgba(255,255,255,0.04)",
                         border: `1px solid ${errors.location ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
                         borderRadius: "10px",
-                        color: "#F5F5F7",
+                        color: "#F8F5F0",
                         fontSize: "0.92rem",
                         outline: "none",
                         fontFamily: "inherit",
@@ -431,7 +431,7 @@ export default function ReportLostPage() {
 
                   {/* Date */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                    <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#A1A1AA" }}>
+                    <label style={{ fontSize: "0.82rem", fontWeight: 600, color: "#B8AEC2" }}>
                       When was it lost? <span style={{ color: "#EF4444" }}>*</span>
                     </label>
                     <input
@@ -446,7 +446,7 @@ export default function ReportLostPage() {
                         background: "rgba(255,255,255,0.04)",
                         border: `1px solid ${errors.date ? "#EF4444" : "rgba(255,255,255,0.1)"}`,
                         borderRadius: "10px",
-                        color: "#F5F5F7",
+                        color: "#F8F5F0",
                         fontSize: "0.92rem",
                         outline: "none",
                         fontFamily: "inherit",
@@ -478,15 +478,15 @@ export default function ReportLostPage() {
                   width: "100%",
                   padding: "16px",
                   background: loading
-                    ? "rgba(59,130,246,0.4)"
-                    : "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                    ? "rgba(212, 175, 55,0.4)"
+                    : "linear-gradient(135deg, #D4AF37, #F5C842)",
                   border: "none",
                   borderRadius: "14px",
                   color: "#FFFFFF",
                   fontWeight: 700,
                   fontSize: "1rem",
                   cursor: loading ? "not-allowed" : "pointer",
-                  boxShadow: loading ? "none" : "0 8px 30px rgba(59,130,246,0.4)",
+                  boxShadow: loading ? "none" : "0 8px 30px rgba(212, 175, 55,0.4)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

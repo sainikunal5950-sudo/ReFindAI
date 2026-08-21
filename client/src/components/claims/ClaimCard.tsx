@@ -93,13 +93,13 @@ export default function ClaimCard({
   return (
     <div
       style={{
-        background: isAutoRejected ? "rgba(18, 20, 28, 0.5)" : "rgba(18, 20, 28, 0.85)",
+        background: isAutoRejected ? "rgba(30, 20, 37, 0.6)" : "rgba(45, 27, 61, 0.85)",
         border: `1px solid ${
           claim.status === "approved"
-            ? "rgba(34, 197, 94, 0.3)"
+            ? "rgba(74, 222, 128, 0.35)"
             : claim.status === "rejected"
-            ? "rgba(239, 68, 68, 0.2)"
-            : "rgba(255, 255, 255, 0.08)"
+            ? "rgba(248, 113, 113, 0.25)"
+            : "rgba(212, 175, 55, 0.25)"
         }`,
         borderRadius: "18px",
         padding: "20px",
@@ -122,8 +122,8 @@ export default function ClaimCard({
                 width: "48px",
                 height: "48px",
                 borderRadius: "12px",
-                background: "rgba(6,182,212,0.1)",
-                border: "1px solid rgba(6,182,212,0.2)",
+                background: "rgba(212,175,55,0.1)",
+                border: "1px solid rgba(212,175,55,0.25)",
                 overflow: "hidden",
                 display: "flex",
                 alignItems: "center",
@@ -138,20 +138,20 @@ export default function ClaimCard({
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               ) : (
-                <ShieldCheck size={22} color="#06B6D4" />
+                <ShieldCheck size={22} color="#D4AF37" />
               )}
             </div>
 
             <div>
-              <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#06B6D4", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase" }}>
                 {claim.foundItem?.category || "Found Item"}
               </span>
-              <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F5F5F7", margin: "2px 0 4px" }}>
+              <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F8F5F0", margin: "2px 0 4px" }}>
                 {claim.foundItem?.title || "Item Claim"}
               </h4>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.75rem", color: "#A1A1AA" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.75rem", color: "#B8AEC2" }}>
                 <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                  <MapPin size={11} color="#60A5FA" /> {claim.foundItem?.location}
+                  <MapPin size={11} color="#D4AF37" /> {claim.foundItem?.location}
                 </span>
                 <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                   <Clock size={11} /> Submitted {formatDate(claim.createdAt)}
@@ -169,13 +169,13 @@ export default function ClaimCard({
               glow={false}
             />
             <div>
-              <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#3B82F6", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#D4AF37", textTransform: "uppercase" }}>
                 Ownership Claimant
               </span>
-              <h4 style={{ fontSize: "1rem", fontWeight: 700, color: "#F5F5F7", margin: "2px 0" }}>
+              <h4 style={{ fontSize: "1rem", fontWeight: 700, color: "#F8F5F0", margin: "2px 0" }}>
                 {claim.claimant?.name || "Anonymous User"}
               </h4>
-              <span style={{ fontSize: "0.75rem", color: "#606070" }}>
+              <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>
                 Submitted on {formatDate(claim.createdAt)}
               </span>
             </div>
@@ -201,142 +201,155 @@ export default function ClaimCard({
             gap: "6px",
           }}
         >
-          <AlertCircle size={13} /> Auto-rejected — item claimed by another verified user
+          <AlertCircle size={14} style={{ flexShrink: 0 }} />
+          <span>Auto-resolved: Finder approved another verified claim for this item.</span>
         </div>
       )}
 
-      {/* Accordion Toggle for Verification Answers */}
-      <button
-        type="button"
-        onClick={() => setShowAnswers(!showAnswers)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "8px 12px",
-          background: "rgba(255, 255, 255, 0.03)",
-          border: "1px solid rgba(255, 255, 255, 0.06)",
-          borderRadius: "10px",
-          color: "#A1A1AA",
-          fontSize: "0.78rem",
-          fontWeight: 600,
-          cursor: "pointer",
-          transition: "all 0.2s",
-        }}
-      >
-        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          <FileQuestion size={13} color="#06B6D4" />
-          Verification Q&A ({claim.verificationAnswers?.length || 0})
-        </span>
-        <ChevronDown
-          size={14}
+      {/* Proof Message snippet if claimant provided */}
+      {claim.proofMessage && (
+        <div
           style={{
-            transform: showAnswers ? "rotate(180deg)" : "none",
-            transition: "transform 0.2s",
+            background: "rgba(21, 14, 28, 0.7)",
+            padding: "10px 14px",
+            borderRadius: "10px",
+            fontSize: "0.82rem",
+            color: "#B8AEC2",
+            border: "1px solid rgba(255,255,255,0.05)",
           }}
-        />
-      </button>
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px", color: "#D4AF37", fontWeight: 600, fontSize: "0.74rem" }}>
+            <MessageSquare size={12} /> Claimant Proof Note:
+          </div>
+          <p style={{ margin: 0, fontStyle: "italic", lineHeight: 1.4 }}>
+            "{claim.proofMessage}"
+          </p>
+        </div>
+      )}
 
-      {/* Verification Answers Content */}
-      {showAnswers && (
+      {/* Expandable Q&A Answers Section */}
+      {claim.verificationAnswers && claim.verificationAnswers.length > 0 && (
+        <div>
+          <button
+            type="button"
+            onClick={() => setShowAnswers(!showAnswers)}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "#D4AF37",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              padding: 0,
+            }}
+          >
+            <FileQuestion size={13} />
+            <span>
+              {showAnswers ? "Hide" : "View"} Verification Q&A ({claim.verificationAnswers.length} questions answered)
+            </span>
+            <ChevronDown
+              size={14}
+              style={{
+                transform: showAnswers ? "rotate(180deg)" : "none",
+                transition: "transform 0.2s",
+              }}
+            />
+          </button>
+
+          {showAnswers && (
+            <div
+              style={{
+                marginTop: "10px",
+                background: "rgba(21, 14, 28, 0.8)",
+                borderRadius: "12px",
+                padding: "14px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                border: "1px solid rgba(212, 175, 55, 0.15)",
+              }}
+            >
+              {claim.verificationAnswers.map((qa, idx) => (
+                <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+                  <span style={{ fontSize: "0.76rem", color: "#B8AEC2", fontWeight: 600 }}>
+                    Q{idx + 1}: {qa.question}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "0.82rem",
+                      color: "#F8F5F0",
+                      background: "rgba(255,255,255,0.04)",
+                      padding: "6px 10px",
+                      borderRadius: "6px",
+                      borderLeft: "2px solid #D4AF37",
+                    }}
+                  >
+                    {qa.answer}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Finder Actions (Approve / Reject) if pending */}
+      {perspective === "finder" && claim.status === "pending" && onApprove && onReject && (
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            justifyContent: "flex-end",
+            alignItems: "center",
             gap: "10px",
-            padding: "14px",
-            background: "rgba(0, 0, 0, 0.2)",
-            borderRadius: "12px",
-            border: "1px solid rgba(255, 255, 255, 0.04)",
+            borderTop: "1px solid rgba(255,255,255,0.06)",
+            paddingTop: "12px",
           }}
         >
-          {claim.verificationAnswers && claim.verificationAnswers.length > 0 ? (
-            claim.verificationAnswers.map((qa, idx) => (
-              <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                <span style={{ fontSize: "0.74rem", fontWeight: 600, color: "#60A5FA" }}>
-                  Q: {qa.question}
-                </span>
-                <span style={{ fontSize: "0.82rem", color: "#F5F5F7", paddingLeft: "8px", borderLeft: "2px solid rgba(59,130,246,0.3)" }}>
-                  {qa.answer}
-                </span>
-              </div>
-            ))
-          ) : (
-            <span style={{ fontSize: "0.78rem", color: "#606070" }}>No questions specified</span>
-          )}
+          <button
+            type="button"
+            disabled={isProcessing}
+            onClick={() => onReject(claim)}
+            style={{
+              padding: "7px 14px",
+              borderRadius: "9px",
+              background: "rgba(239, 68, 68, 0.1)",
+              border: "1px solid rgba(239, 68, 68, 0.25)",
+              color: "#F87171",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
+            }}
+          >
+            <X size={14} /> Reject Claim
+          </button>
 
-          {claim.proofMessage && (
-            <div style={{ marginTop: "6px", paddingTop: "8px", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-              <span style={{ fontSize: "0.72rem", color: "#A1A1AA", display: "flex", alignItems: "center", gap: "4px" }}>
-                <MessageSquare size={11} /> Additional Claimant Proof Note:
-              </span>
-              <p style={{ fontSize: "0.82rem", color: "#F5F5F7", marginTop: "2px" }}>
-                {claim.proofMessage}
-              </p>
-            </div>
-          )}
-
-          {claim.rejectionReason && !isAutoRejected && (
-            <div style={{ marginTop: "6px", padding: "8px", background: "rgba(239,68,68,0.06)", borderRadius: "8px" }}>
-              <span style={{ fontSize: "0.72rem", color: "#F87171", fontWeight: 600 }}>
-                Rejection Feedback: {claim.rejectionReason}
-              </span>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Finder Actions (Approve / Reject) */}
-      {perspective === "finder" && claim.status === "pending" && (
-        <div style={{ display: "flex", gap: "10px", paddingTop: "4px" }}>
-          {onApprove && (
-            <button
-              type="button"
-              disabled={isProcessing}
-              onClick={() => onApprove(claim)}
-              style={{
-                flex: 1,
-                padding: "9px 14px",
-                background: "linear-gradient(135deg, #10B981, #059669)",
-                border: "none",
-                borderRadius: "10px",
-                color: "#FFFFFF",
-                fontWeight: 700,
-                fontSize: "0.82rem",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "5px",
-                boxShadow: "0 4px 12px rgba(16,185,129,0.3)",
-              }}
-            >
-              <Check size={14} /> Approve Ownership
-            </button>
-          )}
-
-          {onReject && (
-            <button
-              type="button"
-              disabled={isProcessing}
-              onClick={() => onReject(claim)}
-              style={{
-                padding: "9px 14px",
-                background: "rgba(239, 68, 68, 0.1)",
-                border: "1px solid rgba(239, 68, 68, 0.25)",
-                borderRadius: "10px",
-                color: "#F87171",
-                fontWeight: 600,
-                fontSize: "0.82rem",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                gap: "4px",
-              }}
-            >
-              <X size={14} /> Reject
-            </button>
-          )}
+          <button
+            type="button"
+            disabled={isProcessing}
+            onClick={() => onApprove(claim)}
+            style={{
+              padding: "7px 16px",
+              borderRadius: "9px",
+              background: "linear-gradient(135deg, #D4AF37, #EAB308)",
+              border: "none",
+              color: "#150E1C",
+              fontSize: "0.8rem",
+              fontWeight: 700,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              boxShadow: "0 4px 14px rgba(212,175,55,0.35)",
+            }}
+          >
+            <Check size={14} strokeWidth={3} /> Approve Ownership
+          </button>
         </div>
       )}
     </div>

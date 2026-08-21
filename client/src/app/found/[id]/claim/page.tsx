@@ -130,7 +130,7 @@ export default function SubmitClaimPage() {
   };
 
   return (
-    <main style={{ minHeight: "100vh", background: "#0A0A0F", color: "#F5F5F7" }}>
+    <main style={{ minHeight: "100vh", background: "#1E1425", color: "#F8F5F0" }}>
       <Navbar />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -142,7 +142,7 @@ export default function SubmitClaimPage() {
             display: "inline-flex",
             alignItems: "center",
             gap: "6px",
-            color: "#A1A1AA",
+            color: "#B8AEC2",
             fontSize: "0.88rem",
             textDecoration: "none",
             marginBottom: "24px",
@@ -155,7 +155,7 @@ export default function SubmitClaimPage() {
         {createdClaim ? (
           <div
             style={{
-              background: "rgba(18,20,28,0.9)",
+              background: "rgba(45, 27, 61,0.9)",
               border: "1px solid rgba(34,197,94,0.3)",
               borderRadius: "24px",
               padding: "48px 36px",
@@ -182,10 +182,10 @@ export default function SubmitClaimPage() {
               <CheckCircle2 size={36} />
             </div>
 
-            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F5F5F7", marginBottom: "8px" }}>
+            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#F8F5F0", marginBottom: "8px" }}>
               Claim Submitted for Review!
             </h1>
-            <p style={{ color: "#A1A1AA", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto 32px" }}>
+            <p style={{ color: "#B8AEC2", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto 32px" }}>
               Your verification answers have been sent to the finder. You will be notified the moment your claim is verified.
             </p>
 
@@ -194,13 +194,13 @@ export default function SubmitClaimPage() {
                 href="/dashboard/claims"
                 style={{
                   padding: "12px 24px",
-                  background: "linear-gradient(135deg, #06B6D4, #3B82F6)",
+                  background: "linear-gradient(135deg, #F5C842, #D4AF37)",
                   borderRadius: "12px",
                   color: "#FFFFFF",
                   fontWeight: 700,
                   fontSize: "0.92rem",
                   textDecoration: "none",
-                  boxShadow: "0 6px 20px rgba(6,182,212,0.35)",
+                  boxShadow: "0 6px 20px rgba(245, 200, 66,0.35)",
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
@@ -215,7 +215,7 @@ export default function SubmitClaimPage() {
                   background: "rgba(255,255,255,0.05)",
                   border: "1px solid rgba(255,255,255,0.1)",
                   borderRadius: "12px",
-                  color: "#A1A1AA",
+                  color: "#B8AEC2",
                   fontWeight: 600,
                   fontSize: "0.92rem",
                   textDecoration: "none",
@@ -229,7 +229,7 @@ export default function SubmitClaimPage() {
           /* Main Claim Form Container */
           <div
             style={{
-              background: "rgba(18,20,28,0.85)",
+              background: "rgba(45, 27, 61,0.85)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "24px",
               padding: "36px",
@@ -240,19 +240,19 @@ export default function SubmitClaimPage() {
             {/* Header */}
             <div style={{ marginBottom: "28px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#06B6D4", textTransform: "uppercase" }}>
+                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase" }}>
                   Ownership Verification
                 </span>
-                <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#06B6D4" }} />
-                <span style={{ fontSize: "0.75rem", color: "#A1A1AA" }}>Step 1 of 1</span>
+                <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#F5C842" }} />
+                <span style={{ fontSize: "0.75rem", color: "#B8AEC2" }}>Step 1 of 1</span>
               </div>
-              <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2rem)", fontWeight: 800, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2rem)", fontWeight: 800, color: "#F8F5F0" }}>
                 Claim This{" "}
-                <span style={{ background: "linear-gradient(135deg, #06B6D4, #3B82F6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                <span style={{ background: "linear-gradient(135deg, #F5C842, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   Found Item
                 </span>
               </h1>
-              <p style={{ color: "#A1A1AA", fontSize: "0.9rem", marginTop: "6px" }}>
+              <p style={{ color: "#B8AEC2", fontSize: "0.9rem", marginTop: "6px" }}>
                 Please answer the following verification questions to prove your ownership to the finder.
               </p>
             </div>
@@ -276,7 +276,7 @@ export default function SubmitClaimPage() {
                     width: "60px",
                     height: "60px",
                     borderRadius: "12px",
-                    background: "rgba(6,182,212,0.1)",
+                    background: "rgba(245, 200, 66,0.1)",
                     overflow: "hidden",
                     display: "flex",
                     alignItems: "center",
@@ -291,20 +291,20 @@ export default function SubmitClaimPage() {
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     />
                   ) : (
-                    <ShieldCheck size={24} color="#06B6D4" />
+                    <ShieldCheck size={24} color="#F5C842" />
                   )}
                 </div>
 
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#06B6D4", textTransform: "uppercase" }}>
+                  <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#F5C842", textTransform: "uppercase" }}>
                     {item.category}
                   </span>
-                  <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#F5F5F7", margin: "2px 0 4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#F8F5F0", margin: "2px 0 4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                     {item.title}
                   </h3>
-                  <p style={{ fontSize: "0.78rem", color: "#A1A1AA", display: "flex", alignItems: "center", gap: "10px" }}>
+                  <p style={{ fontSize: "0.78rem", color: "#B8AEC2", display: "flex", alignItems: "center", gap: "10px" }}>
                     <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                      <MapPin size={12} color="#60A5FA" /> {item.location}
+                      <MapPin size={12} color="#F5C842" /> {item.location}
                     </span>
                   </p>
                 </div>
@@ -316,8 +316,8 @@ export default function SubmitClaimPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 {questions.map((q, idx) => (
                   <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "#F5F5F7", display: "flex", alignItems: "flex-start", gap: "6px" }}>
-                      <span style={{ color: "#06B6D4", fontWeight: 700 }}>{idx + 1}.</span> {q}
+                    <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "#F8F5F0", display: "flex", alignItems: "flex-start", gap: "6px" }}>
+                      <span style={{ color: "#F5C842", fontWeight: 700 }}>{idx + 1}.</span> {q}
                     </label>
                     <textarea
                       rows={2}
@@ -329,13 +329,13 @@ export default function SubmitClaimPage() {
                         background: "rgba(255,255,255,0.04)",
                         border: "1px solid rgba(255,255,255,0.1)",
                         borderRadius: "10px",
-                        color: "#F5F5F7",
+                        color: "#F8F5F0",
                         fontSize: "0.9rem",
                         outline: "none",
                         fontFamily: "inherit",
                         resize: "vertical",
                       }}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = "#06B6D4")}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#F5C842")}
                       onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
                     />
                   </div>
@@ -343,7 +343,7 @@ export default function SubmitClaimPage() {
 
                 {/* Additional Proof Message */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "6px" }}>
-                  <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "#A1A1AA" }}>
+                  <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "#B8AEC2" }}>
                     Additional Proof / Message to Finder (Optional)
                   </label>
                   <textarea
@@ -356,7 +356,7 @@ export default function SubmitClaimPage() {
                       background: "rgba(255,255,255,0.04)",
                       border: "1px solid rgba(255,255,255,0.1)",
                       borderRadius: "10px",
-                      color: "#F5F5F7",
+                      color: "#F8F5F0",
                       fontSize: "0.9rem",
                       outline: "none",
                       fontFamily: "inherit",
@@ -375,15 +375,15 @@ export default function SubmitClaimPage() {
                   padding: "16px",
                   background:
                     submitting || !isFormValid()
-                      ? "rgba(6,182,212,0.3)"
-                      : "linear-gradient(135deg, #06B6D4, #3B82F6)",
+                      ? "rgba(245, 200, 66,0.3)"
+                      : "linear-gradient(135deg, #F5C842, #D4AF37)",
                   border: "none",
                   borderRadius: "14px",
                   color: "#FFFFFF",
                   fontWeight: 700,
                   fontSize: "1rem",
                   cursor: submitting || !isFormValid() ? "not-allowed" : "pointer",
-                  boxShadow: isFormValid() ? "0 8px 30px rgba(6,182,212,0.4)" : "none",
+                  boxShadow: isFormValid() ? "0 8px 30px rgba(245, 200, 66,0.4)" : "none",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

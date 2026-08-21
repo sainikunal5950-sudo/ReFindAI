@@ -66,7 +66,7 @@ export default function MyFoundReportsPage() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0A0A0F" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "#1E1425" }}>
       <Sidebar variant="user" />
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -91,7 +91,7 @@ export default function MyFoundReportsPage() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 32px",
-            background: "rgba(13,15,20,0.8)",
+            background: "rgba(21, 14, 28,0.8)",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             position: "sticky",
@@ -105,20 +105,20 @@ export default function MyFoundReportsPage() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "10px",
-                background: "rgba(6,182,212,0.15)",
+                background: "rgba(245, 200, 66,0.15)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#06B6D4",
+                color: "#F5C842",
               }}
             >
               <PackageCheck size={18} />
             </div>
             <div>
-              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F5F5F7" }}>
+              <h1 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F8F5F0" }}>
                 My Found Item Reports
               </h1>
-              <p style={{ fontSize: "0.78rem", color: "#A1A1AA" }}>
+              <p style={{ fontSize: "0.78rem", color: "#B8AEC2" }}>
                 {total} items found & turned in by you
               </p>
             </div>
@@ -132,7 +132,7 @@ export default function MyFoundReportsPage() {
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "10px",
-                color: "#A1A1AA",
+                color: "#B8AEC2",
                 fontSize: "0.82rem",
                 cursor: "pointer",
                 display: "flex",
@@ -146,7 +146,7 @@ export default function MyFoundReportsPage() {
               href="/found/report"
               style={{
                 padding: "8px 18px",
-                background: "linear-gradient(135deg, #06B6D4, #3B82F6)",
+                background: "linear-gradient(135deg, #F5C842, #D4AF37)",
                 borderRadius: "10px",
                 color: "#FFFFFF",
                 fontWeight: 700,
@@ -155,7 +155,7 @@ export default function MyFoundReportsPage() {
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
-                boxShadow: "0 4px 16px rgba(6,182,212,0.35)",
+                boxShadow: "0 4px 16px rgba(245, 200, 66,0.35)",
               }}
             >
               <PlusCircle size={15} />
@@ -178,7 +178,7 @@ export default function MyFoundReportsPage() {
             <div
               style={{
                 padding: "72px 20px",
-                background: "rgba(18,20,28,0.6)",
+                background: "rgba(45, 27, 61,0.6)",
                 border: "1px solid rgba(255,255,255,0.06)",
                 borderRadius: "24px",
                 textAlign: "center",
@@ -191,27 +191,27 @@ export default function MyFoundReportsPage() {
                   width: "60px",
                   height: "60px",
                   borderRadius: "18px",
-                  background: "rgba(6,182,212,0.1)",
+                  background: "rgba(245, 200, 66,0.1)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#06B6D4",
+                  color: "#F5C842",
                   margin: "0 auto 16px",
                 }}
               >
                 <PackageSearch size={30} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "6px" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "6px" }}>
                 No found items reported yet
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#A1A1AA", marginBottom: "24px", lineHeight: 1.5 }}>
+              <p style={{ fontSize: "0.88rem", color: "#B8AEC2", marginBottom: "24px", lineHeight: 1.5 }}>
                 Found someone&apos;s phone, wallet, keys, or luggage? Post a found item report to help the owner reclaim it.
               </p>
               <Link
                 href="/found/report"
                 style={{
                   padding: "12px 22px",
-                  background: "linear-gradient(135deg, #06B6D4, #3B82F6)",
+                  background: "linear-gradient(135deg, #F5C842, #D4AF37)",
                   borderRadius: "12px",
                   color: "#FFFFFF",
                   fontWeight: 700,
@@ -220,7 +220,7 @@ export default function MyFoundReportsPage() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  boxShadow: "0 6px 20px rgba(6,182,212,0.35)",
+                  boxShadow: "0 6px 20px rgba(245, 200, 66,0.35)",
                 }}
               >
                 <PlusCircle size={16} />
@@ -256,7 +256,7 @@ export default function MyFoundReportsPage() {
                   borderRadius: "8px",
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.08)",
-                  color: page <= 1 ? "#404050" : "#A1A1AA",
+                  color: page <= 1 ? "#404050" : "#B8AEC2",
                   cursor: page <= 1 ? "not-allowed" : "pointer",
                   display: "flex",
                   alignItems: "center",
@@ -283,7 +283,7 @@ export default function MyFoundReportsPage() {
                   borderRadius: "8px",
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.08)",
-                  color: page >= totalPages ? "#404050" : "#A1A1AA",
+                  color: page >= totalPages ? "#404050" : "#B8AEC2",
                   cursor: page >= totalPages ? "not-allowed" : "pointer",
                   display: "flex",
                   alignItems: "center",

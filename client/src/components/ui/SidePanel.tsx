@@ -68,7 +68,7 @@ export default function SidePanel({
           width: "100%",
           maxWidth: "460px",
           height: "100%",
-          background: "#0D0F14",
+          background: "#150E1C",
           borderLeft: "1px solid rgba(255,255,255,0.08)",
           boxShadow: "-12px 0 40px rgba(0,0,0,0.6)",
           display: "flex",
@@ -88,7 +88,7 @@ export default function SidePanel({
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#3B82F6", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#D4AF37", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               User Profile
             </span>
           </div>
@@ -98,7 +98,7 @@ export default function SidePanel({
               background: "rgba(255,255,255,0.04)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "8px",
-              color: "#A1A1AA",
+              color: "#B8AEC2",
               cursor: "pointer",
               padding: "6px",
               display: "flex",
@@ -106,8 +106,8 @@ export default function SidePanel({
               justifyContent: "center",
               transition: "all 0.2s",
             }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#F5F5F7")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#A1A1AA")}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#F8F5F0")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#B8AEC2")}
           >
             <X size={18} />
           </button>
@@ -119,7 +119,7 @@ export default function SidePanel({
           <div
             style={{
               padding: "24px",
-              background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(59,130,246,0.04))",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(212, 175, 55,0.04))",
               border: "1px solid rgba(255,255,255,0.06)",
               borderRadius: "16px",
               display: "flex",
@@ -131,10 +131,10 @@ export default function SidePanel({
           >
             <Avatar src={user.avatar} name={user.name} size="xl" glow />
             <div>
-              <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#F5F5F7", marginBottom: "4px" }}>
+              <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#F8F5F0", marginBottom: "4px" }}>
                 {user.name}
               </h2>
-              <p style={{ fontSize: "0.85rem", color: "#A1A1AA" }}>{user.email}</p>
+              <p style={{ fontSize: "0.85rem", color: "#B8AEC2" }}>{user.email}</p>
             </div>
             <div style={{ display: "flex", gap: "8px", marginTop: "4px" }}>
               <Badge variant={user.role === "admin" ? "blue" : "neutral"}>
@@ -149,7 +149,7 @@ export default function SidePanel({
           {/* Details List */}
           <div
             style={{
-              background: "rgba(18,20,28,0.6)",
+              background: "rgba(45, 27, 61,0.6)",
               border: "1px solid rgba(255,255,255,0.06)",
               borderRadius: "16px",
               padding: "16px 20px",
@@ -159,22 +159,22 @@ export default function SidePanel({
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(59,130,246,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#3B82F6" }}>
+              <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(212, 175, 55,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#D4AF37" }}>
                 <Mail size={16} />
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Email</div>
-                <div style={{ fontSize: "0.88rem", color: "#F5F5F7" }}>{user.email}</div>
+                <div style={{ fontSize: "0.88rem", color: "#F8F5F0" }}>{user.email}</div>
               </div>
             </div>
 
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(6,182,212,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#06B6D4" }}>
+              <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(245, 200, 66,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#F5C842" }}>
                 <Phone size={16} />
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Phone</div>
-                <div style={{ fontSize: "0.88rem", color: "#F5F5F7" }}>{user.phone || "Not provided"}</div>
+                <div style={{ fontSize: "0.88rem", color: "#F8F5F0" }}>{user.phone || "Not provided"}</div>
               </div>
             </div>
 
@@ -184,7 +184,7 @@ export default function SidePanel({
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Address</div>
-                <div style={{ fontSize: "0.88rem", color: "#F5F5F7" }}>{user.address || "Not provided"}</div>
+                <div style={{ fontSize: "0.88rem", color: "#F8F5F0" }}>{user.address || "Not provided"}</div>
               </div>
             </div>
 
@@ -194,7 +194,7 @@ export default function SidePanel({
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: "0.72rem", color: "#606070", textTransform: "uppercase", letterSpacing: "0.05em" }}>Joined On</div>
-                <div style={{ fontSize: "0.88rem", color: "#F5F5F7" }}>{formatDate(user.createdAt)}</div>
+                <div style={{ fontSize: "0.88rem", color: "#F8F5F0" }}>{formatDate(user.createdAt)}</div>
               </div>
             </div>
           </div>
@@ -205,7 +205,7 @@ export default function SidePanel({
           style={{
             padding: "20px 24px",
             borderTop: "1px solid rgba(255,255,255,0.06)",
-            background: "rgba(10,10,15,0.8)",
+            background: "rgba(30, 20, 37,0.8)",
             display: "flex",
             gap: "12px",
           }}

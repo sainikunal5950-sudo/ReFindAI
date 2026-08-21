@@ -69,9 +69,9 @@ export default function Avatar({
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
-        boxShadow: glow ? "0 0 20px rgba(59,130,246,0.35)" : "none",
-        border: glow ? "2px solid rgba(59,130,246,0.5)" : "1px solid rgba(255,255,255,0.1)",
-        background: "linear-gradient(135deg, #161925, #12141C)",
+        boxShadow: glow ? "0 0 20px rgba(212, 175, 55,0.35)" : "none",
+        border: glow ? "2px solid rgba(212, 175, 55,0.5)" : "1px solid rgba(255,255,255,0.1)",
+        background: "linear-gradient(135deg, #26182F, #2D1B3D)",
         overflow: "hidden",
       }}
       className={`group ${className}`}
@@ -96,7 +96,7 @@ export default function Avatar({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "linear-gradient(135deg, #2563EB, #06B6D4)",
+            background: "linear-gradient(135deg, #B89628, #F5C842)",
             color: "#FFFFFF",
             fontWeight: 700,
             fontSize,
@@ -114,14 +114,14 @@ export default function Avatar({
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(10,10,15,0.75)",
+            background: "rgba(30, 20, 37,0.75)",
             backdropFilter: "blur(4px)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             gap: "4px",
-            color: "#60A5FA",
+            color: "#F5C842",
             opacity: 0,
             transition: "opacity 0.2s ease",
             cursor: "pointer",
@@ -132,7 +132,7 @@ export default function Avatar({
         >
           <Camera size={iconSize} />
           {size === "xl" && (
-            <span style={{ fontSize: "0.65rem", fontWeight: 600, color: "#F5F5F7" }}>
+            <span style={{ fontSize: "0.65rem", fontWeight: 600, color: "#F8F5F0" }}>
               Change
             </span>
           )}

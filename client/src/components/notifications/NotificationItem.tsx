@@ -35,12 +35,12 @@ export default function NotificationItem({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "rgba(59,130,246,0.15)",
-              border: "1px solid rgba(59,130,246,0.3)",
+              background: "rgba(212,175,55,0.15)",
+              border: "1px solid rgba(212,175,55,0.3)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#60A5FA",
+              color: "#F5C842",
               flexShrink: 0,
             }}
           >
@@ -54,12 +54,12 @@ export default function NotificationItem({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "rgba(6,182,212,0.15)",
-              border: "1px solid rgba(6,182,212,0.3)",
+              background: "rgba(234,179,8,0.15)",
+              border: "1px solid rgba(234,179,8,0.3)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#06B6D4",
+              color: "#EAB308",
               flexShrink: 0,
             }}
           >
@@ -73,8 +73,8 @@ export default function NotificationItem({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "rgba(34,197,94,0.15)",
-              border: "1px solid rgba(34,197,94,0.3)",
+              background: "rgba(74,222,128,0.15)",
+              border: "1px solid rgba(74,222,128,0.3)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -92,8 +92,8 @@ export default function NotificationItem({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "rgba(239,68,68,0.15)",
-              border: "1px solid rgba(239,68,68,0.3)",
+              background: "rgba(248,113,113,0.15)",
+              border: "1px solid rgba(248,113,113,0.3)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -111,12 +111,12 @@ export default function NotificationItem({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "rgba(168,85,247,0.15)",
-              border: "1px solid rgba(168,85,247,0.3)",
+              background: "rgba(212,175,55,0.15)",
+              border: "1px solid rgba(212,175,55,0.3)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#C084FC",
+              color: "#D4AF37",
               flexShrink: 0,
             }}
           >
@@ -134,7 +134,7 @@ export default function NotificationItem({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#A1A1AA",
+              color: "#B8AEC2",
               flexShrink: 0,
             }}
           >
@@ -183,21 +183,21 @@ export default function NotificationItem({
         alignItems: "flex-start",
         gap: "12px",
         padding: compact ? "12px 14px" : "16px 20px",
-        background: notification.isRead ? "rgba(255,255,255,0.01)" : "rgba(59,130,246,0.06)",
+        background: notification.isRead ? "rgba(255,255,255,0.01)" : "rgba(212,175,55,0.08)",
         border: "1px solid rgba(255,255,255,0.06)",
-        borderLeft: !notification.isRead ? "3px solid #3B82F6" : "1px solid rgba(255,255,255,0.06)",
+        borderLeft: !notification.isRead ? "3px solid #D4AF37" : "1px solid rgba(255,255,255,0.06)",
         borderRadius: "14px",
         cursor: "pointer",
         transition: "all 0.2s ease",
         position: "relative",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+        e.currentTarget.style.background = "rgba(255,255,255,0.06)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.background = notification.isRead
           ? "rgba(255,255,255,0.01)"
-          : "rgba(59,130,246,0.06)";
+          : "rgba(212,175,55,0.08)";
       }}
     >
       {getNotificationIcon(notification.type)}
@@ -208,7 +208,7 @@ export default function NotificationItem({
             style={{
               fontSize: compact ? "0.85rem" : "0.92rem",
               fontWeight: notification.isRead ? 600 : 700,
-              color: notification.isRead ? "#E4E4E7" : "#FFFFFF",
+              color: notification.isRead ? "#F8F5F0" : "#F5C842",
               margin: 0,
               overflow: "hidden",
               textOverflow: "ellipsis",
@@ -217,7 +217,7 @@ export default function NotificationItem({
           >
             {notification.title}
           </h4>
-          <span style={{ fontSize: "0.7rem", color: "#71717A", flexShrink: 0 }}>
+          <span style={{ fontSize: "0.7rem", color: "#B8AEC2", flexShrink: 0 }}>
             {formatTime(notification.createdAt)}
           </span>
         </div>
@@ -225,7 +225,7 @@ export default function NotificationItem({
         <p
           style={{
             fontSize: compact ? "0.78rem" : "0.83rem",
-            color: "#A1A1AA",
+            color: "#B8AEC2",
             margin: 0,
             lineHeight: 1.4,
             display: "-webkit-box",
@@ -244,8 +244,8 @@ export default function NotificationItem({
             width: "6px",
             height: "6px",
             borderRadius: "50%",
-            background: "#3B82F6",
-            boxShadow: "0 0 6px #3B82F6",
+            background: "#D4AF37",
+            boxShadow: "0 0 6px #D4AF37",
             position: "absolute",
             top: "14px",
             right: "12px",
