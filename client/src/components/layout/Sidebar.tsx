@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -12,8 +13,13 @@ import {
   Shield,
   Users,
   Package,
+  User as UserIcon,
   ChevronRight,
+  LogOut,
 } from "lucide-react";
+import { authService } from "@/services/authService";
+import { User } from "@/types/user";
+import Avatar from "../ui/Avatar";
 
 interface NavItem {
   href: string;
@@ -27,6 +33,7 @@ interface SidebarProps {
 
 const userNav: NavItem[] = [
   { href: "/dashboard", label: "Overview", icon: <LayoutDashboard size={18} /> },
+  { href: "/dashboard/profile", label: "My Profile", icon: <UserIcon size={18} /> },
   { href: "/lost", label: "Lost Items", icon: <FileSearch size={18} /> },
   { href: "/found", label: "Found Items", icon: <Package size={18} /> },
   { href: "/dashboard/matches", label: "My Matches", icon: <GitCompare size={18} /> },
@@ -45,11 +52,23 @@ const adminNav: NavItem[] = [
 export default function Sidebar({ variant = "user" }: SidebarProps) {
   const pathname = usePathname();
   const nav = variant === "admin" ? adminNav : userNav;
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const user = authService.getCurrentUser();
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    await authService.logout();
+  };
 
   return (
     <aside
       style={{
-        width: "240px",
+        width: "250px",
         minHeight: "100vh",
         background: "#0D0F14",
         borderRight: "1px solid rgba(255,255,255,0.06)",
@@ -165,7 +184,7 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
         })}
       </nav>
 
-      {/* Bottom user info placeholder */}
+      {/* Bottom user profile card */}
       <div
         style={{
           marginTop: "auto",
@@ -178,31 +197,47 @@ export default function Sidebar({ variant = "user" }: SidebarProps) {
           gap: "10px",
         }}
       >
-        <div
+        <Link
+          href="/dashboard/profile"
+          style={{ display: "flex", alignItems: "center", gap: "10px", flex: 1, minWidth: 0, textDecoration: "none" }}
+        >
+          <Avatar
+            src={currentUser?.avatar}
+            name={currentUser?.name || (variant === "admin" ? "Admin User" : "John Doe")}
+            size="sm"
+            glow={false}
+          />
+          <div style={{ overflow: "hidden" }}>
+            <p style={{ fontSize: "0.82rem", fontWeight: 600, color: "#F5F5F7", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+              {currentUser?.name || (variant === "admin" ? "Admin User" : "John Doe")}
+            </p>
+            <p style={{ fontSize: "0.72rem", color: "#A1A1AA", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+              {currentUser?.email || (variant === "admin" ? "admin@refind.ai" : "user@refind.ai")}
+            </p>
+          </div>
+        </Link>
+
+        <button
+          onClick={handleLogout}
+          title="Logout"
           style={{
-            width: "34px",
-            height: "34px",
-            borderRadius: "50%",
-            background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
+            background: "transparent",
+            border: "none",
+            color: "#606070",
+            cursor: "pointer",
+            padding: "6px",
+            borderRadius: "6px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            transition: "all 0.2s",
             flexShrink: 0,
-            fontSize: "0.8rem",
-            fontWeight: 700,
-            color: "#fff",
           }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#EF4444")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#606070")}
         >
-          {variant === "admin" ? <Shield size={16} /> : "U"}
-        </div>
-        <div style={{ overflow: "hidden" }}>
-          <p style={{ fontSize: "0.82rem", fontWeight: 600, color: "#F5F5F7", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-            {variant === "admin" ? "Admin User" : "John Doe"}
-          </p>
-          <p style={{ fontSize: "0.72rem", color: "#A1A1AA", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-            {variant === "admin" ? "admin@refind.ai" : "john@email.com"}
-          </p>
-        </div>
+          <LogOut size={16} />
+        </button>
       </div>
     </aside>
   );

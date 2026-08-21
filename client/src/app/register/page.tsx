@@ -2,19 +2,48 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, Mail, Lock, Eye, EyeOff, User, ArrowRight, CheckCircle2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Search, Mail, Lock, Eye, EyeOff, User, ArrowRight, CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
+import { authService } from "@/services/authService";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", password: "", confirm: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage(null);
+
+    if (form.password !== form.confirm) {
+      setErrorMessage("Passwords do not match");
+      return;
+    }
+
+    if (form.password.length < 6) {
+      setErrorMessage("Password must be at least 6 characters");
+      return;
+    }
+
+    if (!agreed) {
+      setErrorMessage("Please agree to the Terms of Service & Privacy Policy");
+      return;
+    }
+
     setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
+    try {
+      await authService.register(form.name.trim(), form.email.trim(), form.password);
+      router.push("/dashboard/profile");
+    } catch (err: any) {
+      const msg = err.response?.data?.message || err.message || "Failed to create account";
+      setErrorMessage(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputStyle: React.CSSProperties = {
@@ -95,9 +124,30 @@ export default function RegisterPage() {
           <h1 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "8px", color: "#F5F5F7", letterSpacing: "-0.02em" }}>
             Create your account
           </h1>
-          <p style={{ textAlign: "center", color: "#A1A1AA", fontSize: "0.9rem", marginBottom: "36px" }}>
+          <p style={{ textAlign: "center", color: "#A1A1AA", fontSize: "0.9rem", marginBottom: "28px" }}>
             Join thousands recovering their lost items with AI
           </p>
+
+          {/* Error Banner */}
+          {errorMessage && (
+            <div
+              style={{
+                marginBottom: "20px",
+                padding: "12px 16px",
+                borderRadius: "12px",
+                background: "rgba(239,68,68,0.1)",
+                border: "1px solid rgba(239,68,68,0.25)",
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "10px",
+              }}
+            >
+              <AlertCircle size={16} color="#EF4444" style={{ marginTop: "2px", flexShrink: 0 }} />
+              <div style={{ fontSize: "0.85rem", color: "#FCA5A5", lineHeight: 1.4 }}>
+                {errorMessage}
+              </div>
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
             {/* Name */}
@@ -143,7 +193,7 @@ export default function RegisterPage() {
                 <Lock size={16} color="#606070" style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                 <input
                   type={showPassword ? "text" : "password"}
-                  placeholder="Min. 8 characters"
+                  placeholder="Min. 6 characters"
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                   required

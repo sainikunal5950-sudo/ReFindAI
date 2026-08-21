@@ -2,18 +2,45 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, Mail, Lock, Eye, EyeOff, ArrowRight, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Search, Mail, Lock, Eye, EyeOff, ArrowRight, Sparkles, AlertCircle, Ban } from "lucide-react";
+import { authService } from "@/services/authService";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isBlockedError, setIsBlockedError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage(null);
+    setIsBlockedError(false);
     setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
+
+    try {
+      const data = await authService.login(email.trim(), password);
+      if (data?.user?.role === "admin") {
+        router.push("/admin/users");
+      } else {
+        router.push("/dashboard/profile");
+      }
+    } catch (err: any) {
+      const status = err.response?.status;
+      const rawMsg = err.response?.data?.message || err.message || "Invalid email or password";
+
+      if (status === 403 || rawMsg.toLowerCase().includes("block")) {
+        setIsBlockedError(true);
+        setErrorMessage("Your account has been blocked. Please contact support.");
+      } else {
+        setErrorMessage(rawMsg);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,7 +73,7 @@ export default function LoginPage() {
         {/* Card */}
         <div
           style={{
-            background: "rgba(18,20,28,0.8)",
+            background: "rgba(18,20,28,0.85)",
             border: "1px solid rgba(255,255,255,0.08)",
             borderRadius: "24px",
             padding: "48px 40px",
@@ -90,9 +117,33 @@ export default function LoginPage() {
           <h1 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "8px", color: "#F5F5F7", letterSpacing: "-0.02em" }}>
             Welcome back
           </h1>
-          <p style={{ textAlign: "center", color: "#A1A1AA", fontSize: "0.9rem", marginBottom: "36px" }}>
+          <p style={{ textAlign: "center", color: "#A1A1AA", fontSize: "0.9rem", marginBottom: "28px" }}>
             Sign in to your account to continue
           </p>
+
+          {/* Error Alert Banner */}
+          {errorMessage && (
+            <div
+              style={{
+                marginBottom: "20px",
+                padding: "12px 16px",
+                borderRadius: "12px",
+                background: isBlockedError ? "rgba(239,68,68,0.15)" : "rgba(239,68,68,0.1)",
+                border: isBlockedError ? "1px solid rgba(239,68,68,0.4)" : "1px solid rgba(239,68,68,0.25)",
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "10px",
+                animation: "shake 0.3s ease-in-out",
+              }}
+            >
+              <div style={{ marginTop: "2px", flexShrink: 0 }}>
+                {isBlockedError ? <Ban size={16} color="#EF4444" /> : <AlertCircle size={16} color="#EF4444" />}
+              </div>
+              <div style={{ fontSize: "0.85rem", color: "#FCA5A5", lineHeight: 1.4 }}>
+                {errorMessage}
+              </div>
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
             {/* Email */}
@@ -277,6 +328,11 @@ export default function LoginPage() {
       <style>{`
         @keyframes spin {
           to { transform: rotate(360deg); }
+        }
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          20%, 60% { transform: translateX(-6px); }
+          40%, 80% { transform: translateX(6px); }
         }
       `}</style>
     </main>
