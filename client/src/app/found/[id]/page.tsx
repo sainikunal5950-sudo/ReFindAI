@@ -103,7 +103,7 @@ export default function FoundItemDetailPage() {
       setTimeout(() => router.push("/login"), 1800);
       return;
     }
-    setShowClaimModal(true);
+    router.push(`/found/${itemId}/claim`);
   };
 
   const getFullImageUrl = (imgPath?: string) => {

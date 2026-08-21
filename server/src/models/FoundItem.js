@@ -101,6 +101,11 @@ const FoundItemSchema = new mongoose.Schema(
       index:   true,
     },
 
+    verificationQuestions: {
+      type:    [String],
+      default: [],
+    },
+
     user: {
       type:     mongoose.Schema.Types.ObjectId,
       ref:      'User',
