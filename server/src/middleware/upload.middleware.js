@@ -4,14 +4,19 @@ const multer = require('multer');
 const path   = require('path');
 const fs     = require('fs');
 
-// Ensure uploads directory exists
+// Ensure root and sub-upload directories exist
 const uploadDir = path.join(__dirname, '../../uploads');
+const lostItemUploadDir = path.join(uploadDir, 'lost-items');
+
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
+if (!fs.existsSync(lostItemUploadDir)) {
+  fs.mkdirSync(lostItemUploadDir, { recursive: true });
+}
 
-// Storage configuration
-const storage = multer.diskStorage({
+// ─── Avatar Storage ────────────────────────────────────────────────────────────
+const avatarStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadDir);
   },
@@ -22,8 +27,20 @@ const storage = multer.diskStorage({
   },
 });
 
+// ─── Lost Item Images Storage ──────────────────────────────────────────────────
+const lostItemStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, lostItemUploadDir);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname).toLowerCase();
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    cb(null, `lost-${req.user ? req.user._id : 'item'}-${uniqueSuffix}${ext}`);
+  },
+});
+
 // File filter (images only)
-const fileFilter = (req, file, cb) => {
+const imageFileFilter = (req, file, cb) => {
   const allowedMimes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
   if (allowedMimes.includes(file.mimetype)) {
     cb(null, true);
@@ -35,11 +52,20 @@ const fileFilter = (req, file, cb) => {
 };
 
 const uploadAvatar = multer({
-  storage,
+  storage: avatarStorage,
   limits: {
     fileSize: 5 * 1024 * 1024, // 5 MB max
   },
-  fileFilter,
+  fileFilter: imageFileFilter,
 });
 
-module.exports = { uploadAvatar };
+const uploadLostItemImages = multer({
+  storage: lostItemStorage,
+  limits: {
+    fileSize: 5 * 1024 * 1024, // 5 MB max per image
+    files: 5,                  // Max 5 images
+  },
+  fileFilter: imageFileFilter,
+});
+
+module.exports = { uploadAvatar, uploadLostItemImages };
