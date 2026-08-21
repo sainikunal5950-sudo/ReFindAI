@@ -24,5 +24,8 @@ export interface Match {
 
 export interface MatchesResponse {
   matches: Match[];
-  totalMatches: number;
+  totalMatches?: number;
+  total?: number;
+  page?: number;
+  totalPages?: number;
 }
