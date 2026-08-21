@@ -8,6 +8,7 @@ import Avatar from "@/components/ui/Avatar";
 import Badge from "@/components/ui/Badge";
 import Toast, { ToastMessage } from "@/components/ui/Toast";
 import ConfirmDialog from "@/components/ui/ConfirmDialog";
+import MatchSuggestionsSection from "@/components/matching/MatchSuggestionsSection";
 import { lostItemService } from "@/services/lostItemService";
 import { authService } from "@/services/authService";
 import { LostItem } from "@/types/lostItem";
@@ -416,28 +417,12 @@ export default function LostItemDetailPage() {
                 </span>
               </div>
 
-              {/* AI Match Suggestions Section (Module 6 Preview) */}
-              <div
-                style={{
-                  padding: "20px",
-                  background: "linear-gradient(135deg, rgba(59,130,246,0.08), rgba(6,182,212,0.04))",
-                  border: "1px solid rgba(59,130,246,0.2)",
-                  borderRadius: "16px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <Sparkles size={16} color="#60A5FA" />
-                  <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#60A5FA" }}>
-                    AI Matching Engine
-                  </span>
-                </div>
-                <p style={{ fontSize: "0.83rem", color: "#A1A1AA", lineHeight: 1.5 }}>
-                  Our AI vision and semantic search algorithm is actively analyzing newly reported found items across this location. Any potential matches will appear automatically in your dashboard.
-                </p>
-              </div>
+              {/* AI Match Suggestions Section */}
+              <MatchSuggestionsSection
+                itemId={item._id || (item as any).id}
+                itemType="lost"
+                onMatchConfirmed={() => fetchItem()}
+              />
             </div>
           </div>
         )}

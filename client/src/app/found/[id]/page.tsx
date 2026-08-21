@@ -8,6 +8,7 @@ import Avatar from "@/components/ui/Avatar";
 import Badge from "@/components/ui/Badge";
 import Toast, { ToastMessage } from "@/components/ui/Toast";
 import ConfirmDialog from "@/components/ui/ConfirmDialog";
+import MatchSuggestionsSection from "@/components/matching/MatchSuggestionsSection";
 import { foundItemService } from "@/services/foundItemService";
 import { authService } from "@/services/authService";
 import { FoundItem } from "@/types/foundItem";
@@ -558,6 +559,13 @@ export default function FoundItemDetailPage() {
                   <Shield size={13} /> Verified Finder
                 </span>
               </div>
+
+              {/* AI Match Suggestions Section */}
+              <MatchSuggestionsSection
+                itemId={item._id || (item as any).id}
+                itemType="found"
+                onMatchConfirmed={() => fetchItem()}
+              />
             </div>
           </div>
         )}
