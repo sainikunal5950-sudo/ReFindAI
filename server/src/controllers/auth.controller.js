@@ -65,8 +65,8 @@ const register = async (req, res, next) => {
   try {
     validateRegisterInput(req.body);
 
-    const { name, email, password } = req.body;
-    const { user, token } = await registerUser({ name, email, password });
+    const { name, email, password, role } = req.body;
+    const { user, token } = await registerUser({ name, email, password, role });
 
     sendSuccess(res, 201, 'Account created successfully', {
       token,

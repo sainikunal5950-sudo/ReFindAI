@@ -11,14 +11,20 @@ const bcrypt   = require('bcryptjs');
  *  - email       : unique, lowercased email address
  *  - password    : bcrypt-hashed password (min 6 chars at validation layer)
  *  - role        : "user" (default) or "admin"
- *  - createdAt   : auto-set by { timestamps: true }
+ *  - phone       : optional phone number
+ *  - avatar      : optional image URL/path
+ *  - address     : optional physical address / city
+ *  - isVerified  : boolean, default false
+ *  - isBlocked   : boolean, default false
+ *  - createdAt   : auto-set by timestamps
+ *  - updatedAt   : auto-set by timestamps
  */
 const UserSchema = new mongoose.Schema(
   {
     name: {
-      type:     String,
-      required: [true, 'Name is required'],
-      trim:     true,
+      type:      String,
+      required:  [true, 'Name is required'],
+      trim:      true,
       maxlength: [80, 'Name cannot exceed 80 characters'],
     },
 
@@ -35,10 +41,10 @@ const UserSchema = new mongoose.Schema(
     },
 
     password: {
-      type:     String,
-      required: [true, 'Password is required'],
+      type:      String,
+      required:  [true, 'Password is required'],
       minlength: [6, 'Password must be at least 6 characters'],
-      select:   false, // never return password in queries by default
+      select:    false, // never return password in queries by default
     },
 
     role: {
@@ -46,9 +52,36 @@ const UserSchema = new mongoose.Schema(
       enum:    { values: ['user', 'admin'], message: 'Role must be user or admin' },
       default: 'user',
     },
+
+    phone: {
+      type:    String,
+      trim:    true,
+      default: '',
+    },
+
+    avatar: {
+      type:    String,
+      default: '',
+    },
+
+    address: {
+      type:    String,
+      trim:    true,
+      default: '',
+    },
+
+    isVerified: {
+      type:    Boolean,
+      default: false,
+    },
+
+    isBlocked: {
+      type:    Boolean,
+      default: false,
+    },
   },
   {
-    timestamps: true, // adds createdAt + updatedAt automatically
+    timestamps: true, // adds createdAt and updatedAt automatically
   }
 );
 
@@ -70,7 +103,7 @@ UserSchema.methods.comparePassword = async function (candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };
 
-// ─── Virtual: hide __v from JSON output ────────────────────────────────────────
+// ─── Virtual: clean JSON output ────────────────────────────────────────────────
 UserSchema.set('toJSON', {
   transform: (_doc, ret) => {
     delete ret.__v;

@@ -10,7 +10,7 @@ const User = require('../models/User');
  *   1. Authorization header:  "Bearer <token>"
  *   2. HTTP cookie:           cookie named "token"  (if using cookie-based auth)
  *
- * On failure, passes a 401 error to the next error handler.
+ * On failure, passes a 401 or 403 error to the next error handler.
  */
 const protect = async (req, res, next) => {
   try {
@@ -52,6 +52,13 @@ const protect = async (req, res, next) => {
     if (!user) {
       const err = new Error('User account no longer exists.');
       err.statusCode = 401;
+      return next(err);
+    }
+
+    // Check if user is blocked
+    if (user.isBlocked) {
+      const err = new Error('Account is blocked. Please contact support.');
+      err.statusCode = 403;
       return next(err);
     }
 

@@ -3,10 +3,11 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const path = require('path');
 
 const errorMiddleware = require('./middleware/error.middleware');
 
-// ─── Route imports (populated in later modules) ───────────────────────────────
+// ─── Route imports ────────────────────────────────────────────────────────────
 const authRoutes      = require('./routes/auth.routes');
 const userRoutes      = require('./routes/user.routes');
 const lostItemRoutes  = require('./routes/lostItem.routes');
@@ -22,6 +23,9 @@ app.use(cors());                 // Enable CORS for all origins (lock down in pr
 app.use(express.json());         // Parse incoming JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(morgan('dev'));           // HTTP request logger
+
+// ─── Serve Static Uploads ──────────────────────────────────────────────────────
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // ─── Health Check ─────────────────────────────────────────────────────────────
 app.get('/api/health', (req, res) => {
